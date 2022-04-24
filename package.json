@@ -1,0 +1,49 @@
+{
+  "name": "taro-antd-mobile",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Taro版antd mobile",
+  "scripts": {
+    "build": "APP_ENV=prod taro build --type weapp",
+    "test": "APP_ENV=test taro build --type weapp",
+    "dev": "APP_ENV=dev taro build --type weapp --watch"
+  },
+  "browserslist": [
+    "last 3 versions",
+    "Android >= 4.1",
+    "ios >= 8"
+  ],
+  "author": "yin",
+  "dependencies": {
+    "@babel/runtime": "^7.7.7",
+    "@tarojs/components": "3.1.5",
+    "@tarojs/react": "3.1.5",
+    "@tarojs/runtime": "3.1.5",
+    "@tarojs/taro": "3.1.5",
+    "ahooks": "^3.1.13",
+    "classnames": "^2.3.1",
+    "collect.js": "^4.31.3",
+    "dayjs": "^1.10.8",
+    "immer": "^9.0.12",
+    "prop-types": "^15.8.1",
+    "query-string": "^7.1.1",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "strman": "^2.0.1",
+    "use-immer": "^0.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.0",
+    "@tarojs/mini-runner": "3.1.5",
+    "@tarojs/webpack-runner": "3.1.5",
+    "@types/react": "^17.0.2",
+    "@types/webpack-env": "^1.13.6",
+    "babel-preset-taro": "3.1.5",
+    "eslint": "^6.8.0",
+    "eslint-config-taro": "3.1.5",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-react": "^7.8.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "stylelint": "9.3.0"
+  }
+}

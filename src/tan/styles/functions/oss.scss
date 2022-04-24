@@ -1,0 +1,19 @@
+@import '@/common/styles/variables.scss';
+
+@function AliOssUrl($file, $fold: null) {
+  @if ($fold) {
+    @return "#{$ali-oss-url}/#{$fold}/#{$file}";
+  } @else {
+    @return "#{$ali-oss-url}/#{$file}";
+  }
+}
+
+@function AliOssResizeUrl(
+  $file, $width, $height, $fold: null
+) {
+  @if ($fold) {
+    @return "#{$ali-oss-url}/#{$fold}/#{$file}?x-oss-process=image/resize,w_#{$width},h_#{$height},m_fill";
+  } @else {
+    @return "#{$ali-oss-url}/#{$file}?x-oss-process=image/resize,w_#{$width},h_#{$height},m_fill";
+  }
+}

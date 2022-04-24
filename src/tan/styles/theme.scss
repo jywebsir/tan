@@ -1,0 +1,69 @@
+@import './functions/util.scss';
+@import './variables.scss';
+
+page {
+	// Color Palette
+	--tan-color-black: #000000;
+  --tan-color-white: #ffffff;
+	--tan-color-gray-1: #f7f8fa;
+	--tan-color-gray-2: #f2f3f5;
+	--tan-color-gray-3: #ebedf0;
+	--tan-color-gray-4: #dcdee0;
+	--tan-color-gray-5: #c8c9cc;
+	--tan-color-gray-6: #969799;
+	--tan-color-gray-7: #646566;
+	--tan-color-gray-8: #323233;
+	--tan-color-red: #ee0a24;
+	--tan-color-blue: #1989fa;
+	--tan-color-orange: #ff976a;
+	--tan-color-orange-dark: #ed6a0c;
+	--tan-color-orange-light: #fffbe8;
+	--tan-color-green: #07c160;
+
+	// Gradient Colors
+	--tan-color-gradient-red: linear-gradient(to right, #ff6034, #ee0a24);
+	--tan-color-gradient-orange: linear-gradient(to right, #ffd01e, #ff8917);
+
+	// Component Colors
+  --tan-color-text: #{var(--tan-color-gray-8)};
+	--tan-color-active: #{var(--tan-color-gray-2)};
+	--tan-color-active-opacity: 0.7;
+	--tan-color-disabled-opacity: 0.5;
+	--tan-color-background: #{var(--tan-color-gray-1)};
+	--tan-color-background-light: #fafafa;
+	--tan-color-text-link: #576b95;
+
+	// Type Colors
+  --tan-color-primary: #1677ff;
+  --tan-color-success: #00b578;
+  --tan-color-warning: #ff8f1f;
+  --tan-color-danger: #ff3141;
+  --tan-color-weak: #999999;
+  --tan-color-light: #cccccc;
+
+	// Font
+  --tan-font-family: -apple-system, blinkmacsystemfont, 'Helvetica Neue',
+    helvetica, segoe ui, arial, roboto, 'PingFang SC', 'miui',
+    'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
+  --tan-font-size: #{calculate(13px)};
+	--tan-font-size-xs: #{calculate(10px)};
+	--tan-font-size-sm: #{calculate(12px)};
+	--tan-font-size-md: #{calculate(14px)};
+	--tan-font-size-lg: #{calculate(16px)};
+	--tan-font-weight-bold: 500;
+
+	// Padding
+	--tan-padding-base: calculate(3px);
+	--tan-padding-xs: #{var(--tan-padding-base)}*2;
+	--tan-padding-sm: #{var(--tan-padding-base)}*3;
+	--tan-padding-md: #{var(--tan-padding-base)}*4;
+	--tan-padding-lg: #{var(--tan-padding-base)}*6;
+	--tan-padding-xl: #{var(--tan-padding-base)}*8;
+
+	// Border
+	--tan-border-color: #eeeeee;
+	--tan-border-radius-sm: #{calculate(2px)};
+	--tan-border-radius-md: #{calculate(4px)};
+	--tan-border-radius-lg: #{calculate(8px)};
+	--tan-border-radius-max: #{calculate(999px)};
+}

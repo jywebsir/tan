@@ -1,0 +1,39 @@
+@import './absolute-center.scss';
+
+@mixin double-circle(
+  $outerDimesion, 
+  $innerDimesion,
+  $color
+) {
+  position: relative;
+  width: $outerDimesion;
+  height: $outerDimesion;
+  border-radius: 50%;
+  border: 1PX solid $color;
+
+  &:before {
+    @include absolute-center;
+    content: '';
+    width: $innerDimesion;
+    height: $innerDimesion;
+    background: $color;
+    border-radius: 50%;
+  }
+}
+
+@mixin solid-circle(
+  $dimesion, 
+  $color
+) {
+  width: $dimesion;
+  height: $dimesion;
+  background: $color;
+  border-radius: 50%;
+}
+
+@mixin circle($dimension, $color) {
+  width: $dimension;
+  height: $dimension;
+  border-radius: 50%;
+  border: 1px solid $color;
+}

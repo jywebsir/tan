@@ -1,0 +1,27 @@
+@import './functions/util.scss';
+
+// Icon
+$icon-size: #{calculate(18px)};
+$icon-color: #323233;
+
+// Cell
+$cell-horizontal-padding: var(--tan-padding-md);
+$cell-vertical-padding: #{calculate(10px)};
+$cell-font-size: var(--tan-font-size-md);
+$cell-line-height: #{calculate(24px)};
+$cell-text-color: var(--tan-color-text);
+$cell-background-color: var(--tan-color-white);
+$cell-border-color: var(--tan-border-color);
+
+// Info
+$info-size: #{calculate(16px)};
+$info-color: var(--tan-color-white);
+$info-padding: 0 #{calculate(3px)};
+$info-font-size: #{calculate(12px)};
+$info-font-weight: 500;
+$info-border-width: 1px;
+$info-background-color: var(--tan-color-red);
+$info-dot-color: var(--tan-color-red);
+$info-dot-size: #{calculate(8px)};
+$info-font-family: -apple-system-font, Helvetica Neue, Arial, sans-serif;
+

@@ -1,0 +1,58 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins/hairline.scss';
+
+$class-prefix: 'tam-cell';
+$var-prefix: '--tam-cell';
+
+.#{$class-prefix} {
+	--padding-horizontal: var(
+		#{$var-prefix}-padding-horizontal, 
+		$cell-horizontal-padding
+	);
+	--padding-vertical: var(
+		#{$var-prefix}-padding-vertical, 
+		$cell-vertical-padding
+	);
+	--font-size: var(
+		#{$var-prefix}-font-size, 
+		$cell-font-size
+	);
+	--line-height: var(
+		#{$var-prefix}-line-height, 
+		$cell-line-height
+	);
+	--text-color: var(
+		#{$var-prefix}-text-color, 
+		$cell-text-color
+	);
+	--background-color: var(
+		#{$var-prefix}-background-color, 
+		$cell-background-color
+	);
+	--border-color: var(
+		#{$var-prefix}-border-color, 
+		$cell-border-color
+	);
+
+	position: relative;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+	padding: var(--padding-vertical) var(--padding-horizontal);
+	font-size: var(--font-size);
+	color: var(--text-color);
+	background-color: var(--background-color);
+
+	&::after {
+		@include hairline-bottom(var(--border-color));
+	}
+
+	&.#{$class-prefix}--bordeless::after {
+		display: none;
+	}
+
+	&.#{$class-prefix}--center {
+		align-items: center;
+	}
+}
+

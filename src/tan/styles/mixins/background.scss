@@ -1,0 +1,47 @@
+@mixin BgCoverCenter($url) {
+    background-size: cover;
+    background-position: center;
+    background-image: url($url);
+}
+
+//绝的定位背景
+@mixin BgAbsolute($width, $height, $bgColor, $opacity: 0.2, $zIndex: 1) {
+    content: "";
+    width: $width;
+    height: $height;
+    background: $bgColor;
+    opacity: $opacity;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: $zIndex;   
+}
+
+// 绝对定位背景图片
+@mixin BgImgAbsolute($width, $height, $bgImgSrc, $zIndex: 0) {
+    content: "";
+    width: $width;
+    height: $height;
+    background-size: cover;
+    background-position: center;
+    background-image: url($bgImgSrc);
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: $zIndex;     
+}
+
+@mixin BgImgAbsoluteContainer($width, $height, $bgImgSrc, $zIndex: -1) {
+    position: relative;
+
+    &:before {
+      @include BgImgAbsolute(
+          $width, 
+          $height, 
+          $bgImgSrc,
+          $zIndex
+      )
+    }
+}

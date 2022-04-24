@@ -1,0 +1,10 @@
+/**
+ * 元素居中定位
+ */
+ @mixin fixed-bottom($width: 100%, $zindex: 999) {
+  position: fixed;
+  width: $width;
+  z-index: $zindex;
+  left: 0;
+  bottom: 0;
+}

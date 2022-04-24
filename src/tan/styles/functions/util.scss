@@ -1,0 +1,9 @@
+@function strip($num) {
+	@return $num / ($num * 0 + 1);
+}
+
+@function calculate($px, $design-width: 750) {
+	$unit: strip($px) * ($design-width / 375);
+
+	@return $unit * 1px;
+}

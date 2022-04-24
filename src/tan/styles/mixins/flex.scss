@@ -1,0 +1,194 @@
+@mixin FlexContainer($width: 100vw, $height: 100vh) {
+  display: flex;
+  flex-direction: column;
+  width: $width;
+  height: $height;
+  align-items: stretch;
+};
+
+@mixin FlexColumnCenterStretch {
+  @include flex-col(center, stretch);
+}
+
+@mixin FlexColumnCenter {
+  @include flex-col(center, center);
+}
+
+@mixin FlexRowStartCenter {
+  @include flex-row(flex-start, center);
+}
+
+@mixin flex($direction, $justify, $align-items) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify; 
+  align-items: $align-items;
+}
+
+@mixin flex-row($justify, $align-items) {
+  @include flex(row, $justify, $align-items)
+}
+
+@mixin flex-col($justify, $align-items) {
+  @include flex(column, $justify, $align-items)
+}
+
+@mixin flex-row-start-stretch {
+  @include flex-row(flex-start, stretch);
+}
+
+@mixin flex-row-start-center {
+  @include flex-row(flex-start, center);
+}
+
+@mixin flex-row-start-start {
+  @include flex-row(flex-start, flex-start);
+}
+
+@mixin flex-row-start-end {
+  @include flex-row(flex-start, flex-end);
+}
+
+@mixin flex-row-end-stretch {
+  @include flex-row(flex-end, stretch);
+}
+
+@mixin flex-row-end-center {
+  @include flex-row(flex-end, center);
+}
+
+@mixin flex-row-end-start {
+  @include flex-row(flex-end, flex-start);
+}
+
+@mixin flex-row-end-end {
+  @include flex-row(flex-end, flex-end);
+}
+
+@mixin flex-row-between-stretch {
+  @include flex-row(space-between, stretch);
+}
+
+@mixin flex-row-between-center {
+  @include flex-row(space-between, center);
+}
+
+@mixin flex-row-between-start {
+  @include flex-row(space-between, flex-start);
+}
+
+@mixin flex-row-between-end {
+  @include flex-row(space-between, flex-end);
+}
+
+@mixin flex-row-around-stretch {
+  @include flex-row(space-around, stretch);
+}
+
+@mixin flex-row-around-center {
+  @include flex-row(space-around, center);
+}
+
+@mixin flex-row-around-start {
+  @include flex-row(space-around, flex-start);
+}
+
+@mixin flex-row-around-end {
+  @include flex-row(space-around, flex-end);
+}
+
+@mixin flex-row-center-stretch {
+  @include flex-row(center, stretch);
+}
+
+@mixin flex-row-center-center {
+  @include flex-row(center, center);
+}
+
+@mixin flex-row-center-start {
+  @include flex-row(center, flex-start);
+}
+
+@mixin flex-row-center-end {
+  @include flex-row(center, flex-end);
+}
+
+@mixin flex-col-center-start {
+  @include flex-col(center, flex-start);
+}
+
+@mixin flex-col-center-end {
+  @include flex-col(center, flex-end);
+}
+
+@mixin flex-col-center-center {
+  @include flex-col(center, center);
+}
+
+@mixin flex-col-center-stretch {
+  @include flex-col(center, stretch);
+}
+
+@mixin flex-col-between-start {
+  @include flex-col(space-between, flex-start);
+}
+
+@mixin flex-col-between-end {
+  @include flex-col(space-between, flex-end);
+}
+
+@mixin flex-col-between-center {
+  @include flex-col(space-between, center);
+}
+
+@mixin flex-col-between-stretch {
+  @include flex-col(space-between, stretch);
+}
+
+@mixin flex-col-start-stretch {
+  @include flex-col(flex-start, stretch);
+}
+
+@mixin flex-col-start-center {
+  @include flex-col(flex-start, center);
+}
+
+@mixin flex-col-start-start {
+  @include flex-col(flex-start, flex-start);
+}
+
+@mixin flex-col-start-end {
+  @include flex-col(flex-start, flex-end);
+}
+
+@mixin flex-col-end-stretch {
+  @include flex-col(flex-end, stretch);
+}
+
+@mixin flex-col-end-start {
+  @include flex-col(flex-end, flex-start);
+}
+
+@mixin flex-col-end-center {
+  @include flex-col(flex-end, center);
+}
+
+@mixin flex-col-end-end {
+  @include flex-col(flex-end, flex-end);
+}
+
+@mixin flex-col-around-start {
+  @include flex-col(space-around, flex-start);
+}
+
+@mixin flex-col-around-end {
+  @include flex-col(space-around, flex-end);
+}
+
+@mixin flex-col-around-center {
+  @include flex-col(space-around, center);
+}
+
+@mixin flex-col-around-stretch {
+  @include flex-col(space-around, stretch);
+}

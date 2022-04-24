@@ -1,0 +1,46 @@
+@import '../../styles/variables.scss';
+
+.tan-info {
+	--height: var(--tan-info-height, #{$info-size});
+	--min-width: var(--tan-info-width, #{$info-size});
+	--padding: var(--tan-info-padding, #{$info-padding});
+	--color: var(--tan-info-color, #{$info-color});
+	--font-weight: var(--tan-info-font-weight, #{$info-font-weight});
+	--font-size: var(--tan-info-font-size, #{$info-font-size});
+	--font-family: var(--tan-info-font-family, #{$info-font-family}); 
+	--background-color: var(--tan-info-background-color, #{$info-background-color}); 
+	--border-width: var(--tan-info-border-width, #{$info-border-width});
+	--border-radius: var(--tan-info-border-radius, #{$info-size});
+	--dot-width: var(--tan-info-dot-width, #{$info-dot-size});
+	--dot-height: var(--tan-info-dot-height, #{$info-dot-size});
+	--dot-background-color: var(--tan-info-dot-background-color, #{$info-dot-color});
+
+	position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  white-space: nowrap;
+  transform: translate(50%, -50%);
+  transform-origin: 100%;
+	height: var(--height);
+	min-width: var(--min-width);
+	padding: var(--padding);
+	color: var(--color);
+	font-weight: var(--font-weight);
+	font-size: var(--font-size);
+	font-family: var(--font-family);
+	background-color: var(--background-color);
+	border: var(--border-width) solid var(--tan-color-white);
+	border-radius: var(--border-radius);
+
+	&.tan-info--dot {
+		min-width: 0;
+		border-radius: 100%;
+		width: var(--dot-width);
+		height: var(--dot-height);
+		background-color: var(--dot-background-color);
+	}
+}

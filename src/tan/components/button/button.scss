@@ -1,0 +1,165 @@
+$class-prefix: 'tam-button';
+$var-prefix: '--tam-button';
+
+.#{$class-prefix} {
+	--color: var(--tam-color-white);
+
+	--text-font-size: var(#{$var-prefix}-text-font-size, 34px);
+	--text-color: var(#{$var-prefix}-text-color, var(--tam-color-text));
+	--vertical-padding: var(#{$var-prefix}-vertical-padding, 14px);
+	--horizontal-padding: var(#{$var-prefix}-horizontal-padding, 24px); 
+
+  --background-color: var(
+    --tam-button-background-color,
+    var(--tam-color-white)
+  );
+  --border-radius: var(#{$var-prefix}-border-radius, 8px);
+  --border-width: var(#{$var-prefix}-border-width, 1px);
+  --border-style: var(#{$var-prefix}-border-style, solid);
+  --border-color: var(#{$var-prefix}-border-color, var(--tam-border-color));
+
+
+	color: var(--text-color);
+  background-color: var(--background-color);
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  height: auto;
+  padding: var(--vertical-padding) var(--horizontal-padding);
+  margin: 0;
+  font-size: var(--text-font-size);
+  line-height: 1.4;
+  text-align: center;
+  border: var(--border-width) var(--border-style) var(--border-color);
+  border-radius: var(--border-radius);
+  transition: opacity ease 0.15s;
+  user-select: none;
+ 
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(
+      calc(var(--border-width) * -1),
+      calc(var(--border-width) * -1)
+    );
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    border: var(--border-width) var(--border-style) #000;
+		border-radius: inherit;
+    opacity: 0;
+    content: ' ';
+    box-sizing: content-box;
+  }
+	&[disabled] {
+		color: var(--text-color);
+	}
+  &:active::before {
+    opacity: 0.08;
+  }
+
+	&::after {
+    border-width: 0;
+  }
+
+	&.#{$class-prefix}-default {
+		&.#{$class-prefix}-fill-outline {
+      --background-color: transparent;
+      --border-color: var(--tam-color-text);
+    }
+    &.#{$class-prefix}-fill-none {
+      --background-color: transparent;
+      --border-width: 0px;
+    }
+	}
+
+	&:not(&-default) {
+    --text-color: var(--tam-color-white);
+    --background-color: var(--color);
+    --border-color: var(--color);
+    &.#{$class-prefix}-fill-outline {
+      --text-color: var(--color);
+      --background-color: transparent;
+    }
+    &.#{$class-prefix}-fill-none {
+      --text-color: var(--color);
+      --background-color: transparent;
+      --border-width: 0px;
+    }
+  }
+
+	&.#{$class-prefix}-primary {
+		--color: var(--tam-color-primary);
+	}
+
+	&.#{$class-prefix}-success {
+		--color: var(--tam-color-success);
+	}
+
+	&.#{$class-prefix}-danger {
+		--color: var(--tam-color-danger);
+	}
+
+	&.#{$class-prefix}-warning {
+		--color: var(--tam-color-warning);
+	}
+
+	&.#{$class-prefix}-block {
+		display: block;
+    width: 100%;
+	}
+
+	&.#{$class-prefix}-disabled {
+    opacity: 0.4;
+    &:active::before {
+      display: none;
+    }
+	}
+
+	&.#{$class-prefix}-mini {
+		padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 26px;
+
+		&.#{$class-prefix}-shape-rounded {
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+	}	
+
+	&.#{$class-prefix}-small {
+		padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 30px;
+	}
+
+	&.#{$class-prefix}-large {
+		padding-top: 22px;
+    padding-bottom: 22px;
+    font-size: 36px;
+	}
+
+	&.#{$class-prefix}-shape-rounded {
+		--border-radius: 1000px;
+	}
+
+	&.#{$class-prefix}-shape-rectangular {
+		--border-radius: 0;
+	}
+
+	&-loading-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: var(--text-font-size);
+
+		.#{$class-prefix}-loading-text {
+			margin-left: 10px;
+		}
+
+		> .tam-loading {
+			opacity: 0.6;
+		}
+	}
+}

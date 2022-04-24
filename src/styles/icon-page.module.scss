@@ -1,0 +1,19 @@
+@import '@/tan/styles/functions/util.scss';
+
+.container {
+	--tan-icon-size: 64px;
+	--tan-info-dot-width: 32px;
+	--tan-info-dot-height: 32px;
+	--tan-info-font-size: 20px;
+	--tan-space-gap: 40px;
+
+	text {
+		display: block;
+		height: 72px;
+		margin: -8px 0 8px; 
+		padding: 0 10px;
+		color: #646566;
+		font-size: 24px;
+		line-height: 36px;
+	}
+}
