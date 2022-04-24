@@ -71,6 +71,20 @@ const IconPage = () => {
 					/>
 				</Space>
 			</DemoBlock>
+
+			<DemoBlock title="图标大小">
+				<Space wrap>
+					<Icon 
+						name="bag-o" 
+						className={style.sm}
+					/>
+
+					<Icon 
+						name="bag-o" 
+						className={style.lg}
+					/>
+				</Space>
+			</DemoBlock>
 		</DemoPage>
 	)	
 }
