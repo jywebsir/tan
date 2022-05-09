@@ -6,39 +6,44 @@ import style from './style.module.scss'
 const DemoBlock = props => {
 	const {
 		title,
-		background,
+		padding,
+		card,
 		className,
 		children
 	} = props
 
 	const clsName = classNames(
 		style.container,
+		padding&&style.padding,
 		className
 	)
 
-	const contentStyle = {
-		background
-	}
-
 	return (
 		<view className={clsName}>
-			<view className={style.title}>{title}</view>
+			{
+				title
+				&&
+				<view className={style.title}>{title}</view>
+			}
 
-			<view className={style.content} style={contentStyle}>
-				{children}
-			</view>
+			{
+				card
+				?
+				<view className={style.card}>
+					{children}
+				</view>
+				:
+				children
+			}
 		</view>
 	)
 }
 
 DemoBlock.propTypes = {
 	title: PropTypes.string.isRequired,
-	className: PropTypes.string,
-	background: PropTypes.string
+	padding: PropTypes.bool,
+	card: PropTypes.bool,
+	className: PropTypes.string
 } 
-
-DemoBlock.defaultProps = {
-	background: '#ffffff'
-}
 
 export default React.memo(DemoBlock)

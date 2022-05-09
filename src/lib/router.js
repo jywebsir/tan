@@ -2,8 +2,6 @@ import queryString from 'query-string'
 import Taro from '@tarojs/taro'
 import pages from '@/config/pages'
 
-const { map: pageMap} = pages
-
 const WHITE_LIST = []
 
 export class Router {
@@ -25,26 +23,6 @@ export class Router {
     return null
   }
 
-	toButtonPage({redirect = false} = {}) {
-		this.toPage({
-      page: pageMap.button,
-      redirect
-    })	
-	}
-
-	toCellPage({redirect = false} = {}) {
-		this.toPage({
-      page: pageMap.cell,
-      redirect
-    })		
-	}
-
-	toIconPage({redirect = false} = {}) {
-		this.toPage({
-      page: pageMap.icon,
-      redirect
-    })			
-	}
 
   toPage({
     page, params, redirect

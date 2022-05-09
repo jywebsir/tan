@@ -1,0 +1,94 @@
+@import '../../styles/functions/util.scss';
+@import '../../styles/variables.scss';
+
+.tan-loading {
+	--loading-padding: var(--tan-padding-xs);
+	--loading-spinner-color: var(--tan-loading-spinner-color, #{$loading-spinner-color});
+	--loading-spinner-size: var(--tan-loading-spinner-size, #{$loading-spinner-size});
+	--loading-spinner-animation-duration: var(
+		--tan-loading-spinner-animation-duration, 
+		#{$loading-spinner-animation-duration}
+	);
+	--loading-text-color: var(--tan-loading-text-color, #{$loading-text-color});
+	--loading-text-font-size: var(--tan-loading-text-font-size, #{$loading-text-font-size});
+	--loading-text-line-height: var(--tan-loading-text-line-height, #{$loading-text-line-height});
+
+	display: inline-flex;
+	align-items: center;
+  justify-content: center;
+	color: var(--loading-spinner-color);
+
+	&__spinner {
+		position: relative;
+    box-sizing: border-box;
+		width: var(--loading-spinner-size);
+		height: var(--loading-spinner-size);
+		max-width: 100%;
+    max-height: 100%;
+		animation: tan-rotate var(--loading-spinner-animation-duration) linear infinite;
+
+		&.tan-loading__spinner--spinner {
+			animation-timing-function: steps(12);
+		}
+
+		&.tan-loading__spinner--circular {
+			border: 1px solid transparent;
+      border-top-color: currentColor;
+      border-radius: 100%;
+		}
+	}
+
+	&__text {
+		margin-left: var(--loading-padding);
+		color: var(--loading-text-color);
+		font-size: var(--loading-text-font-size);
+		line-height: var(--loading-text-line-height);		
+
+		&:empty {
+			display: none;
+		}
+	}
+
+	&__dot {
+		position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &::before {
+      display: block;
+      width: #{calculate(2px)};
+      height: 25%;
+      margin: 0 auto;
+      background-color: currentColor;
+      border-radius: 40%;
+      content: ' ';
+    }
+	}
+
+	&.tan-loading--vertical {
+		flex-direction: column;
+
+		.tan-loading__text {
+			margin: var(--loading-padding) 0 0;
+		}
+	}
+}
+
+@for $i from 1 through 12 {
+	.tan-loading__dot:nth-of-type(#{$i}) {
+		transform: rotate($i * 30deg);
+		opacity: 1 - (0.75 / 12) * ($i - 1);
+	}
+}
+
+@keyframes tan-rotate {
+	from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

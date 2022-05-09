@@ -52,13 +52,17 @@ page {
 	--tan-font-size-lg: #{calculate(16px)};
 	--tan-font-weight-bold: 500;
 
+	// Animation
+	--tan-animation-duration-base: 0.3s;
+	--tan-animation-duration-fast: 0.2s;
+
 	// Padding
-	--tan-padding-base: calculate(3px);
-	--tan-padding-xs: #{var(--tan-padding-base)}*2;
-	--tan-padding-sm: #{var(--tan-padding-base)}*3;
-	--tan-padding-md: #{var(--tan-padding-base)}*4;
-	--tan-padding-lg: #{var(--tan-padding-base)}*6;
-	--tan-padding-xl: #{var(--tan-padding-base)}*8;
+	--tan-padding-base: #{calculate(4px)};
+	--tan-padding-xs: #{calculate(8px)}; 
+	--tan-padding-sm: #{calculate(12px)};
+	--tan-padding-md: #{calculate(16px)};
+	--tan-padding-lg: #{calculate(24px)};
+	--tan-padding-xl: #{calculate(32px)};
 
 	// Border
 	--tan-border-color: #eeeeee;

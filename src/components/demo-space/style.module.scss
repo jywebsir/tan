@@ -1,0 +1,16 @@
+.container {
+	--tan-col-padding-left: 10px;
+	--tan-col-padding-right: 10px;
+
+	:global {
+		.tan-col {
+			&:first-child {
+				--padding-left: 0;
+			}
+
+			&:last-child {
+				--padding-right: 0;
+			}
+		}
+	}
+}

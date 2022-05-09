@@ -1,0 +1,20 @@
+$class-prefix: 'tan-col';
+
+.#{$class-prefix} {
+	--padding-left: var(#{$class-prefix}-padding-left, 0);
+	--padding-right: var(#{$class-prefix}-padding-right, 0);
+
+	box-sizing: border-box;
+	padding-left: var(--padding-left);
+	padding-right: var(--padding-right);
+}
+
+@for $i from 1 through 24 {
+	.#{$class-prefix}--#{$i} {
+		width: #{$i * (100% / 24)};
+	}
+
+	.#{$class-prefix}--offset-#{$i} {
+		margin-left: #{$i * (100% / 24)};
+	}
+}

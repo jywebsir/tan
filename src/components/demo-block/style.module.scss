@@ -1,12 +1,22 @@
 .container {
 	.title {
-		padding: 24px 16px 12px;
-		color: #969696;
+		margin: 0;
+		padding: 40px 32px 30px 32px;
+		color: rgba(69, 90, 100, 0.6);
+		font-weight: 400;
 		font-size: 28px;
 	}
 	
-	.content {
-		padding: 24px 24px;
-		border: solid 1px var(--tan-border-color);
+	.card {
+		overflow: hidden;
+		border-radius: 16px;
+	}
+
+	&.padding {
+		padding: 0 30px;
+
+		.title {
+			padding-left: 0;
+		}
 	}
 }

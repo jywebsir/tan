@@ -12,6 +12,31 @@ $cell-line-height: #{calculate(24px)};
 $cell-text-color: var(--tan-color-text);
 $cell-background-color: var(--tan-color-white);
 $cell-border-color: var(--tan-border-color);
+$cell-label-margin-top: #{calculate(3px)};
+$cell-label-font-size: var(--tan-font-size-sm);
+$cell-label-line-height: #{calculate(18px)};
+$cell-label-color: var(--tan-color-gray-6);
+$cell-value-color: var(--tan-color-gray-6);
+$cell-icon-size: #{calculate(16px)};
+$cell-required-left: var(--tan-padding-xs);
+$cell-required-color: var(--tan-color-red);
+$cell-actived-color: var(--tan-color-active);
+$cell-left-icon-margin-right: var(--tan-padding-base);
+$cell-right-icon-margin-left: var(--tan-padding-base);
+$cell-right-icon-color: var(--tan-color-gray-6);
+$cell-large-vertical-padding: var(--tan-padding-sm);
+$cell-large-title-font-size: var(--tan-font-size-lg);
+$cell-large-value-font-size: var(--tan-font-size-lg);
+$cell-large-label-font-size: var(--tan-font-size-md);
+
+// CellGroup
+$cell-group-title-color: var(--tan-color-gray-6);
+$cell-group-title-padding: var(--tan-padding-md) var(--tan-padding-md) var(--tan-padding-xs);
+$cell-group-title-font-size: var(	--tan-font-size-md);
+$cell-group-title-line-height: #{calculate(16px)};
+$cell-group-inset-title-padding: var(--tan-padding-md) var(--tan-padding-md) var(--tan-padding-xs) var(--tan-padding-xl);
+$cell-group-inset-padding: 0 var(--tan-padding-md);
+$cell-group-inset-border-radius: var(--tan-border-radius-lg);
 
 // Info
 $info-size: #{calculate(16px)};
@@ -25,3 +50,57 @@ $info-dot-color: var(--tan-color-red);
 $info-dot-size: #{calculate(8px)};
 $info-font-family: -apple-system-font, Helvetica Neue, Arial, sans-serif;
 
+// Loading
+$loading-spinner-color: var(--tan-color-gray-5); 
+$loading-spinner-size: #{calculate(30px)};
+$loading-spinner-animation-duration: 0.8s;
+$loading-text-color: var(--tan-color-gray-6);
+$loading-text-font-size: var(--tan-font-size-md);
+$loading-text-line-height: #{calculate(20px)};
+
+// Button
+$button-mini-height: #{calculate(22px)};
+$button-mini-min-width: #{calculate(50px)};
+$button-mini-font-size: var(--tan-font-size-xs);
+$button-small-height: #{calculate(30px)};
+$button-small-font-size: var(--tan-font-size-sm);
+$button-small-min-width: #{calculate(60px)};
+$button-normal-font-size: var(--tan-font-size-md);
+$button-normal-padding: 0 #{calculate(15px)};
+$button-large-height: #{calculate(50px)};
+$button-default-color: var(--tan-color-text);
+$button-default-height: #{calculate(44px)};
+$button-default-font-size: var(--tan-font-size-lg);
+$button-default-background-color: var(--tan-color-white);
+$button-default-border-color: var(--tan-border-color);
+$button-primary-color: var(--tan-color-white);
+$button-primary-background-color: var(--tan-color-green);
+$button-primary-border-color: var(--tan-color-green);
+$button-info-color: var(--tan-color-white);
+$button-info-background-color: var(--tan-color-blue);
+$button-info-border-color: var(--tan-color-blue);
+$button-danger-color: var(--tan-color-white);
+$button-danger-background-color: var(--tan-color-red);
+$button-danger-border-color: var(--tan-color-red);
+$button-warning-color: var(--tan-color-white);
+$button-warning-background-color: var(--tan-color-orange);
+$button-warning-border-color: var(--tan-color-orange);
+$button-line-height: #{calculate(20px)};
+$button-border-width: 1px;
+$button-border-radius: var(--tan-border-radis-sm);
+$button-round-border-radius: var(--tan-border-radius-max);
+$button-plain-background-color: var(--tan-color-white);
+$button-disabled-opacity: 0.5;
+$button-default-height: #{calculate(44px)};
+$button-loading-size: #{calculate(20px)};
+$button-loading-color: var(--tan-color-white);
+$button-plain-loading-color: '#c9c9c9';
+
+// NavBar
+$nav-bar-height: #{calculate(46px)};
+$nav-bar-background-color: var(--tan-color-white);
+$nav-bar-arrow-size: #{calculate(16px)};
+$nav-bar-icon-color: var(--tan-color-gray-5);
+$nav-bar-text-color: var(--tan-color-gray-5);
+$nav-bar-title-font-size: var(--tan-font-size-lg);
+$nav-bar-title-text-color: var(--tan-color-text);

@@ -1,0 +1,41 @@
+.container {
+	:global {
+		.tan-flex {
+			color: #FFFFFF;
+			font-size: 24px;
+		}
+	}
+
+	.row {
+		margin-bottom: 20px;
+		height: 60px;
+
+		&.high {
+			height: 130px;
+		}
+
+		&.gutter {
+			.col {
+				padding-left: 10px;
+				padding-right: 10px;
+				background-clip: content-box;
+	
+				&:first-child {
+					padding-left: 0;
+				}
+	
+				&:last-child {
+					padding-right: 0;
+				}
+			}
+		}
+	}
+	
+	.dark {
+		background-color: #39a9ed;
+	}
+
+	.light {
+		background-color: #66c6f2;
+	}
+}

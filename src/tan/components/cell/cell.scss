@@ -1,58 +1,133 @@
 @import '../../styles/variables.scss';
 @import '../../styles/mixins/hairline.scss';
 
-$class-prefix: 'tam-cell';
-$var-prefix: '--tam-cell';
+.tan-cell {
+	--cell-vertical-padding: var(--tan-cell-vertical-padding, #{$cell-vertical-padding});
+	--cell-horizontal-padding: var(--tan-cell-horizontal-padding, #{$cell-horizontal-padding});
+	--cell-font-size: var(--tan-cell-font-size, #{$cell-font-size});
+	--cell-line-height: var(--tan-cell-line-height, #{$cell-line-height});
+	--cell-text-color: var(--tan-cell-text-color, #{$cell-text-color});
+	--cell-background-color: var(--tan-cell-background-color, #{$cell-background-color});
+	--cell-border-color: var(--tan-cell-border-color, #{$cell-border-color});
+	--cell-label-margin-top: var(--tan-cell-label-margin-top, #{$cell-label-margin-top});
+	--cell-label-font-size: var(--tan-cell-label-font-size, #{$cell-label-font-size});
+	--cell-label-line-height: var(--tan-cell-label-line-height, #{$cell-label-line-height});
+	--cell-label-color: var(--tan-cell-label-color, #{$cell-label-color});
+	--cell-value-color: var(--tan-cell-value-color, #{$cell-value-color});
+	--cell-icon-size: var(--tan-cell-icon-size, #{$cell-icon-size});
+	--cell-required-left: var(--tan-cell-required-left, #{$cell-required-left});
+	--cell-required-color: var(--tan-cell-required-color, #{$cell-required-color});
+	--cell-actived-color: var(--tan-cell-actived-color, #{$cell-actived-color});
+	--cell-left-icon-margin-right: var(--tan-cell-left-icon-margin-right, #{$cell-left-icon-margin-right});
+	--cell-right-icon-margin-left: var(--tan-cell-right-icon-margin-left, #{$cell-right-icon-margin-left});
+	--cell-right-icon-color: var(--tan-cell-right-icon-color, #{$cell-right-icon-color});
+	--cell-large-vertical-padding: var(--tan-cell-large-vertical-padding, #{$cell-large-vertical-padding});
+	--cell-large-title-font-size: var(--tan-cell-large-title-font-size, #{$cell-large-title-font-size});
+	--cell-large-value-font-size: var(--tan-cell-large-value-font-size, #{$cell-large-value-font-size});
+	--cell-large-label-font-size: var(--tan-cell-large-label-font-size, #{$cell-large-label-font-size});
 
-.#{$class-prefix} {
-	--padding-horizontal: var(
-		#{$var-prefix}-padding-horizontal, 
-		$cell-horizontal-padding
-	);
-	--padding-vertical: var(
-		#{$var-prefix}-padding-vertical, 
-		$cell-vertical-padding
-	);
-	--font-size: var(
-		#{$var-prefix}-font-size, 
-		$cell-font-size
-	);
-	--line-height: var(
-		#{$var-prefix}-line-height, 
-		$cell-line-height
-	);
-	--text-color: var(
-		#{$var-prefix}-text-color, 
-		$cell-text-color
-	);
-	--background-color: var(
-		#{$var-prefix}-background-color, 
-		$cell-background-color
-	);
-	--border-color: var(
-		#{$var-prefix}-border-color, 
-		$cell-border-color
-	);
+	&::after {
+		@include hairline-bottom(
+			var(--cell-border-color), 
+			var(--cell-horizontal-padding), 
+			var(--cell-horizontal-padding)
+		);
+	}
 
 	position: relative;
   display: flex;
   box-sizing: border-box;
   width: 100%;
-	padding: var(--padding-vertical) var(--padding-horizontal);
-	font-size: var(--font-size);
-	color: var(--text-color);
-	background-color: var(--background-color);
+	padding: var(--cell-vertical-padding) var(--cell-horizontal-padding);
+	font-size: var(--cell-font-size);
+	line-height: var(--cell-line-height);
+	color: var(--cell-text-color);
+	background: var(--cell-background-color);
 
-	&::after {
-		@include hairline-bottom(var(--border-color));
-	}
 
-	&.#{$class-prefix}--bordeless::after {
+	&.tan-cell--borderless::after {
 		display: none;
 	}
 
-	&.#{$class-prefix}--center {
+	&__label {
+		margin-top: var(--cell-label-margin-top);
+		font-size: var(--cell-label-font-size);
+		line-height: var(--cell-label-line-height);
+		color: var(--cell-label-color);
+	}
+
+	&__value {
+		overflow: hidden;
+    text-align: right;
+    vertical-align: middle;
+		color: var(--cell-value-color);
+	}
+
+	&__title,
+  &__value {
+    flex: 1;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+	&__left-icon-wrap,
+  &__right-icon-wrap {
+		--tan-icon-size: var(--cell-font-size)
+  }
+
+	&__left-icon-wrap {
+		margin-right: var(--cell-left-icon-margin-right);
+	}
+
+	&__right-icon-wrap {
+    margin-left: var(--cell-right-icon-margin-left);
+    color: var(--cell-right-icon-color);
+
+		--tan-icon-color: var(--cell-right-icon-color);
+  }
+
+	&.tan-cell--required {
+		overflow: visible;
+
+    &::before {
+      position: absolute;
+      content: '*';
+      left: var(--cell-required-left);
+      font-size: var(--cell-font-size);
+      color: var(--cell-required-color);
+    }
+	}
+
+	&.tan-cell--center {
 		align-items: center;
 	}
-}
 
+	&.tan-cell--clickable {
+		&.tan-cell--hover {
+			background-color: var(--cell-active-color);
+		}
+	}	
+
+	&.tan-cell--large {
+		padding-top: var(
+      --cell-large-vertical-padding
+    );
+    padding-bottom: var(
+      --cell-large-vertical-padding
+    );
+
+		.tan-cell__title {
+			font-size: var(--cell-large-title-font-size);
+		}
+
+		.tan-cell__value {
+			font-size: var(--cell-large-value-font-size);	
+		}
+
+		.tan-cell__label {
+			font-size: var(--cell-large-label-font-size);
+		}
+	}
+}

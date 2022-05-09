@@ -1,9 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
-import { withNativeProps } from '../../utils/native-props'
+import { 
+	bemBlock, 
+	bemElement, 
+} from '../../utils/class-name'
 
-const classPrefix = 'tam-cell-group'
+const BLOCK = 'cell-group'
 
 export const CellGroup = props => {
 	const {
@@ -13,26 +15,32 @@ export const CellGroup = props => {
 		children
 	} = props
 
-	return withNativeProps(
-		props,
-		<view className={classNames(
-			classPrefix
-		)}>
+	return (
+		<>
 			{
 				title
 				&&
-				<view className={classNames(
-					`${classPrefix}__title`,
-					border&&`${classPrefix}__title--inset`
-				)}>{title}</view>
+				<view className={bemElement(
+					BLOCK,
+					'title',
+					[
+						{
+							inset
+						}
+					]
+				)}>{title}</view>	
 			}
 
-			<view className={classNames(
-				`${classPrefix}__content`,
-				inset && `${classPrefix}__content--inset`,
-				border && `${classPrefix}__content--border`
+			<view className={bemBlock(
+				BLOCK,
+				[
+					{
+						inset,
+						border
+					}
+				]
 			)}>{children}</view>
-		</view>
+		</>
 	)
 }
 

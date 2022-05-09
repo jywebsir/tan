@@ -2,106 +2,164 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { withNativeProps } from '../../utils/native-props'
-import { Button } from '@tarojs/components'
+import { bemBlock, bemElement, getBlockName } from '../../utils/class-name'
+import { Button } from '@tarojs/components' 
 import Loading from '../loading'
+import Icon from '../icon'
+import { between } from 'strman'
 
-const classPrefix = 'tam-button'
+const BLOCK = 'button'
+const BLOCK_NAME = getBlockName('button')
 
-export const TamButton = props => {
+export const TanButton = props => {
 	const {
-		color,
+		type,
+		formType,
+		icon,
+		iconClassPrefix,
+		plain,
 		block,
-		disabled,
-		fill,
-		size,
+		round,
+		square,
 		loading,
+		disabled,
+		hairline,
+		loadingType,
 		loadingText,
-		shape,
+		size,
+		lang,
+		openType,
+		sendMessageTitle,
+		sendMessagePath,
+		sendMessageImg,
+		showMessageCard,
+		appParameter,
 		children,
-		onClick
-	} = props
+		onClick,
+		onGetUserInfo,
+		onContact,
+		onGetPhoneNumber,
+		onError,
+		onLaunchApp,
+		onOpenSetting
+	} = props	
 
-	const clsName = classNames(classPrefix, {
-		[`${classPrefix}-${color}`]: !!color,
-		[`${classPrefix}-block`]: block,
-		[`${classPrefix}-disabled`]: disabled || loading,
-		[`${classPrefix}-fill-${fill}`]: !!fill,
-		[`${classPrefix}-${size}`]: !!size,
-		[`${classPrefix}-loading`]: loading,
-		[`${classPrefix}-shape-${shape}`]: !!shape,
-	})
+	const blockClsName = bemBlock(BLOCK, [
+		type,
+		size,
+		{
+			block,
+			round,
+			plain,
+			square,
+			loading,
+			hairline,
+			disabled,
+			unclickable: disabled || loading
+		}
+	])
 
 	return withNativeProps(
 		props,
 		<Button
-			className={clsName} 
+			className={blockClsName}
+			hoverClass={`${BLOCK_NAME}--active`}
+			lang={lang}
 			disabled={disabled}
-			onTap={onClick} 
+			formType={formType}
+			openType={openType}
+			sendMessageTitle={sendMessageTitle}
+			sendMessagePath={sendMessagePath}
+			sendMessageImg={sendMessageImg}
+			showMessageCard={showMessageCard}
+			appParameter={appParameter}
+			onTap={onClick}
+			onGetUserInfo={onGetUserInfo}
+			onContact={onContact}
+			onGetPhoneNumber={onGetPhoneNumber}
+			onError={onError}
+			onLaunchApp={onLaunchApp}
+			onOpenSetting={onOpenSetting}
 		>
 			{
 				loading
-				?
-				<view className={`${classPrefix}-loading-wrapper`}>
-					<Loading />
-					<text className={`${classPrefix}-loading-text`}>{loadingText}</text>
-				</view>
-				:
-				children	
+				&&
+				<>
+					<Loading 
+						type={loadingType}
+						className={bemElement(BLOCK, 'loading')}	
+					/>
+
+					{
+						loadingText
+						&&
+						<view className={bemElement(BLOCK, 'loading-text')}>
+							{loadingText}
+						</view>
+					}
+				</>
 			}
+
+			{
+				icon
+				&&
+				(
+					typeof icon === 'string'
+					?
+					<Icon 
+						name={icon} 
+						className={bemElement('icon')} 
+						classPrefix={iconClassPrefix}
+					/>
+					:
+					icon	
+				)
+			}
+
+			<view className={bemElement(BLOCK, 'text')}>
+				{children}
+			</view>
 		</Button>
 	)
 }
 
-TamButton.propTypes = {
-	// 按钮的颜色
-	color: PropTypes.oneOf([
-		'default',
-		'primary',
-		'success',
-		'warning',
-		'danger'
-	]),
-
-	// 填充模式
-	fill: PropTypes.oneOf([
-		'solid',
-		'outline',
-		'none'
-	]),
-
-	// 大小
-	size: PropTypes.oneOf([
-		'mini',
-		'small',
-		'middle',
-		'large'
-	]),
-
-	// 是否是块级元素
+TanButton.propTypes = {
+	type: PropTypes.oneOf(['primary', 'info', 'warning', 'danger']),
+	icon: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+	iconClassPrefix: PropTypes.string,
+	plain: PropTypes.bool,
 	block: PropTypes.bool,
-
-	// 是否禁用
-	disabled: PropTypes.bool,
-
-	// 是否处于加载状态
+	round: PropTypes.bool,
+	square: PropTypes.bool,
 	loading: PropTypes.bool,
-
-	// 加载状态下额外展示的文字	
+	disabled: PropTypes.bool,
+	hairline: PropTypes.bool,
+	loadingType: PropTypes.string,
 	loadingText: PropTypes.string,
-
-	// 按钮的形状
-	shape: PropTypes.oneOf(['default', 'rounded', 'rectangular']),
-
-	// 点击事件
-	onClick: PropTypes.func
+	lang: PropTypes.string,
+	size: PropTypes.oneOf(['normal', 'large', 'small', 'mini']),
+	formType: PropTypes.oneOf(['submit', 'reset']),
+	openType: PropTypes.string,
+	appParameter: PropTypes.string,
+	showMessageCard: PropTypes.bool,
+	sendMessageTitle: PropTypes.string,
+	sendMessagePath: PropTypes.string,
+	sendMessageImg: PropTypes.string,
+	dataset: PropTypes.any,
+	onClick: PropTypes.func,
+	onGetUserInfo: PropTypes.func,
+	onContact: PropTypes.func,
+	onGetPhoneNumber: PropTypes.func,
+	onGetError: PropTypes.func,
+	onOpenSetting: PropTypes.func,
+	onError: PropTypes.func,
+	onLaunchApp: PropTypes.func,
+	onOpenSetting: PropTypes.func
 } 
 
-TamButton.defaultProps = {
-	color: 'default',
-	fill: 'solid',
-	size: 'middle',
-	block: false,
-	disabled: false,
-	loading: false,
-	shape: 'default'
+TanButton.defaultProps = {
+	type: 'default',
+	lang: 'en',
+	size: 'normal',
+	loadingType: 'circular'
 }

@@ -1,59 +1,46 @@
 @import '../../styles/functions/util.scss';
+@import '../../styles/variables.scss';
 
-$class-prefix: 'tam-cell-group';
-$var-prefix: '--tam-cell-group';
-
-.#{$class-prefix} {
-	--title-color: var(
-		#{$var-prefix}-title-color, 
-		var(--tam-color-weak)
-	);
-
-	--title-padding: var(
-		#{$var-prefix}-title-padding,
-		var(--tam-padding-md) var(--tam-padding-md) var(--tam-padding-xs)
-	);
-
-	--title-font-size: var(
-		#{$var-prefix}-title-font-size, 
-		var(--tam-font-size-md)
-	);
-
-	--title-line-height: var(
-		#{$var-prefix}-title-line-height, 
-		#{calculate(16px)}
-	);
-
-	--title-inset-padding: var(
-		#{$var-prefix}-title-inset-padding,
-		var(--tam-padding-md) var(--tam-padding-md) var(--tam-padding-xs) var(--tam-padding-xl)
-	);
-
-	--content-inset-margin: var(
-		#{$var-prefix}-content-inset-margin, 
-		0 var(--tam-padding-md)
-	);
-
-	--content-inset-border-radius: var(
-		#{$var-prefix}-content-border-radius,
-		var(--tam-border-radius-lg)
-	);
-
-	&__content--inset {
-		margin: var(--content-inset-margin);	
-		border-radius: var(--content-inset-border-radius);
+.tan-cell-group {
+	&.tan-cell-group--inset {
+		margin: var(	
+			--tan-cell-group-inset-padding,
+			$cell-group-inset-padding
+		);
+		border-radius: var(	
+			--tan-cell-group-inset-border-radius,
+			$cell-group-inset-border-radius
+		);
 		overflow: hidden;
 	}
+}
 
-	&__title {
-		color: var(--title-color);
-		padding: var(--title-padding);
-		font-size: var(--title-font-size);
-		line-height: var(--title-line-height);
-	}
+.tan-cell-group__title {
+	padding: var(
+		--tan-cell-group-title-padding,
+		$cell-group-title-padding
+	);
 
-	&__title--inset {
-		padding: var(--title-inset-padding);
+	font-size: var(
+		--tan-cell-group-title-font-size, 
+		$cell-group-title-font-size	
+	);
+
+	line-height: var(
+		--tan-cell-group-title-line-height, 
+		$cell-group-title-line-height	
+	);
+
+	color: var(
+		--tan-cell-group-title-color, 
+		$cell-group-title-color	
+	);
+
+	&.tan-cell-group_title--inset {
+		padding: var(
+			--tan-cell-group-inset-title-padding,
+			$cell-group-inset-title-padding
+		);
 	}
 }
 
