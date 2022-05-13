@@ -104,3 +104,12 @@ $nav-bar-icon-color: var(--tan-color-gray-5);
 $nav-bar-text-color: var(--tan-color-gray-5);
 $nav-bar-title-font-size: var(--tan-font-size-lg);
 $nav-bar-title-text-color: var(--tan-color-text);
+
+// Image
+$image-placeholder-text-color: var(--tan-color-gray-6);
+$image-placeholder-font-size: var(--tan-font-size-md);
+$image-placeholder-background-color: var(--tan-color-gray-1);
+$image-loading-icon-color: var(--tan-color-gray-4);
+$image-loading-icon-size: #{calculate(32px)};
+$image-error-icon-size: #{calculate(32px)};
+$image-error-icon-color: var(--tan-color-gray-4);

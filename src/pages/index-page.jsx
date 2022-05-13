@@ -34,6 +34,13 @@ const IndexPage = () => {
 						router.toPage({page: 'row-page'})
 					}}
 				>Layout布局</List.Item>
+
+				<List.Item 
+					arrow
+					onClick={() => {
+						router.toPage({page: 'image-page'})
+					}}
+				>Image图片</List.Item>
       </List>
 
 			<List header="反馈组件">
