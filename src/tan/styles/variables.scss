@@ -113,3 +113,24 @@ $image-loading-icon-color: var(--tan-color-gray-4);
 $image-loading-icon-size: #{calculate(32px)};
 $image-error-icon-size: #{calculate(32px)};
 $image-error-icon-color: var(--tan-color-gray-4);
+
+// Field
+$field-label-color: var(--tan-color-gray-7);
+$field-input-text-color: var(--tan-color-text);
+$field-input-error-text-color: var(--tan-color-red);
+$field-input-disabled-text-color: var(--tan-color-gray-5);
+$field-placeholder-text-color: var(--tan-color-gray-5);
+$field-icon-size: #{calculate(16px)};
+$field-clear-icon-size: #{calculate(16px)};
+$field-clear-icon-color: var(--tan-color-gray-5);
+$field-icon-container-color: var(--tan-color-gray-6);
+$field-error-message-color: var(--tan-color-red);
+$field-error-message-text-font-size: var(--tan-font-size-sm);
+$field-text-area-min-height: #{calculate(18px)};
+$field-word-limit-color: var(--tan-color-gray-7);
+$field-word-limit-font-size: var(--tan-font-size-sm);
+$field-word-limit-line-height: #{calculate(16px)};
+$field-word-num-full-color: var(--tan-color-red);
+$field-disabled-text-color: var(--tan-color-gray-5);
+$field-label-width: 6.2em;
+

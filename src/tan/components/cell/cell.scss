@@ -25,6 +25,7 @@
 	--cell-large-title-font-size: var(--tan-cell-large-title-font-size, #{$cell-large-title-font-size});
 	--cell-large-value-font-size: var(--tan-cell-large-value-font-size, #{$cell-large-value-font-size});
 	--cell-large-label-font-size: var(--tan-cell-large-label-font-size, #{$cell-large-label-font-size});
+	--cell-title-flex: var(--tan-cell-title-flex, 1);
 
 	&::after {
 		@include hairline-bottom(
@@ -65,12 +66,18 @@
 
 	&__title,
   &__value {
-    flex: 1;
-
     &:empty {
       display: none;
     }
   }
+	
+	&__value {
+		flex: 1;
+	}
+
+	&__title {
+		flex: var(--cell-title-flex);
+	}
 
 	&__left-icon-wrap,
   &__right-icon-wrap {

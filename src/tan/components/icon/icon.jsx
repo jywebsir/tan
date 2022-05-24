@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { withNativeProps } from '../../utils/native-props'
+import { isImageUrl } from '../../utils/validator'
 import Info from '../info'
 
 export const Icon = props => {
@@ -12,8 +13,6 @@ export const Icon = props => {
 		classPrefix, 
 		onClick 
 	} = props
-
-	const isImage = name.includes('/')
 
 	return withNativeProps(
 		props,
@@ -36,7 +35,7 @@ export const Icon = props => {
 			}
 
 			{
-				isImage
+				isImageUrl(name)
 				&&
 				<image 
 					src={name}

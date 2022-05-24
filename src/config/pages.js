@@ -6,7 +6,8 @@ const map = {
 	loading: 'loading-page',
 	button: 'button-page',
 	navbar: 'nav-bar-page',
-	image: 'image-page'
+	image: 'image-page',
+	field: 'field-page'
 }
 
 const list = Object.keys(map).map((key) => {

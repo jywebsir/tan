@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 $class-prefix: 'tan-col';
 
 .#{$class-prefix} {
@@ -11,10 +13,10 @@ $class-prefix: 'tan-col';
 
 @for $i from 1 through 24 {
 	.#{$class-prefix}--#{$i} {
-		width: #{$i * (100% / 24)};
+		width: #{$i * math.div(100%, 24)};
 	}
 
 	.#{$class-prefix}--offset-#{$i} {
-		margin-left: #{$i * (100% / 24)};
+		margin-left: #{$i * math.div(100%, 24)};
 	}
 }

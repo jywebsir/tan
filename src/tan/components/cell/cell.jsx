@@ -20,6 +20,7 @@ export const Cell = props => {
 		rightIcon,
 		required,
 		hoverClass,
+		children,
 		onClick
 	} = props
 
@@ -33,10 +34,12 @@ export const Cell = props => {
 		}
 	])
 
-	return (
+	return withNativeProps(
+		props,
 		<view 
 			className={blockClassNames} 
 			hoverClass={`${BLOCK_NAME}--hover`}
+			onTap={onClick}
 		>
 			{
 				icon
@@ -57,7 +60,9 @@ export const Cell = props => {
 				}
 			</view>
 
-			<view className={bemElement(BLOCK, 'value')}>{value}</view>
+			<view className={bemElement(BLOCK, 'value')}>
+				{value || children}
+			</view>
 
 			{
 				rightIcon

@@ -1,65 +1,91 @@
 import React from 'react'
 import router from '@/lib/router'
 import DemoPage from '../components/demo-page'
-import List from '@/tan/components/list'
+import CellGroup from '../tan/components/cell-group'
+import Cell from '../tan/components/cell'
 
 const IndexPage = () => {
 	return (
 		<DemoPage>
-			<List header="基础组件">
-			<List.Item 
-					arrow
+			<CellGroup title="基础组件">
+				<Cell 
+					title="Button按钮" 
+					rightIcon
+					clickable
 					onClick={() => {
 						router.toPage({page: 'button-page'})
-					}}
-				>Button按钮</List.Item>
+					}}	
+				/>
 
-				<List.Item 
-					arrow
+				<Cell 
+					title="Cell单元格" 
+					rightIcon
+					clickable
 					onClick={() => {
 						router.toPage({page: 'cell-page'})
-					}}
-				>Cell单元格</List.Item>
+					}}	
+				/>
 
-        <List.Item 
-					arrow
+				<Cell 
+					title="Icon图标" 
+					rightIcon
+					clickable
 					onClick={() => {
 						router.toPage({page: 'icon-page'})
-					}}
-				>Icon图标</List.Item>
-
-				<List.Item 
-					arrow
+					}}	
+				/>
+				
+				<Cell 
+					title="Layout布局" 
+					rightIcon
+					clickable
 					onClick={() => {
 						router.toPage({page: 'row-page'})
-					}}
-				>Layout布局</List.Item>
+					}}	
+				/>
 
-				<List.Item 
-					arrow
+				<Cell 
+					title="Image图片" 
+					rightIcon
+					clickable
 					onClick={() => {
 						router.toPage({page: 'image-page'})
-					}}
-				>Image图片</List.Item>
-      </List>
+					}}	
+				/>
+			</CellGroup>
 
-			<List header="反馈组件">
-				<List.Item 
-					arrow
+			<CellGroup title="表单组件">
+				<Cell 
+					title="Field输入框" 
+					rightIcon
+					clickable
+					onClick={() => {
+						router.toPage({page: 'field-page'})	
+					}}	
+				/>
+			</CellGroup>
+
+			<CellGroup title="反馈组件">
+				<Cell 
+					title="Loading加载" 
+					rightIcon
+					clickable
 					onClick={() => {
 						router.toPage({page: 'loading-page'})
-					}}
-				>Loading加载</List.Item>
-			</List>
+					}}	
+				/>
+			</CellGroup>
 
-			<List header="导航组件">
-				<List.Item 
-					arrow
+			<CellGroup title="导航组件">
+				<Cell 
+					title="NavBar 导航栏" 
+					rightIcon
+					clickable
 					onClick={() => {
 						router.toPage({page: 'nav-bar-page'})
-					}}
-				>NavBar 导航栏</List.Item>
-			</List>
+					}}	
+				/>
+			</CellGroup>
 		</DemoPage>	
 	)
 }
