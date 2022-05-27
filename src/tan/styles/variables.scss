@@ -134,3 +134,14 @@ $field-word-num-full-color: var(--tan-color-red);
 $field-disabled-text-color: var(--tan-color-gray-5);
 $field-label-width: 6.2em;
 
+// Empty
+$empty-vertical-padding: var(--tan-padding-xl);
+$empty-horizontal-padding: 0;
+$empty-image-size: #{calculate(160px)};
+$empty-description-margin-top: var(--tan-padding-md);
+$empty-description-vertical-padding: 0;
+$empty-description-horizontal-padding: #{calculate(60px)};
+$empty-description-color: var(--tan-color-gray-6);
+$empty-description-font-size: #{calculate(14px)};
+$empty-description-line-height: #{calculate(20px)};
+$empty-bottom-margin-top: #{calculate(24px)};

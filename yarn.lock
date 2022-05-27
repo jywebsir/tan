@@ -11038,6 +11038,11 @@ react-is@^16.13.1, react-is@^16.8.1:
   resolved "https://registry.nlark.com/react-is/download/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha1-eJcppNw23imZ3BVt1sHZwYzqVqQ=
 
+react-is@^18.1.0:
+  version "18.1.0"
+  resolved "https://registry.npmmirror.com/react-is/-/react-is-18.1.0.tgz#61aaed3096d30eacf2a2127118b5b41387d32a67"
+  integrity sha512-Fl7FuabXsJnV5Q1qIOQwx/sagGF18kogb4gpfcG4gjLBWO0WDiiz1ko/ExayuxE7InyQkBLkxRFG5oxY6Uu3Kg==
+
 react-reconciler@0.26.1:
   version "0.26.1"
   resolved "https://registry.npmmirror.com/react-reconciler/-/react-reconciler-0.26.1.tgz#860952dd359fd870f94895c254271e3a9de3b2d6"

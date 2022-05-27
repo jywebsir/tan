@@ -1,3 +1,6 @@
+
+export { isElement, isFragment, isPortal } from 'react-is'
+
 export function isFunction(val) {
   return typeof val === 'function';
 }

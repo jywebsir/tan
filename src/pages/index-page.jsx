@@ -76,6 +76,17 @@ const IndexPage = () => {
 				/>
 			</CellGroup>
 
+			<CellGroup title="展示组件">
+				<Cell 
+					title="Empty空状态" 
+					rightIcon
+					clickable
+					onClick={() => {
+						router.toPage({page: 'empty-page'})
+					}}	
+				/>
+			</CellGroup>
+
 			<CellGroup title="导航组件">
 				<Cell 
 					title="NavBar 导航栏" 
