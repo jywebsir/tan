@@ -23,5 +23,12 @@ export function withNativeProps(
     p.tabIndex = props.tabIndex
   }
 
+	for (const key in props) {
+    if (!props.hasOwnProperty(key)) continue
+    if (key.startsWith('data-') || key.startsWith('aria-')) {
+      p[key] = props[key]
+    }
+  }
+
   return React.cloneElement(element, p)
 }

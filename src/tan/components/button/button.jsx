@@ -6,7 +6,6 @@ import { bemBlock, bemElement, getBlockName } from '../../utils/class-name'
 import { Button } from '@tarojs/components' 
 import Loading from '../loading'
 import Icon from '../icon'
-import { between } from 'strman'
 
 const BLOCK = 'button'
 const BLOCK_NAME = getBlockName('button')
@@ -83,7 +82,7 @@ export const TanButton = props => {
 		>
 			{
 				loading
-				&&
+				?
 				<>
 					<Loading 
 						type={loadingType}
@@ -98,27 +97,29 @@ export const TanButton = props => {
 						</view>
 					}
 				</>
-			}
+				:
+				<>
+					{
+						icon
+						&&
+						(
+							typeof icon === 'string'
+							?
+							<Icon 
+								name={icon} 
+								className={bemElement('icon')} 
+								classPrefix={iconClassPrefix}
+							/>
+							:
+							icon	
+						)
+					}
 
-			{
-				icon
-				&&
-				(
-					typeof icon === 'string'
-					?
-					<Icon 
-						name={icon} 
-						className={bemElement('icon')} 
-						classPrefix={iconClassPrefix}
-					/>
-					:
-					icon	
-				)
+					<view className={bemElement(BLOCK, 'text')}>
+						{children}
+					</view>
+				</>
 			}
-
-			<view className={bemElement(BLOCK, 'text')}>
-				{children}
-			</view>
 		</Button>
 	)
 }

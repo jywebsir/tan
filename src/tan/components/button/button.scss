@@ -196,14 +196,14 @@
 		display: inline;
 	}
 
-	&__loading {
+	.tan-button__loading {
 		--loading-spinner-size: var(--button-loading-size);
 		color: var(--button-loading-color);
 	}
 
 	&__loading-text,
 	&__icon + &__text:not(:empty) {
-		margin-left: var(--tan-padding-base);
+		margin-left: var(--tan-padding-xs);
 	}
 
 	&__icon {

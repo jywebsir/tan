@@ -1,0 +1,80 @@
+@import '../../styles/variables.scss';
+
+.tan-toast {
+	--text-color: var(--tan-toast-text-color, #{$toast-text-color});
+	--font-size: var(--tan-toast-font-size, #{$toast-font-size});
+	--line-height: var(--tan-toast-line-height, #{$toast-line-height});
+	--background-color: var(--tan-toast-background-color, #{$toast-background-color});
+	--border-radius: var(--tan-toast-border-radius, #{$toast-border-radius});
+	--width: var(--tan-toast-width, #{$toast-default-width});
+	--max-width: var(--tan-toast-max-width, #{$toast-max-width});
+	--min-height: var(--tan-toast-min-height, #{$toast-default-min-height});
+	--padding: var(--tan-toast-padding, #{$toast-default-padding});
+	--text-min-width: var(--tan-toast-text-min-width, #{$toast-text-min-width});
+	--text-padding: var(--tan-toast-text-padding, #{$toast-text-padding});
+	--icon-size: var(--tan-toast-icon-size, #{$toast-icon-size});
+	--icon-text-padding: var(--tan-toast-icon-text-padding, var(--tan-padding-xs));
+	--loading-vertical-margin: var(--tan-toast-loading-vertical-margin, 20px);
+	--position-top: var(--tan-toast-position-top, -30vh);
+	--position-bottom: var(--tan-toast-position-bottom, 30vh);
+	--overlay-background-color: var(--tan-toast-overlay-background-color, #{$toast-overlay-background-color});
+
+	display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: content-box;
+	color: var(--text-color);
+	font-size: var(--font-size);
+	line-height: var(--line-height);
+	white-space: pre-wrap;
+  word-wrap: break-word;
+	background-color: var(--background-color);
+	border-radius: var(--border-radius);
+
+	&__container {
+		position: fixed;
+    top: 50%;
+    left: 50%;
+    // hack for avoid max-width when use left & fixed
+    width: fit-content;
+    transform: translate(-50%, -50%);
+		max-width: var(--max-width);
+	}
+
+	&--text {
+		min-width: var(--text-min-width);
+		padding: var(--text-padding) var(--text-padding);
+	}
+
+	&--icon {
+		width: var(--width);
+		min-height: var(--min-height);
+		padding: var(--padding) var(--padding);
+
+		.tan-toast__icon {
+			--color: var(--text-color);
+			font-size: var(--icon-size);
+		}
+
+		.tan-toast__text {
+			padding-top: var(--icon-text-padding);
+		}
+	}
+
+	&__loading {
+		margin: var(--loading-vertical-margin) 0;
+	}
+
+	&__overlay {
+		--background-color: var(--overlay-background-color);
+	}
+
+	&--top {
+		transform: translate(0, var(--position-top));
+	}
+
+	&--bottom {
+		transform: translate(0, var(--position-bottom));
+	}
+}

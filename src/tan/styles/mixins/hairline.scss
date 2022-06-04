@@ -21,6 +21,16 @@ $border-color: var(--tan-border-color);
   transform: scale(0.5);	
 }
 
+@mixin hairline-top($color: $border-color, $left: 0, $right: 0) {
+	@include hairline-common;
+
+	right: $right;
+  left: $left;
+  top: 0;
+  border-top: 1PX solid $color;
+  transform: scaleY(0.5);
+}
+
 @mixin hairline-bottom($color: $border-color, $left: 0, $right: 0) {
 	@include hairline-common;
 

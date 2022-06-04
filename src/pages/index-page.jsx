@@ -45,11 +45,38 @@ const IndexPage = () => {
 				/>
 
 				<Cell 
+					title="Popup弹出层" 
+					rightIcon
+					clickable
+					onClick={() => {
+						router.toPage({page: 'popup-page'})
+					}}	
+				/>
+
+				<Cell 
 					title="Image图片" 
 					rightIcon
 					clickable
 					onClick={() => {
 						router.toPage({page: 'image-page'})
+					}}	
+				/>
+
+				<Cell 
+					title="Toast轻提示" 
+					rightIcon
+					clickable
+					onClick={() => {
+						router.toPage({page: 'toast-page'})
+					}}	
+				/>
+
+				<Cell 
+					title="transition动画" 
+					rightIcon
+					clickable
+					onClick={() => {
+						router.toPage({page: 'transition-page'})
 					}}	
 				/>
 			</CellGroup>
@@ -67,11 +94,29 @@ const IndexPage = () => {
 
 			<CellGroup title="反馈组件">
 				<Cell 
+					title="Dialog弹出框" 
+					rightIcon
+					clickable
+					onClick={() => {
+						router.toPage({page: 'dialog-page'})
+					}}	
+				/>
+
+				<Cell 
 					title="Loading加载" 
 					rightIcon
 					clickable
 					onClick={() => {
 						router.toPage({page: 'loading-page'})
+					}}	
+				/>
+
+				<Cell 
+					title="Overlay遮罩层" 
+					rightIcon
+					clickable
+					onClick={() => {
+						router.toPage({page: 'overlay-page'})
 					}}	
 				/>
 			</CellGroup>

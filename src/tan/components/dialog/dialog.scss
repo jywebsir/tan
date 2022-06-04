@@ -1,0 +1,100 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins/hairline.scss';
+
+.tan-dialog {
+	--top: var(--tan-dialog-top, 45%);
+	--width: var(--tan-dialog-width, #{$dialog-width});
+	--small-screen-width: var(--tan-dialog-small-screen-width, #{$dialog-small-screen-width});
+	--font-size: var(--tan-dialog-font-size, #{$dialog-font-size});
+	--border-radius: var(--tan-dialog-border-radius, #{$dialog-border-radius});
+	--background-color: var(--tan-dialog-background-color, #{$dialog-background-color});
+	--header-padding-top: var(--tan-dialog-header-padding-top, #{$dialog-header-padding-top});
+	--header-font-weight: var(--tan-dialog-header-font-weight, #{$dialog-header-font-weight});
+	--header-line-height: var(--tan-dialog-header-line-height, #{$dialog-header-line-height});
+	--header-isolated-padding: var(--tan-dialog-header-isolated-padding, #{$dialog-header-isolated-padding});
+	--message-padding: var(--tan-dialog-message-padding, #{$dialog-message-padding});
+	--message-font-size: var(--tan-dialog-message-font-size, #{$dialog-message-font-size});
+	--message-line-height: var(--tan-dialog-message-line-height, #{$dialog-message-line-height});
+	--message-max-height: var(--tan-dialog-message-max-height, #{$dialog-message-max-height});
+	--has-title-message-text-color: var(--tan-dialog-has-title-message-text-color, #{$dialog-has-title-message-text-color});
+	--has-title-message-padding-top: var(--tan-dialog-has-title-message-padding-top, #{$dialog-has-title-message-padding-top});
+	--confirm-button-color: var(--tan-dialog-confirm-button-color, #{$dialog-confirm-button-color});
+	--cancel-button-color: var(--tan-dialog-cancel-button-color, #{$dialog-cancel-button-color});
+	
+	top: var(--top) !important;
+  overflow: hidden;
+	width: var(--width);
+	font-size: var(--font-size);
+	border-radius: var(--border-radius);
+	background-color: var(--background-color);
+
+	@media (max-width: 321px) {
+		width: var(--small-screen-width);
+	}
+
+	&__header {
+		text-align: center;
+		padding-top: var(--header-padding-top);
+		font-weight: var(--header-font-weight);
+		line-height: var(--header-line-height);
+
+		&--isolated {
+			padding: var(--header-isolated-padding);
+		}
+	}
+
+	&__message {
+		overflow-y: auto;
+    text-align: center;
+    -webkit-overflow-scrolling: touch;
+		font-size: var(--message-font-size);
+		line-height: var(--message-line-height);
+		max-height: var(--message-max-height);
+		padding: var(--message-padding);
+
+		&--hasTitle {
+			padding-top: var(--has-title-message-padding-top);
+			color: var(--has-title-message-text-color);
+		}
+
+		&--left {
+			text-align: left;
+		}
+
+		&--right {
+			text-align: right;
+		}
+
+		&-text {
+			word-wrap: break-word;
+		}
+	}
+
+	&__footer {
+		display: flex;
+	}
+
+	&__button {
+		flex: 1;
+
+		&--cancel,
+		&--confirm {
+			--button-border-width: 0;
+		}
+
+		&--confirm {
+			--button-default-color: var(--confirm-button-color);
+			--button-loading-color: var(--confirm-button-color);
+		}
+
+		&--cancel {
+			&::after {
+				@include hairline();
+				border-right-width: 1PX;
+			}
+
+			--button-default-color: var(--cancel-button-color);
+			--button-loading-color: var(--cancel-button-color);
+		}
+	}
+}

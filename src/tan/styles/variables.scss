@@ -145,3 +145,48 @@ $empty-description-color: var(--tan-color-gray-6);
 $empty-description-font-size: #{calculate(14px)};
 $empty-description-line-height: #{calculate(20px)};
 $empty-bottom-margin-top: #{calculate(24px)};
+
+// Overlay
+$overlay-background-color: rgba(0, 0, 0, 0.7);
+
+// Toast
+$toast-max-width: 70%;
+$toast-font-size: #{calculate(14px)};
+$toast-text-color: var(--tan-color-white);
+$toast-line-height: #{calculate(20px)};
+$toast-border-radius: var(--tan-border-radius-lg);
+$toast-background-color: opacify(#000, 0.7);
+$toast-icon-size: #{calculate(36px)};
+$toast-text-min-width: #{calculate(96px)};
+$toast-text-padding: var(--tan-padding-xs) var(--tan-padding-sm);
+$toast-default-padding: var(--tan-padding-md);
+$toast-default-width: #{calculate(88px)};
+$toast-default-min-height: #{calculate(88px)};
+$toast-overlay-background-color: transparent;
+
+// Popup
+$popup-background-color: var(--tan-color-white);
+$popup-round-border-radius: #{calculate(16px)};
+$popup-close-icon-size: #{calculate(18px)};
+$popup-close-icon-color: var(--tan-color-gray-6);
+$popup-close-icon-margin: #{calculate(16px)};
+$popup-close-icon-z-index: 1;
+
+// Dialog
+$dialog-width: #{calculate(320px)};
+$dialog-small-screen-width: 90%;
+$dialog-font-size: var(--tan-font-size-lg);
+$dialog-border-radius: #{calculate(16px)};
+$dialog-background-color: var(--tan-color-white);
+$dialog-header-font-weight: var(--tan-font-weight-bold);
+$dialog-header-line-height: #{calculate(24px)};
+$dialog-header-padding-top: var(--tan-padding-lg);
+$dialog-header-isolated-padding: var(--tan-padding-lg) 0;
+$dialog-message-padding: var(--tan-padding-lg);
+$dialog-message-font-size: var(--tan-font-size-md);
+$dialog-message-line-height: #{calculate(20px)};
+$dialog-message-max-height: 60vh;
+$dialog-has-title-message-text-color: var(--tan-color-gray-7);
+$dialog-has-title-message-padding-top: var(--tan-padding-xs);
+$dialog-confirm-button-color: var(--tan-color-red);
+$dialog-cancel-button-color: var(--tan-color-gray-8);

@@ -1,8 +1,8 @@
 @font-face {
   font-family: "tan-icon"; /* Project id 3353570 */
-  src: url('//at.alicdn.com/t/font_3353570_pa2mnpg34a.woff2?t=1653030574582') format('woff2'),
-       url('//at.alicdn.com/t/font_3353570_pa2mnpg34a.woff?t=1653030574582') format('woff'),
-       url('//at.alicdn.com/t/font_3353570_pa2mnpg34a.ttf?t=1653030574582') format('truetype');
+  src: url('//at.alicdn.com/t/font_3353570_61x9891htdi.woff2?t=1654047680955') format('woff2'),
+       url('//at.alicdn.com/t/font_3353570_61x9891htdi.woff?t=1654047680955') format('woff'),
+       url('//at.alicdn.com/t/font_3353570_61x9891htdi.ttf?t=1654047680955') format('truetype');
 }
 
 .tan-icon {
@@ -14,6 +14,22 @@
 
 .tan-icon-question-o:before {
   content: "\e749";
+}
+
+.tan-icon-success:before {
+  content: "\e75d";
+}
+
+.tan-icon-close:before {
+  content: "\e6c5";
+}
+
+.tan-icon-cross:before {
+  content: "\e69d";
+}
+
+.tan-icon-fail:before {
+  content: "\e6a1";
 }
 
 .tan-icon-arrow-left:before {

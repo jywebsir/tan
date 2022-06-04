@@ -9,6 +9,11 @@ export function isPlainObject(val) {
   return val !== null && typeof val === 'object' && !Array.isArray(val);
 }
 
+export function isObj(x) {
+  const type = typeof x;
+  return x !== null && (type === 'object' || type === 'function');
+}
+
 export function isPromise(val) {
   return isPlainObject(val) && isFunction(val.then) && isFunction(val.catch);
 }

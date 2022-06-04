@@ -8,7 +8,12 @@ const map = {
 	navbar: 'nav-bar-page',
 	image: 'image-page',
 	field: 'field-page',
-	empty: 'empty-page'
+	empty: 'empty-page',
+	transition: 'transition-page',
+	overlay: 'overlay-page',
+	toast: 'toast-page',
+	popup: 'popup-page',
+	dialog: 'dialog-page'
 }
 
 const list = Object.keys(map).map((key) => {
