@@ -26,11 +26,27 @@ export const Dialog = props => {
 		showConfirmButton,
 		confirmButtonText,
 		cancelButtonText,	
+		confirmButtonOpenType,
+		lang,
+		businessId,
+		sessionFrom,
+		appParameter,
+		showMessageCard,
+		sendMessageTitle,
+		sendMessagePath,
+		sendMessageImg,
 		children,
 		onBeforeClose,
 		onClose,
 		onConfirm,
-		onCancel
+		onCancel,
+		onGetUserInfo,
+		onContact,
+		onGetPhoneNumber,
+		onGetError,
+		onError,
+		onLaunchApp,
+		onOpenSetting
 	} = props
 
 	const [loading, updateLoading] = useImmer({
@@ -163,8 +179,25 @@ export const Dialog = props => {
 						&&
 						<Button
 							loading={loading.confirm}
+							openType={confirmButtonOpenType}
+							lang={lang}	
+							businessId={businessId}	
+							sessionFrom={sessionFrom}	
+							appParameter={appParameter}	
+							sendMessageTitle={sendMessageTitle}	
+							sendMessagePath={sendMessagePath}
+							sendMessageImg={sendMessageImg}	
+							showMessageCard={showMessageCard}	
 							className={bemElement(BLOCK, 'button', [{confirm: true}])}
 							onClick={handleConfirm}
+							onGetUserInfo={onGetUserInfo}	
+							onContact={onContact}	
+							onGetPhoneNumber={onGetPhoneNumber}
+							onGetError={onGetError}	
+							onOpenSetting={onOpenSetting}	
+							onError={onError}
+							onLaunchApp={onLaunchApp}	
+							onOpenSetting={onOpenSetting}
 						>{confirmButtonText}</Button>
 					}
 				</view>
@@ -182,22 +215,42 @@ Dialog.propTypes = {
 	showConfirmButton: PropTypes.bool,
 	closeOnClickOverlay: PropTypes.bool,
 	overlay: PropTypes.bool,
-	confirmButtonOpenType: PropTypes.string,
 	confirmButtonText: PropTypes.string,
 	cancelButtonText: PropTypes.string,
 	zIndex: PropTypes.number,
 	transition: PropTypes.string,
+	confirmButtonOpenType: PropTypes.string,
+	businessId: PropTypes.number,
+	sessionFrom: PropTypes.string,
+	lang: PropTypes.string,
+	appParameter: PropTypes.string,
+	showMessageCard: PropTypes.bool,
+	sendMessageTitle: PropTypes.string,
+	sendMessagePath: PropTypes.string,
+	sendMessageImg: PropTypes.string,
 	onBeforeClose: PropTypes.func,
 	onClose: PropTypes.func,
 	onCancel: PropTypes.func,
-	onConfirm: PropTypes.func
+	onConfirm: PropTypes.func,
+	onGetUserInfo: PropTypes.func,
+	onContact: PropTypes.func,
+	onGetPhoneNumber: PropTypes.func,
+	onGetError: PropTypes.func,
+	onOpenSetting: PropTypes.func,
+	onError: PropTypes.func,
+	onLaunchApp: PropTypes.func,
+	onOpenSetting: PropTypes.func
 }
 
 Dialog.defaultProps = {
 	zIndex: 2000,
 	confirmButtonText: '确认',
 	cancelButtonText: '取消',
+	showCancelButton: false,
 	showConfirmButton: true,
 	overlay: true,
-	transition: 'scale'
+	closeOnClickOverlay: false,
+	transition: 'scale',
+	showMessageCard: false,
+	lang: 'en'
 }

@@ -4,6 +4,8 @@
 .tan-cell {
 	--cell-vertical-padding: var(--tan-cell-vertical-padding, #{$cell-vertical-padding});
 	--cell-horizontal-padding: var(--tan-cell-horizontal-padding, #{$cell-horizontal-padding});
+	--cell-hairline-bottom-left: var(--tan-cell-hairline-bottom-left, #{$cell-horizontal-padding});
+	--cell-hairline-bottom-right: var(--tan-cell-hairline-bottom-right, #{$cell-horizontal-padding});
 	--cell-font-size: var(--tan-cell-font-size, #{$cell-font-size});
 	--cell-line-height: var(--tan-cell-line-height, #{$cell-line-height});
 	--cell-text-color: var(--tan-cell-text-color, #{$cell-text-color});
@@ -25,13 +27,14 @@
 	--cell-large-title-font-size: var(--tan-cell-large-title-font-size, #{$cell-large-title-font-size});
 	--cell-large-value-font-size: var(--tan-cell-large-value-font-size, #{$cell-large-value-font-size});
 	--cell-large-label-font-size: var(--tan-cell-large-label-font-size, #{$cell-large-label-font-size});
+	--cell-title-font-weight: var(--tan-cell-title-font-weight, #{$cell-title-font-weight});
 	--cell-title-flex: var(--tan-cell-title-flex, 1);
 
 	&::after {
 		@include hairline-bottom(
 			var(--cell-border-color), 
-			var(--cell-horizontal-padding), 
-			var(--cell-horizontal-padding)
+			var(--cell-hairline-bottom-left), 
+			var(--cell-hairline-bottom-righ)
 		);
 	}
 
@@ -77,6 +80,7 @@
 
 	&__title {
 		flex: var(--cell-title-flex);
+		font-weight: var(--cell-title-font-weight);
 	}
 
 	&__left-icon-wrap,

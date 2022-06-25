@@ -3,14 +3,14 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { withNativeProps } from '../../utils/native-props'
 import { bemBlock, bemElement, getBlockName } from '../../utils/class-name'
-import { Button } from '@tarojs/components' 
+import { Button as TaroButton } from '@tarojs/components' 
 import Loading from '../loading'
 import Icon from '../icon'
 
 const BLOCK = 'button'
 const BLOCK_NAME = getBlockName('button')
 
-export const TanButton = props => {
+export const Button = props => {
 	const {
 		type,
 		formType,
@@ -60,7 +60,7 @@ export const TanButton = props => {
 
 	return withNativeProps(
 		props,
-		<Button
+		<TaroButton
 			className={blockClsName}
 			hoverClass={`${BLOCK_NAME}--active`}
 			lang={lang}
@@ -107,7 +107,7 @@ export const TanButton = props => {
 							?
 							<Icon 
 								name={icon} 
-								className={bemElement('icon')} 
+								className={bemElement(BLOCK, 'icon')} 
 								classPrefix={iconClassPrefix}
 							/>
 							:
@@ -120,11 +120,11 @@ export const TanButton = props => {
 					</view>
 				</>
 			}
-		</Button>
+		</TaroButton>
 	)
 }
 
-TanButton.propTypes = {
+Button.propTypes = {
 	type: PropTypes.oneOf(['primary', 'info', 'warning', 'danger']),
 	icon: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
 	iconClassPrefix: PropTypes.string,
@@ -152,13 +152,12 @@ TanButton.propTypes = {
 	onContact: PropTypes.func,
 	onGetPhoneNumber: PropTypes.func,
 	onGetError: PropTypes.func,
-	onOpenSetting: PropTypes.func,
 	onError: PropTypes.func,
 	onLaunchApp: PropTypes.func,
 	onOpenSetting: PropTypes.func
 } 
 
-TanButton.defaultProps = {
+Button.defaultProps = {
 	type: 'default',
 	lang: 'en',
 	size: 'normal',

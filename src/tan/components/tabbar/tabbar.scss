@@ -1,0 +1,23 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins/safe-area.scss';
+
+.tan-tabbar {
+	--height: var(--tan-tabbar-height, #{$tabbar-height});
+	--background-color: var(--tan-tabbar-background-color, #{$tabbar-background-color});
+
+	display: flex;
+  box-sizing: content-box;
+  width: 100%;
+	height: var(--height);
+	background-color: var(--background-color);
+
+	&--fixed {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+	}
+
+	&--safe {
+		@include safe-area-bottom();
+	}
+}

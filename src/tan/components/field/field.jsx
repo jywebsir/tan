@@ -20,7 +20,6 @@ export const Field = props => {
 		disabled,
 		maxlength,
 		cursorSpacing,
-		autoFocus,
 		focus,
 		cursor,
 		selectionStart,
@@ -142,7 +141,7 @@ export const Field = props => {
 
 		if (isString(label) || isNumber(label)) {
 			return (
-				<view className={bemElement(BLOCK, 'label', {disabled})}>
+				<view className={bemElement(BLOCK, 'label', {disabled, required})}>
 					{label}
 				</view>	
 			)
@@ -159,7 +158,6 @@ export const Field = props => {
 					fixed={fixed}
 					focus={focus}
 					cursor={cursor}
-					autoFocus={autoFocus}
 					disabled={disabled || readonly}
 					maxlength={maxlength}
 					placeholder={placeholder}
@@ -197,7 +195,6 @@ export const Field = props => {
 				focus={focus}
 				cursor={cursor}
 				value={value}
-				autoFocus={autoFocus}
 				disabled={disabled || readonly}
 				maxlength={maxlength}
 				placeholder={placeholder}
@@ -325,7 +322,6 @@ Field.propTypes = {
 	disabled: PropTypes.bool,
 	maxlength: PropTypes.number,
 	cursorSpacing: PropTypes.number,
-	autoFocus: PropTypes.bool,
 	focus: PropTypes.bool,
 	cursor: PropTypes.number,
 	selectionStart: PropTypes.number,
@@ -343,8 +339,8 @@ Field.propTypes = {
 	error: PropTypes.bool,
 	center: PropTypes.bool,
 	clearIcon: PropTypes.string,
-	leftIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-	rightIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+	leftIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+	rightIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 	autosize: PropTypes.bool,
 	required: PropTypes.bool,
 	clickable: PropTypes.bool,

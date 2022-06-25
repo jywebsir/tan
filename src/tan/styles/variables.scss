@@ -1,5 +1,8 @@
 @import './functions/util.scss';
 
+// Component Colors
+$disabled-opacity: 0.5;
+
 // Icon
 $icon-size: #{calculate(18px)};
 $icon-color: #323233;
@@ -12,8 +15,10 @@ $cell-line-height: #{calculate(24px)};
 $cell-text-color: var(--tan-color-text);
 $cell-background-color: var(--tan-color-white);
 $cell-border-color: var(--tan-border-color);
+$cell-title-font-weight: 400;
 $cell-label-margin-top: #{calculate(3px)};
 $cell-label-font-size: var(--tan-font-size-sm);
+$cell-label-font-weight: 400;
 $cell-label-line-height: #{calculate(18px)};
 $cell-label-color: var(--tan-color-gray-6);
 $cell-value-color: var(--tan-color-gray-6);
@@ -133,6 +138,8 @@ $field-word-limit-line-height: #{calculate(16px)};
 $field-word-num-full-color: var(--tan-color-red);
 $field-disabled-text-color: var(--tan-color-gray-5);
 $field-label-width: 6.2em;
+$field-label-font-size: 28px;
+$field-label-font-weight: 400;
 
 // Empty
 $empty-vertical-padding: var(--tan-padding-xl);
@@ -190,3 +197,72 @@ $dialog-has-title-message-text-color: var(--tan-color-gray-7);
 $dialog-has-title-message-padding-top: var(--tan-padding-xs);
 $dialog-confirm-button-color: var(--tan-color-red);
 $dialog-cancel-button-color: var(--tan-color-gray-8);
+
+// Collapse
+$collapse-item-transition-duration: 0.3s;
+$collapse-item-content-horizontal-padding: #{calculate(15px)};
+$collapse-item-content-vertical-padding: #{calculate(15px)};
+$collapse-item-content-font-size: #{calculate(13px)};
+$collapse-item-content-line-height: 1.5;
+$collapse-item-content-text-color: var(--tan-color-gray-6);
+$collapse-item-content-background-color: var(--tan-color-white);
+$collapse-item-title-disabled-color: var(--tan-color-gray-5);
+
+// Search
+$search-background-color: var(--tan-color-white);
+$search-content-background-color: var(--tan-color-gray-1);
+$search-padding: #{calculate(10px)} var(--tan-padding-sm);
+$search-input-height: #{calculate(34px)};
+$search-label-padding: 0 #{calculate(5px)};
+$search-label-color: var(--tan-color-text);
+$search-label-font-size: var(--tan-font-size-md);
+$search-left-icon-color: var(--tan-color-gray-6);
+$search-action-padding: 0 var(--tan-padding-xs);
+$search-action-text-color: var(--tan-color-text);
+$search-action-font-size: var(--tan-font-size-md);
+
+// TabBar
+$tabbar-height: #{calculate(50px)};
+$tabbar-background-color: var(--tan-color-white);
+
+// TabBar-Item
+$tabbar-item-font-size: var(--tan-font-size-sm);
+$tabbar-item-text-color: var(--tan-color-gray-7);
+$tabbar-item-active-color: var(--tan-color-blue);
+$tabbar-item-line-height: 1;
+$tabbar-item-icon-font-size: #{calculate(22px)};
+$tabbar-item-icon-margin-bottom: #{calculate(4px)};
+$tabbar-item-info-margin-top: #{calculate(2px)};
+
+// Uploader
+$uploader-size: #{calculate(80px)};
+$uploader-margin: 0 var(--tan-padding-xs) var(--tan-padding-xs) 0;
+$uploader-icon-size: #{calculate(24px)};
+$uploader-icon-color: var(--tan-color-gray-4);
+$uploader-text-color: var(--tan-color-gray-6);
+$uploader-text-font-size: var(--tan-font-size-sm);
+$uploader-text-margin: var(--tan-padding-xs) 0 0 0;
+$uploader-background-color: var(--tan-color-gray-1);
+$uploader-active-color: var(--tan-color-active);
+$uploader-delete-color: var(--tan-color-white);
+$uploader-delete-icon-size: #{calculate(14px)};
+$uploader-delete-background-color: rgba(0, 0, 0, 0.7);
+$uploader-delete-border-radius: 0 0 0 #{calculate(12px)};
+$uploader-file-background-color: var(--tan-color-gray-1);
+$uploader-file-icon-size: #{calculate(20px)};
+$uploader-file-icon-color: var(--tan-color-gray-7);
+$uploader-file-name-padding: 0 var(--tan-padding-base);
+$uploader-file-name-margin: var(--tan-padding-xs) 0 0 0;
+$uploader-file-name-font-size: var(--tan-font-size-sm);
+$uploader-file-name-text-color: var(--tan-color-gray-7);
+$uploader-mask-background-color: opacify(#323233, 0.88);
+$uploader-mask-text-color: var(--tan-color-white);
+$uploader-mask-icon-size: #{calculate(22px)};
+$uploader-mask-message-margin: #{calculate(6px)} 0 0 0;
+$uploader-mask-message-padding: 0 var(--tan-padding-base);
+$uploader-mask-message-font-size: var(--tan-font-size-sm);
+$uploader-mask-message-line-height: #{calculate(14px)};
+$uploader-loading-icon-size: #{calculate(22px)};
+$uploader-loading-icon-color: var(--tan-color-white);
+$uploader-disabled-opacity: $disabled-opacity; 
+$uploader-preview-margin: 0 var(--tan-padding-xs) var(--tan-padding-xs) 0;

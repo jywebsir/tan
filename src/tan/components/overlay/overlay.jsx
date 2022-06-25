@@ -1,3 +1,4 @@
+import React from 'react'
 import PropTypes from 'prop-types'
 import { withNativeProps } from '../../utils/native-props'
 import { bemBlock } from '../../utils/class-name'

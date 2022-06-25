@@ -1,0 +1,76 @@
+@import '../../styles/variables.scss';
+
+.tan-collapse-item {
+	--collapse-item-transition-duration: var(
+		--tan-collapse-item-transition-duration, 
+		#{$collapse-item-transition-duration}
+	);
+
+	--collapse-item-title-disabled-color: var(
+		--tan-collapse-item-title-disabled-color,
+		#{$collapse-item-title-disabled-color}
+	);
+
+	--collapse-item-content-horizontal-padding: var(
+		--tan-collapse-item-content-horizontal-padding,
+		#{$collapse-item-content-horizontal-padding}
+	);
+
+	--collapse-item-content-vertical-padding: var(
+		--tan-collapse-item-content-vertical-padding,
+		#{$collapse-item-content-vertical-padding}
+	);
+
+	--collapse-item-content-text-color: var(
+		--tan-collapse-item-content-text-color,
+		#{$collapse-item-content-text-color}
+	);
+
+	--collapse-item-content-font-size: var(
+		--tan-collapse-item-content-font-size,
+		#{$collapse-item-content-font-size}
+	);
+
+	--collapse-item-content-line-height: var(
+		--tan-collapse-item-content-line-height,
+		#{$collapse-item-content-line-height}
+	);
+
+	--collapse-item-content-background-color: var(
+		--tan-collapse-item-content-background-color,
+		#{$collapse-item-content-background-color}
+	);
+
+	&__title {
+		.tan-cell__right-icon {
+			transform: rotate(0);
+      transition: transform var(--collapse-item-transition-duration);
+		}
+
+		&--expanded {
+			.tan-cell__right-icon {
+				transform: rotate(90deg);
+			}
+		}
+
+		&--disabled {
+			--cell-text-color: var(--collapse-item-title-disabled-color);
+			--cell-right-icon-color: var(--collapse-item-title-disabled-color);
+		}
+	}
+
+	&__wrapper {
+		overflow: hidden;
+
+		transition-property: height;
+		transition-duration: var(--collapse-item-transition-duration);
+	}
+
+	&__content {
+		padding: var(--collapse-item-content-vertical-padding) var(--collapse-item-content-horizontal-padding);
+		color: var(--collapse-item-content-text-color);
+		font-size: var(--collapse-item-content-font-size);
+		line-height: var(--collapse-item-content-line-height);
+		background-color: var(--collapse-item-content-background-color);
+	}
+}

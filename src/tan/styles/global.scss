@@ -1,7 +1,12 @@
 @import './mixins/hairline.scss';
+@import './mixins/ellipsis.scss';
 
 page {
 	font-family: var(--tan-font-family);
+}
+
+.tan-ellipsis {
+	@include ellipsis;
 }
 
 .tan-hairline {

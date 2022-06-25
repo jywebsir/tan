@@ -5,9 +5,11 @@
 		--tan-field-icon-size, 
 		#{$field-icon-size}
 	);
-	--cell-title-flex: none;
+	--tan-cell-title-flex: none;
 	--label-width: var(--tan-field-label-width, #{$field-label-width});
 	--label-color: var(--tan-field-label-color, #{$field-label-color});
+	--label-font-weight: var(--tan-field-label-font-weight, #{$field-label-font-weight});
+	--label-font-size: var(--tan-field-label-font-size, #{$field-label-font-size});
 	--disabled-text-color: var(--tan-field-disabled-text-color, #{$field-disabled-text-color});
 	--input-text-color: var(--tan-field-input-text-color, #{$field-input-text-color});
 	--input-error-text-color: var(--tan-field-input-error-text-color, #{$field-input-error-text-color});

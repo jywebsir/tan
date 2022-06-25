@@ -90,18 +90,21 @@
 	}
 
 	&.tan-button--primary {
+		--tan-icon-color: var(--tan-color-white);
 		color: var(--button-primary-color);
     background: var(--button-primary-background-color);
     border: var(--button-border-width) solid var(--button-primary-border-color);
 	}
 
 	&.tan-button--info {
+		--tan-icon-color: var(--tan-color-white);
 		color: var(--button-info-color);
     background: var(--button-info-background-color);
     border: var(--button-border-width) solid var(--button-info-border-color);
 	}
 
 	&.tan-button--danger {
+		--tan-icon-color: var(--tan-color-white);
 		color: var(--button-danger-color);
     background: var(
       --button-danger-background-color
@@ -110,6 +113,7 @@
 	}
 
 	&.tan-button--warning {
+		--tan-icon-color: var(--tan-color-white);
 		color: var(--button-warning-color);
     background: var(
       --button-warning-background-color

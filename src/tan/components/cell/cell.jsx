@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withNativeProps } from '../../utils/native-props'
 import { bemBlock, bemElement, getBlockName, getElementName } from '../../utils/class-name'
+import { isString } from '../../utils/validator'
 import Icon from '../icon'
 
 const BLOCK = 'cell'
@@ -42,11 +43,14 @@ export const Cell = props => {
 			onTap={onClick}
 		>
 			{
+				isString(icon)
+				?
+				<Icon 
+					name={icon} 
+					className={bemElement(BLOCK, 'left-icon-wrap')} 
+				/>
+				:
 				icon
-				&&
-				<view className={bemElement(BLOCK, 'left-icon-wrap')}>
-					{icon}
-				</view>
 			}
 			<view className={bemElement(BLOCK, 'title')}>
 				{title}
@@ -71,7 +75,7 @@ export const Cell = props => {
 					{
 						rightIcon === true
 						?
-						<Icon name="arrow" />
+						<Icon name="arrow" className={bemElement(BLOCK, 'right-icon')} />
 						:
 						rightIcon
 					}
@@ -84,23 +88,10 @@ export const Cell = props => {
 
 Cell.propTypes = {
 	icon: PropTypes.node,
-
-	title: PropTypes.oneOfType([
-		PropTypes.string, 
-		PropTypes.number,
-		PropTypes.node
-	]),
-
-	value: PropTypes.oneOfType([
-		PropTypes.string, 
-		PropTypes.number,
-		PropTypes.node
-	]),
-
-	label: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.node
-	]),
+	icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+	title: PropTypes.node,
+	value: PropTypes.node,
+	label: PropTypes.node,
 
 	rightIcon: PropTypes.oneOfType([
 		PropTypes.bool,

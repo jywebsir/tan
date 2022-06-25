@@ -1,0 +1,87 @@
+@import '../../styles/variables.scss';
+
+.tan-search {
+	--padding: var(--tan-search-padding, #{$search-padding});
+	--background-color: var(--tan-search-background, #{$search-background-color});
+	--content-padding-left: var(
+		--tan-search-content-padding-left, 
+		var(--tan-padding-sm)
+	);
+	--content-background-color: var(
+		--tan-search-content-background-color, 
+		#{$search-content-background-color}
+	);
+	--content-border-radius: var(
+		--tan-search-content-border-radius,
+		var(--tan-border-radius-sm)
+	);
+	--content-round-border-radius: var(
+		--tan-search-content-round-border-radius,
+		var(--tan-border-radius-max)
+	);
+	--label-padding: var(--tan-search-label-padding, #{$search-label-padding});
+	--label-font-size: var(--tan-search-label-size, #{$search-label-font-size});
+	--label-color: var(--tan-search-label-color, #{$search-label-color});
+	--left-icon-color: var(--tan-search-left-icon-color, #{$search-left-icon-color});
+	--action-padding: var(--tan-search-action-padding, #{$search-action-padding});
+	--action-font-size: var(--tan-search-action-font-size, #{$search-action-font-size});
+	--action-color: var(--tan-search-action-color, #{$search-action-text-color});
+	--action-hover-color: var(--tan-search-action-hover-color, var(--tan-color-active));
+
+
+	display: flex;
+  align-items: stretch;
+  box-sizing: border-box;
+	padding: var(--padding);
+	background-color: var(--background-color);
+
+	&__content {
+		display: flex;
+    flex: 1;
+		padding-left: var(--content-padding-left);
+		border-radius: var(--content-border-radius);
+		background-color: var(--content-background-color);
+
+		&--round {
+			border-radius: var(--content-round-border-radius);
+		}
+	}
+
+	&__label {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: var(--label-padding);
+		font-size: var(--label-font-size);
+		color: var(--label-color);
+	}
+
+	&__field {
+		--cell-background-color: transparent;
+		flex: 1;
+		padding-left: 0;
+
+		&__left-icon {
+			color: var(--left-icon-color);
+		}
+	}
+
+	&--withaction {
+		padding-right: 0;
+	}
+
+	&__action {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: var(--action-padding);
+		font-size: var(--action-font-size);
+		color: var(--action-color);	
+	}
+
+	&__acwrapper--hover {
+		background-color: var(--action-hover-color);
+	}
+}

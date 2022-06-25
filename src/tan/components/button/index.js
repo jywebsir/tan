@@ -1,5 +1,5 @@
 import React from 'react'
 import './button.scss'
-import { TanButton } from './button'
+import { Button } from './button'
 
-export default React.memo(TanButton)
+export default React.memo(Button)

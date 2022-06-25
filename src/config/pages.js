@@ -13,7 +13,11 @@ const map = {
 	overlay: 'overlay-page',
 	toast: 'toast-page',
 	popup: 'popup-page',
-	dialog: 'dialog-page'
+	dialog: 'dialog-page',
+	collapse: 'collapse-page',
+	search: 'search-page',
+	tabbar: 'tabbar-page',
+	uploader: 'uploader-page'
 }
 
 const list = Object.keys(map).map((key) => {
