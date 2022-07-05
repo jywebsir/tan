@@ -148,6 +148,15 @@ const IndexPage = () => {
 					clickable
 					onClick={onClickCell}	
 				/>
+
+
+				<Cell 
+					title="Sticky粘性布局" 
+					data-page="sticky"
+					rightIcon
+					clickable
+					onClick={onClickCell}	
+				/>
 			</CellGroup>
 
 			<CellGroup title="导航组件">

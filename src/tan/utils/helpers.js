@@ -58,6 +58,36 @@ export function pickExclude(obj, keys) {
 
 export function getBoundingClientRect(selector, callback) {
 	Taro.nextTick(() => {
-		Taro.createSelectorQuery().select(selector).boundingClientRect(callback).exec()
+		Taro
+			.createSelectorQuery()
+			.select(selector)
+			.boundingClientRect(callback)
+			.exec()
 	})
+}
+
+export function getRect(selector) {
+	return new Promise((resolve) => {
+		Taro.nextTick(() => {
+			Taro
+				.createSelectorQuery()
+				.select(selector)
+				.boundingClientRect(resolve)
+				.exec()
+		})	
+	})
+}
+
+export function getNode(selector) {
+	return Taro.createSelectorQuery().select(selector)
+}
+
+export function getCurrentPage() {
+	const pages = Taro.getCurrentPages()
+
+	if (pages.length > 0) {
+		return pages[pages.length - 1]
+	}
+
+	return null
 }

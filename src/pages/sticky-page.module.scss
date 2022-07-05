@@ -1,0 +1,30 @@
+.container {
+	padding-bottom: 1000px;
+
+	.button {
+		margin-left: 30px;
+	}
+
+	.button2 {
+		margin-left: 50%;
+	}
+
+	.scroller {
+		height: 200px; 
+		background-color: #fff;
+
+		.scrollerContent {
+			height: 400px; 
+			padding-top: 50px;
+		}
+	}
+}
+
+.inContainer {
+	height: 150px;	
+	background-color: #FFFFFF;
+
+	.button {
+		margin-left: 215px;
+	}
+}

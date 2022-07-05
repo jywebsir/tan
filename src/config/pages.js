@@ -17,7 +17,8 @@ const map = {
 	collapse: 'collapse-page',
 	search: 'search-page',
 	tabbar: 'tabbar-page',
-	uploader: 'uploader-page'
+	uploader: 'uploader-page',
+	sticky: 'sticky-page'
 }
 
 const list = Object.keys(map).map((key) => {
