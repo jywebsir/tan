@@ -1,0 +1,30 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins/hairline.scss';
+
+.tan-index-anchor {
+	&__content {
+		padding: var(--tan-index-anchor-padding, #{$index-anchor-padding});
+		color: var(--tan-index-anchor-text-color, #{$index-anchor-text-color});
+		font-weight: var(--tan-index-anchor-font-weight, #{$index-anchor-font-weight});
+		font-size: var(--tan-index-anchor-font-size, #{$index-anchor-font-size});
+		line-height: var(--tan-index-anchor-line-height, #{$index-anchor-line-height});
+		background-color: var(
+			--tan-index-anchor-background-color,
+			#{$index-anchor-background-color}
+		);
+
+		&--actived {
+			@include hairline-bottom();
+			right: 0;
+			left: 0;
+			color: var(
+				--tan-index-anchor-actived-text-color,
+				#{$index-anchor-actived-text-color}
+			);
+			background-color: var(
+				--tan-index-anchor-actived-background-color	,
+				#{$index-anchor-actived-background-color}
+			);
+		}
+	}
+}

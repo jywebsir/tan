@@ -11,7 +11,7 @@ const config = {
     828: 1.81 / 2,
 		375: 2 / 1
   },
-  sourceRoot: 'src',
+  sourceRoot: './demo',
   outputRoot: 'dist',
   plugins: [],
   sass: {

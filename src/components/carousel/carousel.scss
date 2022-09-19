@@ -1,0 +1,52 @@
+.tan-carousel {
+	--width: var(--tan-carousel-width, 100%);
+	--height: var(--tan-carousel-height, 318px);
+	--indicator-margin-top: var(--tan-carousel-indicator-margin-top, 10px);
+	--indicator-width: var(--tan-carsousel-indicator-width, 12px);
+	--indicator-height: var(--tan-carsousel-indicator-height, 12px);
+	--indicator-color: var(--tan-carsousel-indicator-color, #D8D8D8);
+	--indicator-gap: var(--tan-carsousel-indicator-gap, 5px);
+	--indicator-border-radius: var(--tan-carsousel-indicator-border-radius, 50%);
+	--indicator-actived-width: var(--tan-carsousel-indicator-actived-width, 18px);
+	--indicator-actived-height: var(--tan-carsousel-indicator-actived-height, 12px);
+	--indicator-actived-color: var(--tan-carsousel-indicator-actived-color, #4369F6);
+	--indicator-actived-border-radius: var(--tan-carsousel-indicator-actived-border-radius, 6px);
+
+	&__swiper {
+		width: var(--width);
+		height: var(--height);
+	}
+
+	&__image {
+		width: 100%;
+		height: 100%;
+	}
+
+	&__indicator {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		margin-top: var(--indicator-margin-top);
+
+		&-item {
+			width: var(--indicator-width);
+			height: var(--indicator-height);
+			background-color: var(--indicator-color);
+			border-radius: var(--indicator-border-radius);
+
+			&--actived {
+				width: var(--indicator-actived-width);
+				height: var(--indicator-actived-height);
+				background-color: var(--indicator-actived-color);
+				border-radius: var(--indicator-actived-border-radius);
+			}
+
+			margin-right: var(--indicator-gap);
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}	
+}

@@ -1,0 +1,88 @@
+@import '../../styles/functions/util.scss';
+@import '../../styles/variables.scss';
+
+.tan-nav-bar {
+	--nav-bar-height: var(--tan-nav-bar-height, #{$nav-bar-height});
+	--nav-bar-background-color: var(--tan-nav-bar-background-color, #{$nav-bar-background-color});
+	--nav-bar-text-color: var(--tan-nav-bar-text-color, #{$nav-bar-text-color});
+	--nav-bar-text-padding: var(--tan-nav-bar-text-padding, var(--tan-padding-md));
+	--nav-bar-arrow-size: var(--tan-nav-bar-arrow-size, #{$nav-bar-arrow-size});
+	--nav-bar-icon-color: var(--tan-nav-bar-icon-color, #{$nav-bar-icon-color});
+	--nav-bar-title-text-color: var(--tan-nav-bar-title-text-color, #{$nav-bar-title-text-color});
+	--nav-bar-title-font-size: var(--tan-nav-bar-title-font-size, #{$nav-bar-title-font-size});
+
+	position: relative;
+  text-align: center;
+  user-select: none;
+	height: var(--nav-bar-height);
+	line-height: var(--nav-bar-height);
+	background-color: var(--nav-bar-background-color);
+
+	&--fixed {
+		position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+	}
+
+	.tan-nav-bar__content {
+		position: relative;
+		height: 100%;
+	}
+
+	.tan-nav-bar__text {
+		display: inline-block;
+    vertical-align: middle;
+    margin: 0 calc(-1 * var(--nav-bar-text-padding));
+    padding: 0 var(--nav-bar-text-padding);
+    color: var(--nav-bar-text-color);
+	}
+
+	.tan-nav-bar__text--hover {
+		background-color: var(--tan-color-active);
+	}
+
+	.tan-nav-bar__arrow {
+		vertical-align: middle;
+    font-size: var(--nav-bar-arrow-size);
+    color: var(--nav-bar-icon-color);
+
+    + .tan-nav-bar__text {
+      margin-left: -#{calculate(20px)};
+      padding-left: #{calculate(25px)};
+    }
+	}
+
+	&.tan-nav-bar--fixed {
+		position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+	}
+
+	.tan-nav-bar__title {
+		max-width: 60%;
+    margin: 0 auto;
+    color: var(--nav-bar-title-text-color);
+    font-weight: var(--tan-font-weight-bold);
+    font-size: var(--nav-bar-title-font-size);
+	}
+
+	.tan-nav-bar__left,
+	.tan-nav-bar__right {
+		position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    font-size: var(--tan-font-size-md);
+	}
+
+	.tan-nav-bar__left {
+		left: var(--tan-padding-md);
+	}
+
+	.tan-nav-bar__right {
+		right: var(--tan-padding-md);
+	}
+}
