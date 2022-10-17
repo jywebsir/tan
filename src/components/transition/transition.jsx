@@ -67,7 +67,7 @@ Transition.propTypes = {
 } 
 
 Transition.defaultProps = {
-	show: true,
+	show: false,
 	lockScroll: false,
 	duration: 300,
 	name: 'fade'

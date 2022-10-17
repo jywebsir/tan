@@ -1,7 +1,7 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import { useMemoizedFn, useUpdateEffect } from 'ahooks'
+import { useMemoizedFn } from 'ahooks'
 import { useReady } from '@tarojs/taro'
 import { requestAnimationFrame } from '../../utils/helpers'
 import { isObj, isFunction } from '../../utils/validator'
@@ -168,13 +168,7 @@ const useTransition = (props) => {
 		})		
 	})
 
-	useReady(() => {
-		if (show) {
-			handleEnter()
-		}
-	})
-
-	useUpdateEffect(() => {
+	useEffect(() => {
 		if (show) {
 			handleEnter()
 		}else {

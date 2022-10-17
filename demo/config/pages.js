@@ -19,7 +19,9 @@ const map = {
 	tabbar: 'tabbar-page',
 	uploader: 'uploader-page',
 	sticky: 'sticky-page',
-	carousel: 'carousel-page'
+	carousel: 'carousel-page',
+	indexBar: 'index-bar-page',
+	dropdownMenu: 'dropdown-menu-page'
 }
 
 const list = Object.keys(map).map((key) => {

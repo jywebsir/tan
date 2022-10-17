@@ -24,6 +24,7 @@ export const Popup = props => {
 		transition,
 		round,
 		overlay,
+		overlayStyle,
 		closeOnClickOverlay,
 		safeAreaInsetBottom,
 		safeAreaInsetTop,
@@ -87,6 +88,7 @@ export const Popup = props => {
 					show={show}
 					zIndex={zIndex}
 					lockScroll={lockScroll}
+					style={overlayStyle}
 					onClick={handleClickOverlay}
 				/>	
 			}
@@ -125,6 +127,7 @@ Popup.propTypes = {
 	round: PropTypes.bool,
 	zIndex: PropTypes.number,
 	overlay: PropTypes.bool,
+	overlayStyle: PropTypes.object,
 	closeable: PropTypes.bool,
 	closeIcon: PropTypes.string,
 	closeIconPosition: PropTypes.string,

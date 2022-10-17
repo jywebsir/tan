@@ -1,3 +1,43 @@
+@import '../../styles/variables.scss';
+
 .tan-index-bar {
+	--right: var(--tan-index-bar-right, #{$index-bar-right});
+	--index-padding: var(--tan-index-bar-index-padding, #{$index-bar-index-padding});
+	--index-font-weight: var(--tan-index-bar-index-font-weight, #{$index-bar-index-font-weight});
+	--index-font-size: var(--tan-index-bar-index-font-size, #{$index-bar-index-font-size});
+	--index-line-height: var(--tan-index-bar-index-line-height, #{$index-bar-index-line-height});
+	--index-highlight-color: var(--tan-index-bar-index-highlight-color, #{$index-bar-index-highlight-color});
+	--index-zindex: var(--tan-index-bar-index-z-index, #{$index-bar-bar-z-index});
+	--sticky-zindex: var(--tan-index-bar-sticky-zindex, #{$index-bar-sticky-z-index});
+
 	position: relative;
+
+	&__sidebar {
+		position: fixed;
+    top: 50%;
+    right: var(--right);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transform: translateY(-50%);
+    user-select: none;
+	}
+
+	&__index {
+		font-weight: var(--index-font-weight);
+		font-size: var(--index-font-size);
+		padding: var(--index-padding);
+		line-height: var(--index-line-height);
+		z-index: var(--index-zindex);
+
+		&--actived {
+			color: var(--index-highlight-color);
+		}
+	}
+
+	&__sticky {
+		position: fixed;
+		width: 100%;
+		z-index: var(--sticky-zindex);
+	}
 }

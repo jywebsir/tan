@@ -1,0 +1,45 @@
+@import '../../styles/variables.scss';
+
+.tan-dropdown-item {
+	--option-active-color: var(
+		--tan-dropdown-item-option-active-color, 
+		#{$dropdown-item-option-active-color}
+	);
+
+	position: fixed;
+	right: 0;
+  left: 0;
+  overflow: hidden;
+
+	&__option {
+		text-align: left;
+
+		&--actived {
+			.tan-dropdown-item__title,
+			.tan-dropdown-item__icon {
+				color: var(--option-active-color);
+			}
+		}
+	}
+
+	&__popup {
+		position: absolute;
+	}
+
+	.tan-overlay {
+		position: absolute;
+	}
+
+	&--up {
+    top: 0;
+  }
+
+  &--down {
+    bottom: 0;
+  }
+
+  &__icon {
+    display: block;
+    line-height: inherit;
+  }
+}

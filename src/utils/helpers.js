@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import System from './system'
+import { getSystemInfoSync } from './system'
 import { isPromise, isPlainObject } from './validator'
 
 export function canIUseNextTick() {
@@ -17,7 +17,7 @@ export function nextTick(cb) {
 }
 
 export function requestAnimationFrame(cb) {
-  const systemInfo = System.getSystemInfoSync()
+  const systemInfo = getSystemInfoSync()
 
   if (systemInfo.platform === 'devtools') {
     return setTimeout(() => {

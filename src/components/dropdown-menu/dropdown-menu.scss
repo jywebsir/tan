@@ -1,0 +1,105 @@
+@import '../../styles/variables.scss';
+@import '../../styles/functions/util.scss';
+
+.tan-dropdown-menu {
+	--item-justify-content: var(
+		--tan-dropdown-menu-item-justify-content,
+		center
+	);
+	--item-flex: var(
+		--tan-dropdown-menu-item-flex,
+		1
+	);
+	--box-shadow: var(
+		--tan-dropdown-menu-box-shadow, 
+		#{$dropdown-menu-box-shadow}
+	);
+	--height: var(
+		--tan-dropdown-menu-height, 
+		#{$dropdown-menu-height}
+	);
+	--background-color: var(
+		--tan-dropdown-menu-background-color, 
+		#{$dropdown-menu-background-color}
+	);
+	--title-disabled-text-color: var(
+		--tan-dropdown-menu-title-disabled-text-color,
+		#{$dropdown-menu-title-disabled-text-color}
+	);
+	--title-padding: var(
+		--tan-dropdown-menu-title-padding,
+		#{$dropdown-menu-title-padding}
+	);
+	--title-font-size: var(
+		--tan-dropdown-menu-title-font-size,
+		#{$dropdown-menu-title-font-size}
+	);
+	--title-line-height: var(
+		--tan-dropdown-menu-title-line-height,
+		#{$dropdown-menu-title-line-height}
+	);
+	--title-actived-color: var(
+		--tan-dropdown-menu-title-actived-color,
+		#{$dropdown-menu-title-active-text-color}
+	);
+
+	display: flex;
+	user-select: none;
+	box-shadow: var(--box-shadow);
+	height: var(--height);
+	background-color: var(--background-color);
+
+	&__item {
+		display: flex;
+    flex: var(--item-flex);
+    align-items: center;
+    justify-content: var(--item-justify-content);
+    min-width: 0; 
+
+		&:active {
+      opacity: 0.7;
+    }
+
+		&--disabled {
+      &:active {
+        opacity: 1;
+      }
+
+      .tan-dropdown-menu__title {
+        color: var(--title-disabled-text-color);
+      }
+    }
+	}
+
+	&__title-wrapper {
+		position: relative;
+    box-sizing: border-box;
+    max-width: 100%;
+		padding: var(--title-padding);
+		font-size: var(--title-font-size);
+		line-height: var(--title-line-height);
+
+		&::after {
+			position: absolute;
+      top: 50%;
+      right: -#{calculate(4px)};
+      margin-top: -#{calculate(5px)};
+      border: #{calculate(3px)} solid;
+      border-color: transparent transparent currentColor currentColor;
+      transform: rotate(-45deg);
+      opacity: 0.8;
+      content: '';
+		}
+
+		&--active {
+			color: var(--title-actived-color);
+		}
+
+		&--down {
+			&::after {
+        margin-top: -1px;
+        transform: rotate(135deg);
+      }
+		}
+	}
+}

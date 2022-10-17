@@ -14,17 +14,17 @@
 		);
 
 		&--actived {
-			@include hairline-bottom();
 			right: 0;
 			left: 0;
-			color: var(
-				--tan-index-anchor-actived-text-color,
-				#{$index-anchor-actived-text-color}
-			);
+			color: var(--index-highlight-color);
 			background-color: var(
 				--tan-index-anchor-actived-background-color	,
 				#{$index-anchor-actived-background-color}
 			);
+
+			&::after {
+				@include hairline-bottom();
+			}
 		}
 	}
 }

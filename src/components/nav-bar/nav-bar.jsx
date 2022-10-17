@@ -4,7 +4,7 @@ import Taro from '@tarojs/taro'
 import { useMount, useMemoizedFn, useUpdateEffect } from 'ahooks'
 import { withNativeProps } from '../../utils/native-props'
 import { bemBlock, bemElement, getBlockName } from '../../utils/class-name'
-import System from '../../utils/system'
+import { getStatusBarHeight, isIos } from '../../utils/system'
 import { getRect } from '../../utils/helpers'
 import Icon from '../icon'
 
@@ -45,8 +45,8 @@ export const NavBar = props => {
 	}
 
 	useMount(() => {
-		const statusBarHeight = System.getStatusBarHeight()
-		const isIos = System.isIos()
+		const statusBarHeight = getStatusBarHeight()
+		const isIos = isIos()
 
 		setStatusBarHeight(statusBarHeight)	
 		setHeight(46 + statusBarHeight)

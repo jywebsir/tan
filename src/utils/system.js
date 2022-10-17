@@ -1,13 +1,27 @@
-class System {
-	static systemInfo = null
+let systemInfo = null
 
-	static getSystemInfoSync() {
-		if (!this.systemInfo) {
-			this.systemInfo = wx.getSystemInfoSync()
-		}
-
-		return this.systemInfo
+export const getSystemInfoSync = () => {
+	if (!systemInfo) {
+		systemInfo = wx.getSystemInfoSync()
 	}
+
+	return systemInfo
 }
 
-export default System
+export const getStatusBarHeight = () => {
+	const info = getSystemInfoSync()
+
+	return info.statusBarHeight
+}
+
+export const isIos = () => {
+	const info = getSystemInfoSync()	
+
+	return info.system.includes('iOS')
+}
+
+export const getWindowHeight = () => {
+	const info = getSystemInfoSync()	
+
+	return info.windowHeight
+}

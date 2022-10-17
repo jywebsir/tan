@@ -130,6 +130,14 @@ const IndexPage = () => {
 					clickable
 					onClick={onClickCell}	
 				/>
+
+				<Cell 
+					title="DropdownMenu 下拉菜单" 
+					data-page="dropdown-menu"
+					rightIcon
+					clickable
+					onClick={onClickCell}	
+				/>
 			</CellGroup>
 
 			<CellGroup title="展示组件">
@@ -179,6 +187,14 @@ const IndexPage = () => {
 				<Cell 
 					title="Tabbar 标签栏" 
 					data-page="tabbar"
+					rightIcon
+					clickable
+					onClick={onClickCell}	
+				/>
+
+				<Cell 
+					title="IndexBar 索引栏" 
+					data-page="index-bar"
 					rightIcon
 					clickable
 					onClick={onClickCell}	
