@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withNativeProps } from '../../utils/native-props'
 import { bemElement } from '../../utils/class-name'
-import { BLOCK } from './dropdown-menu'
+import { BLOCK } from './dropdown-item'
 
 const getDisplayTitle = (value, title = null, options = []) => {
 	if (title) {
@@ -20,7 +20,7 @@ const getDisplayTitle = (value, title = null, options = []) => {
 	return null
 }
 
-const DropdownMenuItem = props => {
+const DropdownTrigger = props => {
 	const { 
 		disabled, 
 		showPopup, 
@@ -41,14 +41,14 @@ const DropdownMenuItem = props => {
 	return withNativeProps(
 		props,
 		<view 
-			className={bemElement(BLOCK, 'item', { disabled })} 
+			className={bemElement(BLOCK, 'trigger', { disabled })} 
 			onTap={onClick}
 		>
 			<view 
 				className={
 					bemElement(
 						BLOCK, 
-						'title-wrapper', 
+						'trigger-title-wrapper', 
 						{ 
 							active: showPopup, 
 							down: showPopup === (direction === 'down')
@@ -57,13 +57,13 @@ const DropdownMenuItem = props => {
 				}
 				style={showPopup&&{color: activeColor}}
 			>
-				<view className={bemElement(BLOCK, 'title')}>{displayTitle}</view>
+				<view className={bemElement(BLOCK, 'trigger-title')}>{displayTitle}</view>
 			</view>
 		</view>
 	)
 }
 
-DropdownMenuItem.propTypes = {
+DropdownTrigger.propTypes = {
 	activeColor: PropTypes.string,
 	value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	title: PropTypes.string,
@@ -78,4 +78,4 @@ DropdownMenuItem.propTypes = {
 	onClick: PropTypes.func.isRequired
 } 
 
-export default React.memo(DropdownMenuItem)
+export default React.memo(DropdownTrigger)

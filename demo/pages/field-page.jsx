@@ -14,6 +14,7 @@ const FieldPage = () => {
 	const [username3, setUsername3] = useState(null)
 	const {phone, setPhone} = useState(null)
 	const [message, setMessage] = useState(null)
+	const [password, setPassword] = useState(null)
 
 	const onChangeBasicValue = (value) => {
 		setBasicValue(value)
@@ -21,6 +22,10 @@ const FieldPage = () => {
 
 	const onChangeUsername = (value) => {
 		setUsername(value)
+	}
+
+	const onChangePassword = (value) => {
+		setPassword(value)
 	}
 
 	const onClickIcon = () => {
@@ -58,10 +63,10 @@ const FieldPage = () => {
 					/>
 
 					<Field 
-						type="password"
 						label="密码"
 						placeholder="请输入密码"
 						border={false}
+						password
 						required
 					/>
 				</CellGroup>

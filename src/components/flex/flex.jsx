@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { withNativeProps } from '../../utils/native-props'
+import { bemBlock, bemElement } from '../../utils/class-name'
 
-const classPrefix = `tan-flex`
+const BLOCK = 'flex'
 
 export const Flex = props => {
 	const { 
@@ -16,17 +17,18 @@ export const Flex = props => {
 		onClick 
 	} = props
 
-	const clsName = classNames(classPrefix, {
-		[`${classPrefix}--wrap`]: wrap,
-		[`${classPrefix}--${direction}`]: true,
-		[`${classPrefix}--block`]: block,
-		[`${classPrefix}--align-${align}`]: !!align,
-		[`${classPrefix}--justify-${justify}`]: !!justify,
-	})
-
 	return withNativeProps(
 		props,
-		<view className={clsName} onTap={onClick}>
+		<view 
+			className={bemBlock(BLOCK, {
+				wrap, 
+				block, 
+				[`align-${align}`]: !!align, 
+				[`justify-${justify}`]: !!justify,
+				[`${direction}`]: !!direction
+			})} 
+			onTap={onClick}
+		>
 			{children}	
 		</view>
 	) 

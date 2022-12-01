@@ -12,14 +12,12 @@ const DropdownOption = props => {
 		text,
 		icon,
 		actived,
-		activeColor,
 		onClick
 	} = props
 
 	const title = (
 		<view 
 			className={bemElement(BLOCK, 'title')}
-			style={actived&&{color: activeColor}}
 		>
 			{text}
 		</view>
@@ -40,7 +38,6 @@ const DropdownOption = props => {
 				<Icon 
 					name="success" 
 					className={bemElement(BLOCK, 'icon')} 
-					style={{'--color': activeColor}}
 				/>
 			}
 		</Cell>
@@ -49,7 +46,6 @@ const DropdownOption = props => {
 
 DropdownOption.propTypes = {
 	actived: PropTypes.bool,
-	activeColor: PropTypes.string,
 	value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	text: PropTypes.string,
 	icon: PropTypes.string,

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import { useMemoizedFn, useDebounceFn } from 'ahooks'
+import { useMemoizedFn } from 'ahooks'
 import { Input, Textarea } from '@tarojs/components'
 import { bemBlock, bemElement } from '../../utils/class-name'
 import { isString, isNumber } from '../../utils/validator'
@@ -82,16 +82,13 @@ export const Field = props => {
 		setShowClear(showClearValue)
 	})
 
-	const { run: handleInput } = useDebounceFn(
+	const handleInput = useMemoizedFn(
     (event) => {
 			const { value: val = '' } = event.detail || {}	
 
 			if (onChange) {
 				onChange(val)
 			}	
-    },
-    {
-      wait: 200
     }
   )
 

@@ -1,5 +1,7 @@
 @import './functions/util.scss';
 
+$prefix: 'tan';
+
 // Component Colors
 $disabled-opacity: 0.5;
 
@@ -288,15 +290,14 @@ $index-bar-sticky-z-index: 1;
 $index-bar-bar-z-index: 1;
 
 // Dropdown Item
+$dropdown-item-trigger-title-disabled-color: var(--tan-color-gray-6);
 $dropdown-item-option-active-color: var(--tan-color-red);
+$dropdown-item-trigger-title-font-size: #{calculate(15px)};
+$dropdown-item-trigger-title-active-color: var(--tan-color-red);
+$dropdown-item-trigger-title-padding: 0 var(--tan-padding-xs);
+$dropdown-item-trigger-title-line-height: #{calculate(18px)};
 
 // Dropdown Menu
 $dropdown-menu-height: #{calculate(50px)};
 $dropdown-menu-background-color: var(--tan-color-white);
-$dropdown-menu-title-font-size: #{calculate(15px)};
-$dropdown-menu-title-text-color: var(--tan-color-text);
-$dropdown-menu-title-active-text-color: var(--tan-color-red);
-$dropdown-menu-title-disabled-text-color: var(--tan-color-gray-6);
-$dropdown-menu-title-padding: 0 var(--tan-padding-xs);
-$dropdown-menu-title-line-height: #{calculate(18px)};
 $dropdown-menu-box-shadow: 0 #{calculate(2px)} #{calculate(12px)} fade(#{var(--tan-color-gray-7)} 12);

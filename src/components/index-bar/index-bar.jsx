@@ -10,7 +10,7 @@ import React, {
 import PropTypes from 'prop-types'
 import Taro, { usePageScroll } from '@tarojs/taro'
 import { isFragment } from "react-is"
-import { useMemoizedFn, useThrottleFn } from 'ahooks'
+import { useMemoizedFn, useDebounceFn } from 'ahooks'
 import { withNativeProps } from '../../utils/native-props'
 import uniqueId from '../../utils/unique-id'
 import { bemBlock, bemElement } from '../../utils/class-name'
@@ -167,7 +167,7 @@ export const IndexBar = props => {
 		scrollToAnchor(event.currentTarget.dataset.index)
 	})
 
-	const { run: onPageScroll } = useThrottleFn(async () => {
+	const { run: onPageScroll } = useDebounceFn(async () => {
 		try {
 			const anchorRects = await getAnchorRects()
 
@@ -191,7 +191,7 @@ export const IndexBar = props => {
 				duration: 2000
 			})
 		}
-	}, { wait: 50, trailing: true, leading: true })
+	}, { wait: 80 })
 
 	useEffect(() => {
 		const result = getChildren(

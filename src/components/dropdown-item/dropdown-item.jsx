@@ -1,11 +1,12 @@
 import React, { forwardRef, useState, useEffect, useImperativeHandle } from 'react'
 import PropTypes from 'prop-types'
 import { nextTick } from '@tarojs/taro'
-import { useMemoizedFn, useLockFn, useUpdateEffect } from 'ahooks'
+import { useMemoizedFn, useLockFn } from 'ahooks'
 import { withNativeProps } from '../../utils/native-props'
 import { bemBlock, bemElement } from '../../utils/class-name'
 import Popup from '../popup'
 import Cell from '../cell'
+import DropdownTrigger from './dropdown-trigger'
 import DropdownOption from './dropdown-option'
 
 export const BLOCK = 'dropdown-item'
@@ -22,8 +23,8 @@ export const DropdownItem = forwardRef((props, ref) => {
 		duration,
 		closeOnClickOverlay,
 		children,
-		onUpdateData,
 		getWrapperStyle,
+		handleCloseItems,
 		onChange,
 		onOpen,
 		onOpened,
@@ -33,23 +34,7 @@ export const DropdownItem = forwardRef((props, ref) => {
 
 	const [transition, setTransition] = useState(true)
 	const [showPopup, setShowPopup] = useState(false)
-	const [wrapperStyle, setWrapperStyle] = useState()
-
-	const reRender = () => {
-		nextTick(() => {
-			const opts = options.map((item) => {
-				return {...item}
-			})
-
-			onUpdateData(index, {
-				value,
-				title,
-				showPopup,
-				disabled,
-				options: opts	
-			})
-		})
-	}
+	const [wrapperStyle, setWrapperStyle] = useState(null)
 
 	const handleClosed = useMemoizedFn(() => {
 		onClosed?.()
@@ -87,61 +72,83 @@ export const DropdownItem = forwardRef((props, ref) => {
 		}
 	})
 
+	const onClickTrigger = useMemoizedFn(() => {
+		if (disabled) {
+			return
+		}	
+
+		handleCloseItems(index)
+
+		nextTick(onToggle)
+	})
+
 	useImperativeHandle(ref, () => ({
 		toggle: onToggle	
   }))
 
-	useEffect(() => {
-		reRender()
-	}, [
-		value,
-		title,
-		disabled,
-		options,
-		showPopup	
-	])
-
 	return withNativeProps(
 		props,
-		<view className={bemBlock(BLOCK, [direction])}  style={wrapperStyle}>
-			<Popup 
-				show={showPopup}
-				overlay={overlay}
-				position={direction === 'down' ? 'top' : 'bottom'}
-				duration={transition ? duration : 0}
-				className={bemElement(BLOCK, 'popup')}
-				closeOnClickOverlay
-				onEnter={onOpen}
-				onLeave={onClose}
-				onClose={onToggle}
-				onAfterEnter={onOpened}
-				onAfterLeave={handleClosed}
+		<view className={bemBlock(BLOCK)}>
+			<DropdownTrigger 
+				title={title}
+				value={value}
+				direction={direction}
+				options={options}
+				showPopup={showPopup}
+				disabled={disabled}
+				className={bemElement(BLOCK, 'trigger')} 
+				onClick={onClickTrigger}
+			/>
+
+			<view 
+				className={
+					bemElement(
+						BLOCK, 
+						'options', 
+						[direction, {hide: !showPopup}]
+					)
+				}  
+				style={wrapperStyle}
 			>
-				{
-					Array.isArray(options)
-					&&
-					options.length > 0
-					&&
-					options.map((option) => {
-						const actived = option.value === value
+				<Popup 
+					show={showPopup}
+					overlay={overlay}
+					position={direction === 'down' ? 'top' : 'bottom'}
+					duration={transition ? duration : 0}
+					className={bemElement(BLOCK, 'popup')}
+					closeOnClickOverlay
+					onEnter={onOpen}
+					onLeave={onClose}
+					onClose={onToggle}
+					onAfterEnter={onOpened}
+					onAfterLeave={handleClosed}
+				>
+					{
+						Array.isArray(options)
+						&&
+						options.length > 0
+						&&
+						options.map((option) => {
+							const actived = option.value === value
 
-						return (
-							<DropdownOption 
-								key={option.value}
-								className={bemElement(
-									BLOCK,
-									'option',
-									{ actived }
-								)}
-								{...option}
-								onClick={onTapOption}
-							/>
-						)
-					})
-				}
+							return (
+								<DropdownOption 
+									key={option.value}
+									className={bemElement(
+										BLOCK,
+										'option',
+										{ actived }
+									)}
+									{...option}
+									onClick={onTapOption}
+								/>
+							)
+						})
+					}
 
-				{children}
-			</Popup>
+					{children}
+				</Popup>
+			</view>
 		</view>
 	)
 })

@@ -20,6 +20,8 @@ const option2 = [
 const DropdownMenuPage = () => {
 	const [value1, setValue1] = useState(0)
 	const [value2, setValue2] = useState('a')
+	const [value3, setValue3] = useState(0)
+	const [value4, setValue4] = useState('a')
 
 	const onChangeValue1 = useMemoizedFn((val) => {
 		setValue1(val)
@@ -27,6 +29,14 @@ const DropdownMenuPage = () => {
 
 	const onChangeValue2 = useMemoizedFn((val) => {
 		setValue2(val)
+	})
+
+	const onChangeValue3 = useMemoizedFn((val) => {
+		setValue3(val)
+	})
+
+	const onChangeValue4 = useMemoizedFn((val) => {
+		setValue4(val)
 	})
 
 	return (
@@ -42,9 +52,41 @@ const DropdownMenuPage = () => {
 					<DropdownItem 
 						value={value2} 
 						options={option2} 
-						onChange={onChangeValue1}
+						onChange={onChangeValue2}
 					/>
 				</DropdownMenu>		
+			</DemoBlock>
+
+			<DemoBlock title="向上展开">
+				<DropdownMenu direction="up">
+					<DropdownItem 
+						value={value3} 
+						options={option1} 
+						onChange={onChangeValue3}
+					/>
+
+					<DropdownItem 
+						value={value4} 
+						options={option2} 
+						onChange={onChangeValue4}
+					/>
+				</DropdownMenu>		
+			</DemoBlock>
+
+			<DemoBlock title="禁用菜单">
+				<DropdownMenu>
+					<DropdownItem 
+						value={0} 
+						options={option1} 
+						disabled
+					/>	
+
+					<DropdownItem 
+						value="a"
+						options={option2} 
+						disabled
+					/>	
+				</DropdownMenu>
 			</DemoBlock>
 		</DemoPage>
 	)

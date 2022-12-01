@@ -8,8 +8,7 @@ import React, {
 	useState
 } from 'react'
 import PropTypes from 'prop-types'
-import { useImmer } from 'use-immer'
-import { useMount, useUnmount, useMemoizedFn } from 'ahooks'
+import { useMemoizedFn } from 'ahooks'
 import { withNativeProps } from '../../utils/native-props'
 import uniqueId from '../../utils/unique-id'
 import reject from '../../utils/collection/reject'
@@ -17,7 +16,6 @@ import { getWindowHeight } from '../../utils/system'
 import { addUnit } from '../../utils/unit'
 import { bemBlock, bemElement } from '../../utils/class-name'
 import { getElementRect } from '../../utils/element'
-import DropdownMenuItem from './dropdown-menu-item'
 
 const getItems = (children, menuProps = {}) => {
 	const result = {
@@ -48,26 +46,21 @@ const getItems = (children, menuProps = {}) => {
 	return result
 }
 
-let MENU_LIST = []
 export const BLOCK = 'dropdown-menu'
 
 export const DropdownMenu = props => {
 	const {
 		direction,
-		activeColor,
 		overlay,	
 		zIndex,
 		duration,
 		closeOnClickOverlay,
-		closeOnClickOutside,
 		children
 	} = props
 
 	const menuRef = useRef()
-	const idRef = useRef(uniqueId('tan-dropdown-menu'))
 	const winHeightRef = useRef(getWindowHeight())
 
-	const [itemListData, updateItemListData] = useImmer([])
 	const [itemRefs, setItemRefs] = useState([])
 	const [items, setItems] = useState([])
 
@@ -82,86 +75,38 @@ export const DropdownMenu = props => {
 		if (direction === 'down') {
 			wrapperStyle.top = addUnit(offset)
 		} else {
-			wrapperStyle.bottom = ddUnit(offset)
+			wrapperStyle.bottom = addUnit(offset)
 		}
 
 		return wrapperStyle
 	})
 
-	const handleClose = useMemoizedFn(() => {
-		itemRefs.forEach((itemRef) => {
-			itemRef.current.toggle(false, true)
-		})	
-	})
-
-	const onUpdateData = useMemoizedFn((itemIndex, {
-		value,
-		title,
-		showPopup,
-		disabled,
-		options
-	} = {}) => {
-		updateItemListData(draft => {
-			draft[itemIndex] = {
-				value,
-				title,
-				showPopup,
-				disabled,
-				options	
-			}
-		})
-	})
-
-	const onTapMenuItem = useMemoizedFn((event) => {
-		const { index, disabled } = event.currentTarget.dataset
-
-		if (!disabled) {
-			MENU_LIST.forEach((menu) => {
-				if (
-					menu.id 
-					&& 
-					menu.closeOnClickOutside
-					&&
-					menu.id !== idRef.current
-				) {
-					menu.handleClose()
+	const handleCloseItems = useMemoizedFn((activedIndex = null) => {
+		itemRefs.forEach((itemRef, idx) => {
+			if (activedIndex !== null) {
+				if (idx !== activedIndex) {
+					itemRef.current.toggle(false, true)
 				}
-			})	
-
-			itemRefs[index].current.toggle()			
-		}
-	})
-
-	useMount(() => {
-		MENU_LIST.push({
-			id: idRef.current, 
-			closeOnClickOutside,
-			handleClose
-		})
-	})
-
-	useUnmount(() => {
-		MENU_LIST = reject(MENU_LIST, (menu) => {
-			return menu.id === idRef.current
-		})
+			}else {
+				itemRef.current.toggle(false, true)
+			}
+		})	
 	})
 
 	useEffect(() => {
 		const result = getItems(children, {
-			activeColor,
 			overlay,
 			duration,
 			direction,
 			closeOnClickOverlay,
-			getWrapperStyle,
-			onUpdateData,
+			handleCloseItems,
+			getWrapperStyle
 		})
 
 		setItemRefs(result.itemRefs)		
 		setItems(result.children)
 	}, [
 		children,
-		activeColor,
 		direction,
 		overlay,
 		duration,
@@ -174,23 +119,6 @@ export const DropdownMenu = props => {
 			ref={menuRef} 
 			className={bemBlock(BLOCK)}
 		>
-			{
-				itemListData.length > 0
-				&&
-				itemListData.map((item, index) => {
-					return (
-						<DropdownMenuItem 
-							key={item.value}
-							data-index={index}
-							data-disabled={item.disabled}
-							activeColor={activeColor}
-							direction={direction}
-							{...item}	
-							onClick={onTapMenuItem}
-						/>
-					)
-				})
-			}
 			{items}
 		</view>
 	)
@@ -198,12 +126,10 @@ export const DropdownMenu = props => {
 
 DropdownMenu.propTypes = {
 	direction: PropTypes.oneOf(['top', 'down']),
-	activeColor: PropTypes.string,
 	overlay: PropTypes.bool,
 	zIndex: PropTypes.number,
 	duration: PropTypes.number,
 	closeOnClickOverlay: PropTypes.bool,
-	closeOnClickOutside: PropTypes.bool	
 } 
 
 DropdownMenu.defaultProps = {
@@ -211,7 +137,6 @@ DropdownMenu.defaultProps = {
 	overlay: true,
 	zIndex: 10,
 	duration: 200,
-	closeOnClickOverlay: true,
-	closeOnClickOutside: true
+	closeOnClickOverlay: true
 }
 
