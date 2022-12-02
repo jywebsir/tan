@@ -1,0 +1,85 @@
+@import '../../styles/variables.scss';
+
+$block: #{$prefix}-radio;
+
+.#{$block} {
+	--margin-right: var(--#{$block}-margin-right, var(--tan-padding-sm));
+	--border-color: var(--#{$block}-border-color, #{$radio-border-color});
+	--font-size: var(--#{$block}-font-size, #{$radio-size});
+	--transition-duration: var(--#{$block}-transition-duration, #{$radio-transition-duration});
+	--checked-icon-color: var(--#{$block}-checked-icon-color, #{$radio-checked-icon-color});
+	--disabled-icon-color: var(--#{$block}-disabled-icon-color, #{$radio-disabled-icon-color});
+	--disabled-background-color: var(--#{$block}-disabled-background-color, #{$radio-disabled-background-color});
+	--label-margin: var(--#{$block}-label-margin, #{$radio-label-margin});
+	--label-color: var(--#{$block}-label-color, #{$radio-label-color});
+	--label-font-size: var(--#{$block}-label-font-size, #{$radio-label-font-size});
+	--disabled-label-color: var(--#{$block}-disabled-label-color, #{$radio-disabled-label-color});
+
+	display: flex;
+  align-items: center;
+  overflow: hidden;
+  user-select: none;
+
+	&--horizontal {
+		margin-right: var(--margin-right);
+	}
+
+	&__icon-wrap {
+		flex: none;
+	}
+
+	&__icon {
+		display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 1em;
+    height: 1em;
+    color: transparent;
+    text-align: center;
+    transition-property: color, border-color, background-color;
+		transition-duration: var(--transition-duration);
+		border: 1px solid var(--border-color);
+		font-size: var(--font-size);
+
+		&--round {
+			border-radius: 100%;
+		}
+	
+		&--checked {
+			color: var(--tan-color-white);
+			background-color: var(--checked-icon-color);
+			border-color: var(--checked-icon-color);
+		}
+	
+		&--disabled {
+			background-color: var(--disabled-background-color);
+			border-color: var(--disabled-icon-color);
+
+			&.#{$block}__icon--checked {
+				color: var(--disabled-icon-color)
+			}
+		}
+	}
+
+	&__label {
+		word-wrap: break-word;
+		padding-left: var(--label-margin);
+		font-size: var(--label-font-size);
+		color: var(--label-color);
+		line-height: var(--font-size);
+
+		&--left {
+			float: left;
+			margin: 0 var(--label-margin) 0 0;
+		}
+
+		&--disabled {
+			color: var(--disabled-label-color);
+		}
+
+    &:empty {
+      margin: 0;
+    }
+	}
+}

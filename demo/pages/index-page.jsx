@@ -90,6 +90,14 @@ const IndexPage = () => {
 				/>
 
 				<Cell 
+					title="Radio单选框" 
+					data-page="radio"
+					rightIcon
+					clickable
+					onClick={onClickCell}	
+				/>
+
+				<Cell 
 					title="Search搜索" 
 					data-page="search"
 					rightIcon

@@ -1,0 +1,15 @@
+.container {
+	:global {
+		.tan-radio--vertical {
+			margin-bottom: 10px;
+		}
+	}
+
+	.customColors {
+		--tan-radio-checked-icon-color: #07c160;
+	}
+
+	.customSize {
+		--tan-radio-font-size: 50px;	
+	}
+}

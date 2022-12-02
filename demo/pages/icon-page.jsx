@@ -8,7 +8,7 @@ import style from '../styles/icon-page.module.scss'
 const IconPage = () => {
 	return (
 		<DemoPage className={style.container}>
-			<DemoBlock title="基础用法">
+			<DemoBlock title="基础用法" padding>
 				<Space wrap>
 					<Space direction="vertical" align="center">
 						<Icon 
@@ -43,7 +43,7 @@ const IconPage = () => {
         </Space>
 			</DemoBlock>
 
-			<DemoBlock title="提示信息">
+			<DemoBlock title="提示信息" padding>
 				<Space wrap>
 					<Icon 
 						name="user-circle-o" 
@@ -57,7 +57,7 @@ const IconPage = () => {
 				</Space>
 			</DemoBlock>
 
-			<DemoBlock title="图标颜色">
+			<DemoBlock title="图标颜色" padding>
 				<Space wrap>
 					<Icon 
 						name="bag-o" 
@@ -72,7 +72,7 @@ const IconPage = () => {
 				</Space>
 			</DemoBlock>
 
-			<DemoBlock title="图标大小">
+			<DemoBlock title="图标大小" padding>
 				<Space wrap>
 					<Icon 
 						name="bag-o" 

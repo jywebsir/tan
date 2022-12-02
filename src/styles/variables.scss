@@ -301,3 +301,15 @@ $dropdown-item-trigger-title-line-height: #{calculate(18px)};
 $dropdown-menu-height: #{calculate(50px)};
 $dropdown-menu-background-color: var(--tan-color-white);
 $dropdown-menu-box-shadow: 0 #{calculate(2px)} #{calculate(12px)} fade(#{var(--tan-color-gray-7)} 12);
+
+// Radio 
+$radio-size: #{calculate(20px)};
+$radio-border-color: var(--tan-color-gray-5);
+$radio-transition-duration: 0.2s;
+$radio-label-margin: #{calculate(10px)};
+$radio-label-color: var(--tan-color-text);
+$radio-label-font-size: var(--tan-font-size-md);
+$radio-checked-icon-color: var(--tan-color-blue);
+$radio-disabled-icon-color: var(--tan-color-gray-5);
+$radio-disabled-label-color: var(--tan-color-gray-5);
+$radio-disabled-background-color: var(--tan-border-color);

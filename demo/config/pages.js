@@ -21,7 +21,8 @@ const map = {
 	sticky: 'sticky-page',
 	carousel: 'carousel-page',
 	indexBar: 'index-bar-page',
-	dropdownMenu: 'dropdown-menu-page'
+	dropdownMenu: 'dropdown-menu-page',
+	radio: 'radio-page'
 }
 
 const list = Object.keys(map).map((key) => {

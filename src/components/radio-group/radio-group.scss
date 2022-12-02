@@ -1,0 +1,8 @@
+$block: tan-radio-group;
+
+.#{$block} {
+	&--horizontal {
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
