@@ -1,8 +1,9 @@
 import React from 'react'
+import attachPropertiesToComponent from '../../utils/attach-properties-to-component'
+import { Radio } from './radio'
+import { RadioGroup } from './radio-group'
 import './radio.scss'
-import { 
-	Radio 
-} from './radio'
+import './radio-group.scss'
 
 export {
 	DIRECTION_HORIZONTAL,
@@ -13,4 +14,7 @@ export {
 	POSITION_RIGHT
 } from './radio'
 
-export default React.memo(Radio)
+
+export default attachPropertiesToComponent(React.memo(Radio), {
+  Group: React.memo(RadioGroup),
+})

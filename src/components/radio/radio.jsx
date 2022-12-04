@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import { isElement } from "react-is"
 import { useMemoizedFn } from 'ahooks'
 import Icon from '../icon'
 import { withNativeProps } from '../../utils/native-props'
 import { bemBlock, bemElement } from '../../utils/class-name'
+import usePropsValue from '../../hooks/use-props-value'
 import { isFunction } from '../../utils/validator'
+import isDev from '../../utils/is-dev'
+import RadioGroupContext from './radio-group-context'
 
 export const DIRECTION_HORIZONTAL = 'horizontal'
 export const DIRECTION_VERTICAL = 'vertical'
@@ -18,11 +21,7 @@ const BLOCK = 'radio'
 
 export const Radio = props => {
 	const {
-		direction,
-		name, 
 		value,
-		shape,
-		disabled,
 		labelDisabled,
 		labelPosition,
 		icon,
@@ -30,15 +29,50 @@ export const Radio = props => {
 		onChange
 	} = props
 
+	const groupContext = useContext(RadioGroupContext)
+
+	let disabled = props.disabled
+	const shape = groupContext ? groupContext.shape : props.shape
+	const direction = groupContext ? groupContext.direction : null
+
+	let [checked, setChecked] = usePropsValue({
+    value: props.checked,
+    defaultValue: props.defaultChecked,
+    onChange
+  })
+
+  if (groupContext && value !== undefined) {
+    if (isDev) {
+      if (props.checked !== undefined) {
+				console.warn('Radio在`Radio.Group`中使用时，`checked`属性是不起作用的.')
+      }
+      if (props.defaultChecked !== undefined) {
+				console.warn('Radio在`Radio.Group`中使用时，`defaultChecked`属性是不起作用的.')
+      }
+    }
+
+    checked = groupContext.value === value
+    setChecked = (innerChecked) => {
+      if (innerChecked) {
+        groupContext.check(value)
+      } else {
+        groupContext.uncheck(value)
+      }
+      onChange?.(innerChecked)
+    }
+
+    disabled = disabled || groupContext.disabled
+  }
+
 	const onClickLabel = () => {
 		if (!disabled && !labelDisabled) {
-			onChange?.(name)
+			setChecked(!checked)
 		}
 	}
 
 	const onClickIcon = useMemoizedFn(() => {
 		if (!disabled) {
-			onChange?.(name)
+			setChecked(!checked)
 		}
 	})
 
@@ -72,7 +106,7 @@ export const Radio = props => {
 						className={bemElement(
 							BLOCK, 
 							'icon', 
-							[shape, {disabled, checked: value === name}]
+							[shape, {disabled, checked}]
 						)}
 					/>
 				}
@@ -93,14 +127,6 @@ export const Radio = props => {
 }
 
 Radio.propTypes = {
-	direction: PropTypes.oneOf([
-		DIRECTION_HORIZONTAL,
-		DIRECTION_VERTICAL
-	]),
-	name: PropTypes.oneOfType([
-		PropTypes.string, 
-		PropTypes.number
-	]).isRequired,
 	value: PropTypes.oneOfType([
 		PropTypes.string, 
 		PropTypes.number
@@ -114,7 +140,6 @@ Radio.propTypes = {
 } 
 
 Radio.defaultProps = {
-	direction: DIRECTION_VERTICAL,
 	shape: SHAPE_ROUND,
 	labelPosition: POSITION_RIGHT
 }

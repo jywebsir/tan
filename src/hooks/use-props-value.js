@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { useMemoizedFn, useUpdate } from 'ahooks'
 
-export function usePropsValue(options) {
+export default function usePropsValue(options) {
   const { value, defaultValue, onChange } = options
 
   const update = useUpdate()
@@ -11,16 +11,16 @@ export function usePropsValue(options) {
     stateRef.current = value
   }
 
-  const setState = useMemoizedFn((v) => {
+  const setState = useMemoizedFn((v, forceTrigger = false) => {
     const nextValue =
       typeof v === 'function' ? v(stateRef.current) : v
 
-    if (value === undefined) {
-      stateRef.current = nextValue
-      update()
-    }
+		if (!forceTrigger && nextValue === stateRef.current) return
 
-    onChange?.(nextValue)
+    stateRef.current = nextValue
+		update()
+
+		return onChange?.(nextValue)
   })
 
   return [stateRef.current, setState]

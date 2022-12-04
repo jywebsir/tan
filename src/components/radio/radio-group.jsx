@@ -1,60 +1,54 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useMemoizedFn } from 'ahooks'
-import { isElement } from "react-is"
 import { withNativeProps } from '../../utils/native-props'
-import { bemBlock, bemElement } from '../../utils/class-name'
-import uniqueId from '../../utils/unique-id'
-import { isBoolean } from '../../utils/validator'
+import { bemBlock } from '../../utils/class-name'
+import RadioGroupContext from './radio-group-context'
+import usePropsValue from '../../hooks/use-props-value'
+
 import { 
 	DIRECTION_HORIZONTAL, 
 	DIRECTION_VERTICAL, 
 	SHAPE_ROUND, 
 	SHAPE_SQUARE 
-} from '../radio'
+} from './radio'
 
 const BLOCK = 'radio-group'
 
 export const RadioGroup = props => {
 	const {
-		value,
-		shape,
 		direction,
-		disabled,
-		onChange,
-		children
+		shape,
+		disabled
 	} = props
 
-	const mergeProps = {
-		value,
-		direction,
-		onChange
-	}
-
-	if (disabled === true) {
-		mergeProps.disabled = disabled
-	}
-
-	if (shape && [SHAPE_ROUND, SHAPE_SQUARE].includes(shape)) {
-		mergeProps.shape = shape
-	}
+	const [value, setValue] = usePropsValue({
+    value: props.value,
+    defaultValue: props.defaultValue,
+    onChange: v => {
+      if (v === null) return
+      props.onChange?.(v)
+    },
+  })
 
 	return withNativeProps(
 		props,
 		<view className={bemBlock(BLOCK, [direction])}>
-			{
-				React.Children.map(children, (radio) => {
-					const key = uniqueId('radio-group-item')
-
-					return React.cloneElement(radio, {
-						key,
-						...radio.props,
-						...mergeProps
-					})
-				})
-			}
+			<RadioGroupContext.Provider
+				value={{
+					value,
+					shape,
+					direction,
+					disabled,
+					check: v => {
+						setValue(v)
+					},
+					uncheck: () => {},
+				}}
+			>
+				{props.children}
+			</RadioGroupContext.Provider>
 		</view>
-	)
+  )
 }
 
 RadioGroup.propTypes = {
@@ -72,5 +66,6 @@ RadioGroup.propTypes = {
 } 
 
 RadioGroup.defaultProps = {
+	shape: SHAPE_ROUND,
 	direction: DIRECTION_VERTICAL
 }
