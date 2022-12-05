@@ -97,9 +97,9 @@ export const Radio = props => {
 				onTap={onClickIcon}
 			>
 				{
-					isElement(icon)
+					isFunction(icon)
 					?
-					icon
+					icon(checked)
 					:
 					<Icon 
 						name="success" 
@@ -135,7 +135,7 @@ Radio.propTypes = {
 	disabled: PropTypes.bool,
 	labelDisabled: PropTypes.bool,
 	labelPosition: PropTypes.oneOf([POSITION_LEFT, POSITION_RIGHT]),
-	icon: PropTypes.element,
+	icon: PropTypes.func,
 	onChange: PropTypes.func.isRequired
 } 
 

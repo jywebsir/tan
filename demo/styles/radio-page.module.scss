@@ -6,6 +6,14 @@
 		}
 	}
 
+	.singleUsed {
+		:global {
+			.tan-radio {
+				margin-bottom: 10px;
+			}
+		}
+	}
+
 	.customColors {
 		--tan-radio-checked-icon-color: #07c160;
 	}

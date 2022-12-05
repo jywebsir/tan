@@ -53,10 +53,13 @@ const RadioPage = () => {
 
 	return (
 		<DemoPage className={style.container}>
-			<DemoBlock title="单独用法" padding>
+			<DemoBlock title="单独用法" className={style.singleUsed} padding>
 				<Radio>非受控的</Radio>
 				<Radio checked={checked} onChange={onChangeChecked}>受控选中</Radio>
 				<Radio defaultChecked>默认选中的</Radio>
+				<Radio defaultChecked disabled>禁用的</Radio>
+				<Radio shape="square">自定义形状</Radio>
+				<Radio labelDisabled>不可点击的</Radio>
 			</DemoBlock>
 
 			<DemoBlock title="基础分组用法" padding>
@@ -108,31 +111,19 @@ const RadioPage = () => {
 				>
 					<Radio 
 						value="1"
-						icon={
-							<Icon 
-								name={
-									radioIcon === '1' 
-									? 
-									ICONS.actived
-									:
-									ICONS.inactived
-								}  
-							/>
-						}
+						icon={(checked) => {
+							return (
+								<Icon name={checked ? ICONS.actived : ICONS.inactived} />
+							)
+						}}
 					>单选框1</Radio>
 					<Radio 
 						value="2"
-						icon={
-							<Icon 
-								name={
-									radioIcon === '2' 
-									? 
-									ICONS.actived
-									:
-									ICONS.inactived
-								}  
-							/>
-						}
+						icon={(checked) => {
+							return (
+								<Icon name={checked ? ICONS.actived : ICONS.inactived} />
+							)
+						}}
 					>单选框2</Radio>
 				</Radio.Group>
 			</DemoBlock>
