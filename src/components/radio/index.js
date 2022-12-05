@@ -14,7 +14,6 @@ export {
 	POSITION_RIGHT
 } from './radio'
 
-
 export default attachPropertiesToComponent(React.memo(Radio), {
   Group: React.memo(RadioGroup),
 })

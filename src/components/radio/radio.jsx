@@ -141,5 +141,8 @@ Radio.propTypes = {
 
 Radio.defaultProps = {
 	shape: SHAPE_ROUND,
-	labelPosition: POSITION_RIGHT
+	defaultChecked: false,
+	disabled: false,
+	labelPosition: POSITION_RIGHT,
+	labelDisabled: false
 }

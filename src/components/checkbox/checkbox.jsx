@@ -1,9 +1,13 @@
-import { forwardRef, useImperativeHandle } from 'react'
-import ProTypes from 'prop-types'
+import { forwardRef, useContext, useImperativeHandle } from 'react'
+import PropTypes from 'prop-types'
 import { useMemoizedFn } from 'ahooks'
+import isDev from '../../utils/is-dev'
+import { isFunction } from '../../utils/validator'
 import { withNativeProps } from '../../utils/native-props'
 import { bemBlock, bemElement } from '../../utils/class-name'
-import { usePropsValue } from '../../hooks/use-props-value'
+import usePropsValue from '../../hooks/use-props-value'
+import Icon from '../icon'
+import CheckboxGroupContext from './checkbox-group-context'
 
 const BLOCK = 'checkbox'
 
@@ -17,12 +21,11 @@ export const POSITION_RIGHT = 'right'
 export const Checkbox = forwardRef((props, ref) => {
 	const {
 		value,
-		shape,
-		checked,
-		defaultChecked,
 		labelPosition,
 		labelDisabled,
-		icon
+		icon,
+		children,
+		onChange
 	} = props
 
 	let [checked, setChecked] = usePropsValue({
@@ -31,10 +34,36 @@ export const Checkbox = forwardRef((props, ref) => {
     onChange: props.onChange
   })
 
-	let disabled = props.disabled
-	let direction = null
+	const groupContext = useContext(CheckboxGroupContext)
 
-	const labelClass = bemElement(BLOCk, 'label', [labelPosition, {disabled}])
+	let disabled = props.disabled
+	const shape = groupContext ? groupContext.shape : props.shape
+	const direction = groupContext ? groupContext.direction : null
+
+	const labelClass = bemElement(BLOCK, 'label', [labelPosition, {disabled}])
+
+	if (groupContext && value !== undefined) {
+    if (isDev) {
+      if (props.checked !== undefined) {
+				console.warn('Checkbox在`Checkbox.Group`中使用时，`checked`属性是不起作用的.')
+      }
+      if (props.defaultChecked !== undefined) {
+				console.warn('Checkbox在`CheckBox.Group`中使用时，`defaultChecked`属性是不起作用的.')
+      }
+    }
+
+    checked = Array.isArray(groupContext.value) && groupContext.value.includes(value)
+    setChecked = (innerChecked) => {
+      if (innerChecked) {
+        groupContext.check(value)
+      } else {
+        groupContext.uncheck(value)
+      }
+      onChange?.(innerChecked)
+    }
+
+    disabled = disabled || groupContext.disabled
+  }
 
 	useImperativeHandle(ref, () => ({
     check: () => {
@@ -49,7 +78,15 @@ export const Checkbox = forwardRef((props, ref) => {
   }))
 
 	const onClickLabel = useMemoizedFn(() => {
+		if (!disabled && !labelDisabled) {
+			setChecked(!checked)
+		}
+	})
 
+	const onClickIcon = useMemoizedFn(() => {
+		if (!disabled) {
+			setChecked(!checked)
+		}
 	})
 
 	return withNativeProps(
@@ -71,9 +108,33 @@ export const Checkbox = forwardRef((props, ref) => {
 				</view>
 			}	
 
-			<view className={bemElement(BLOCK, 'icon-wrap')}>
-
+			<view className={bemElement(BLOCK, 'icon-wrap')} onTap={onClickIcon}>
+			{
+				isFunction(icon)
+				?
+				icon(checked)
+				:
+				<Icon 
+					name="success" 
+					className={bemElement(
+						BLOCK, 
+						'icon', 
+						[shape, {disabled, checked}]
+					)}
+				/>
+			}
 			</view>
+
+			{
+				labelPosition === POSITION_RIGHT
+				&&
+				<view 
+					className={labelClass} 
+					onTap={onClickLabel}
+				>
+					{children}
+				</view>
+			}
 		</view>
 	)
 })
@@ -89,14 +150,12 @@ Checkbox.propTypes = {
 	disabled: PropTypes.bool,
 	labelPosition: PropTypes.oneOf([POSITION_LEFT, POSITION_RIGHT]),
 	labelDisabled: PropTypes.bool,
-	icon: PropTypes.element,
+	icon: PropTypes.func,
 	onChange: PropTypes.func
 }
 
 Checkbox.defaultProps = {
-	shape: SHAPE_ROUND,
-	checked: false,
-	defaultChecked: false,
+	shape: SHAPE_SQUARE,
 	disabled: false,
 	labelPosition: POSITION_RIGHT,
 	labelDisabled: false

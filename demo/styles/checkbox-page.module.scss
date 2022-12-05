@@ -1,0 +1,29 @@
+@import '../../src/styles/variables.scss';
+
+$block-prefix: #{$prefix}-checkbox;
+
+.single {
+	:global {
+		.#{$block-prefix} {
+			margin-bottom: 10px;
+		}
+	}
+
+	.customColor {
+		--checked-icon-color: #07c160;
+	}
+
+	.customSize {
+		--checkbox-size: 50px;
+	}
+}
+
+.container {
+	:global {
+		.#{$block-prefix}-group--vertical {
+			.#{$block-prefix} {
+				margin-bottom: 10px;
+			}
+		}
+	}
+}

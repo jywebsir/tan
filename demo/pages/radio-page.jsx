@@ -46,13 +46,14 @@ const RadioPage = () => {
 	}
 
 	const onClickCell = (event) => {
+		console.log(event)
 		const { value } = event.currentTarget.dataset
 
 		setRadio3(value)
 	}
 
 	return (
-		<DemoPage className={style.container}>
+		<DemoPage className={style.container} bgColor="#FFFFFF">
 			<DemoBlock title="单独用法" className={style.singleUsed} padding>
 				<Radio>非受控的</Radio>
 				<Radio checked={checked} onChange={onChangeChecked}>受控选中</Radio>

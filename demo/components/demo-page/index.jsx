@@ -5,6 +5,8 @@ import { withNativeProps } from '@/utils/native-props'
 import style from './style.module.scss'
 
 const DemoPage = (props) => {
+	const { bgColor } = props
+
   const { 
     className,
     children
@@ -17,6 +19,7 @@ const DemoPage = (props) => {
         style.container, 
         className
       )}
+			style={{backgroundColor: bgColor}}
     >
       {children}
     </view>
@@ -24,7 +27,12 @@ const DemoPage = (props) => {
 }
 
 DemoPage.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+	bgColor: PropTypes.string
+}
+
+DemoPage.defaultProps = {
+	bgColor: '#f4f4f4'
 }
 
 export default DemoPage

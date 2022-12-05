@@ -3,71 +3,71 @@
 
 page {
 	// Color Palette
-	--tan-color-black: #000000;
-  --tan-color-white: #ffffff;
-	--tan-color-gray-1: #f7f8fa;
-	--tan-color-gray-2: #f2f3f5;
-	--tan-color-gray-3: #ebedf0;
-	--tan-color-gray-4: #dcdee0;
-	--tan-color-gray-5: #c8c9cc;
-	--tan-color-gray-6: #969799;
-	--tan-color-gray-7: #646566;
-	--tan-color-gray-8: #323233;
-	--tan-color-red: #ee0a24;
-	--tan-color-blue: #1989fa;
-	--tan-color-orange: #ff976a;
-	--tan-color-orange-dark: #ed6a0c;
-	--tan-color-orange-light: #fffbe8;
-	--tan-color-green: #07c160;
+	--#{$prefix}-color-black: #000000;
+  --#{$prefix}-color-white: #ffffff;
+	--#{$prefix}-color-gray-1: #f7f8fa;
+	--#{$prefix}-color-gray-2: #f2f3f5;
+	--#{$prefix}-color-gray-3: #ebedf0;
+	--#{$prefix}-color-gray-4: #dcdee0;
+	--#{$prefix}-color-gray-5: #c8c9cc;
+	--#{$prefix}-color-gray-6: #969799;
+	--#{$prefix}-color-gray-7: #646566;
+	--#{$prefix}-color-gray-8: #323233;
+	--#{$prefix}-color-red: #ee0a24;
+	--#{$prefix}-color-blue: #1989fa;
+	--#{$prefix}-color-orange: #ff976a;
+	--#{$prefix}-color-orange-dark: #ed6a0c;
+	--#{$prefix}-color-orange-light: #fffbe8;
+	--#{$prefix}-color-green: #07c160;
 
 	// Gradient Colors
-	--tan-color-gradient-red: linear-gradient(to right, #ff6034, #ee0a24);
-	--tan-color-gradient-orange: linear-gradient(to right, #ffd01e, #ff8917);
+	--#{$prefix}-color-gradient-red: linear-gradient(to right, #ff6034, #ee0a24);
+	--#{$prefix}-color-gradient-orange: linear-gradient(to right, #ffd01e, #ff8917);
 
 	// Component Colors
-  --tan-color-text: #{var(--tan-color-gray-8)};
-	--tan-color-active: #{var(--tan-color-gray-2)};
-	--tan-color-active-opacity: 0.7;
-	--tan-color-disabled-opacity: 0.5;
-	--tan-color-background: #{var(--tan-color-gray-1)};
-	--tan-color-background-light: #fafafa;
-	--tan-color-text-link: #576b95;
+  --#{$prefix}-color-text: #{var(--#{$prefix}-color-gray-8)};
+	--#{$prefix}-color-active: #{var(--#{$prefix}-color-gray-2)};
+	--#{$prefix}-color-active-opacity: 0.7;
+	--#{$prefix}-color-disabled-opacity: 0.5;
+	--#{$prefix}-color-background: #{var(--#{$prefix}-color-gray-1)};
+	--#{$prefix}-color-background-light: #fafafa;
+	--#{$prefix}-color-text-link: #576b95;
 
 	// Type Colors
-  --tan-color-primary: #1677ff;
-  --tan-color-success: #00b578;
-  --tan-color-warning: #ff8f1f;
-  --tan-color-danger: #ff3141;
-  --tan-color-weak: #999999;
-  --tan-color-light: #cccccc;
+  --#{$prefix}-color-primary: #1677ff;
+  --#{$prefix}-color-success: #00b578;
+  --#{$prefix}-color-warning: #ff8f1f;
+  --#{$prefix}-color-danger: #ff3141;
+  --#{$prefix}-color-weak: #999999;
+  --#{$prefix}-color-light: #cccccc;
 
 	// Font
-  --tan-font-family: -apple-system, blinkmacsystemfont, 'Helvetica Neue',
+  --#{$prefix}-font-family: -apple-system, blinkmacsystemfont, 'Helvetica Neue',
     helvetica, segoe ui, arial, roboto, 'PingFang SC', 'miui',
     'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
-  --tan-font-size: #{calculate(13px)};
-	--tan-font-size-xs: #{calculate(10px)};
-	--tan-font-size-sm: #{calculate(12px)};
-	--tan-font-size-md: #{calculate(14px)};
-	--tan-font-size-lg: #{calculate(16px)};
-	--tan-font-weight-bold: 500;
+  --#{$prefix}-font-size: #{calculate(13px)};
+	--#{$prefix}-font-size-xs: #{calculate(10px)};
+	--#{$prefix}-font-size-sm: #{calculate(12px)};
+	--#{$prefix}-font-size-md: #{calculate(14px)};
+	--#{$prefix}-font-size-lg: #{calculate(16px)};
+	--#{$prefix}-font-weight-bold: 500;
 
 	// Animation
-	--tan-animation-duration-base: 0.3s;
-	--tan-animation-duration-fast: 0.2s;
+	--#{$prefix}-animation-duration-base: 0.3s;
+	--#{$prefix}-animation-duration-fast: 0.2s;
 
 	// Padding
-	--tan-padding-base: #{calculate(4px)};
-	--tan-padding-xs: #{calculate(8px)}; 
-	--tan-padding-sm: #{calculate(12px)};
-	--tan-padding-md: #{calculate(16px)};
-	--tan-padding-lg: #{calculate(24px)};
-	--tan-padding-xl: #{calculate(32px)};
+	--#{$prefix}-padding-base: #{calculate(4px)};
+	--#{$prefix}-padding-xs: #{calculate(8px)}; 
+	--#{$prefix}-padding-sm: #{calculate(12px)};
+	--#{$prefix}-padding-md: #{calculate(16px)};
+	--#{$prefix}-padding-lg: #{calculate(24px)};
+	--#{$prefix}-padding-xl: #{calculate(32px)};
 
 	// Border
-	--tan-border-color: #eeeeee;
-	--tan-border-radius-sm: #{calculate(2px)};
-	--tan-border-radius-md: #{calculate(4px)};
-	--tan-border-radius-lg: #{calculate(8px)};
-	--tan-border-radius-max: #{calculate(999px)};
+	--#{$prefix}-border-color: #eeeeee;
+	--#{$prefix}-border-radius-sm: #{calculate(2px)};
+	--#{$prefix}-border-radius-md: #{calculate(4px)};
+	--#{$prefix}-border-radius-lg: #{calculate(8px)};
+	--#{$prefix}-border-radius-max: #{calculate(999px)};
 }

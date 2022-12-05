@@ -98,6 +98,14 @@ const IndexPage = () => {
 				/>
 
 				<Cell 
+					title="Checkbox复选框" 
+					data-page="checkbox"
+					rightIcon
+					clickable
+					onClick={onClickCell}	
+				/>
+
+				<Cell 
 					title="Search搜索" 
 					data-page="search"
 					rightIcon
