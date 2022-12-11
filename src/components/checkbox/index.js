@@ -14,6 +14,9 @@ export {
 	POSITION_RIGHT
 } from './checkbox'
 
+export {default as useCheckbox} from './use-checkbox'
+export {default as useCheckboxGroup} from './use-checkbox-group'
+
 export default attachPropertiesToComponent(
 	React.memo(Checkbox), 
 	{

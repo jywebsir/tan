@@ -23,7 +23,12 @@ const map = {
 	indexBar: 'index-bar-page',
 	dropdownMenu: 'dropdown-menu-page',
 	radio: 'radio-page',
-	checkbox: 'checkbox-page'
+	checkbox: 'checkbox-page',
+	switch: 'switch-page',
+	calendar: 'calendar-page',
+	countDown: 'count-down-page',
+	divider: 'divider-page',
+	progress: 'progress-page'
 }
 
 const list = Object.keys(map).map((key) => {

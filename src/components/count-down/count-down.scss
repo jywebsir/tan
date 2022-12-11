@@ -1,0 +1,13 @@
+@import '../../styles/variables.scss';
+
+$block: #{$prefix}-count-down;
+
+.#{$block} {
+	--text-color: var(--#{$block}-text-color, #{$count-down-text-color});
+	--font-size: var(--#{$block}-font-size, #{$count-down-font-size});
+	--line-height: var(--#{$block}-line-height, #{$count-down-line-height});
+
+	color: var(--text-color);
+	font-size: var(--font-size);
+	line-height: var(--line-height);
+}

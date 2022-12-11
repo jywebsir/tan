@@ -28,11 +28,13 @@ export const getElementRect = (elementOrRef) => {
 	}
 
 	return new Promise((resolve) => {
-		queryNodesRef(element)
+		Taro.nextTick(() => {
+			queryNodesRef(element)
 			.boundingClientRect()
 			.exec(([rect]) => {
 				resolve(rect)
 			})
+		})
 	})
 }
 
@@ -48,10 +50,12 @@ export const getElementRectsBySelector = (elementOrRef, selector) => {
 	}
 
 	return new Promise((resolve) => {
-		queryAllNodesRef(element, selector)
+		Taro.nextTick(() => {
+			queryAllNodesRef(element, selector)
 			.boundingClientRect()
 			.exec(([rects]) => {
 				resolve(rects)
 			})
+		})
 	})
 }

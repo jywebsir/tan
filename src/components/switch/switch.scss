@@ -1,0 +1,73 @@
+@import '../../styles/variables.scss';
+
+$block: #{$prefix}-switch;
+
+.#{$block} {
+	--width: var(--#{$block}-width, #{$switch-width});
+	--height: var(--#{$block}-height, #{$switch-height});
+	--font-size: var(--#{$block}-size, #{$switch-size});
+	--background-color: var(--#{$block}-background-color, #{$switch-background-color});
+	--on-background-color: var(--#{$block}-on-background-color, #{$switch-on-background-color});
+	--border: var(--#{$block}-border, #{$switch-border});
+	--disabled-opacity: var(--#{$block}-disabled-opacity, #{$switch-disabled-opacity});
+	--transition-duration: var(--#{$block}-transition-duration, #{$switch-transition-duration});
+	--node-size: var(--#{$block}-node-size, #{$switch-node-size});
+	--node-z-index: var(--#{$block}-node-z-index, #{$switch-node-z-index});
+	--node-background-color: var(--#{$block}-node-background-color, #{$switch-node-background-color});
+	--node-box-shadow: var(--#{$block}-node-box-shadow, #{$switch-node-box-shadow});
+	--loading-actived-color: var(--#{$block}-loading-actived-color, #{$switch-loading-actived-color});
+	--loading-inactived-color: var(--#{$block}-loading-inactived-color, #{$switch-loading-inactived-color});
+
+	position: relative;
+  display: inline-block;
+  box-sizing: content-box;
+	font-size: var(--font-size);
+	width: var(--width);
+	height: var(--height);
+	background-color: var(--background-color);
+	border: var(--border);
+	border-radius: var(--node-size);
+	transition: background-color var(--transition-duration);
+
+	&__node {
+		position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 100%;
+		z-index: var(--node-z-index);
+		width: var(--node-size);
+		height: var(--node-size);
+		background-color: var(--node-background-color);
+		box-shadow: var(--node-box-shadow);
+		transition: var(--transition-duration) cubic-bezier(0.3, 1.05, 0.4, 1.05);
+	}
+
+	&__loading {
+		position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+		color: var(--loading-inactived-color);
+
+		&--actived {
+			color: var(--loading-actived-color);
+		}
+	}
+
+	&--on {
+		background-color: var(--on-background-color);
+
+		.#{$block}__node {
+			transform: translateX(
+        calc(
+          var(--width) - var(--node-size)
+        )
+      );
+		}
+	}
+
+	&--disabled {
+		opacity: var(--disabled-opacity);
+	}
+}

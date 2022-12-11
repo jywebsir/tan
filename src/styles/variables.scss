@@ -325,3 +325,74 @@ $checkbox-checked-icon-color: var(--#{$prefix}-color-blue);
 $checkbox-disabled-icon-color: var(--#{$prefix}-color-gray-5);
 $checkbox-disabled-label-color: var(--#{$prefix}-color-gray-5);
 $checkbox-disabled-background-color: var(--#{$prefix}-border-color);
+
+// switch
+$switch-width: 2em;
+$switch-height: 1em;
+$switch-size: #{calculate(30px)};
+$switch-node-size: 1em;
+$switch-node-z-index: 1;
+$switch-node-background-color: var(--#{$prefix}-color-white);
+$switch-node-box-shadow: 0 3px 1px 0 rgba(0, 0, 0, 0.05), 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 3px 3px 0 rgba(0, 0, 0, 0.05);
+$switch-background-color: var(--#{$prefix}-color-white);
+$switch-on-background-color: var(--#{$prefix}-color-blue);
+$switch-transition-duration: 0.3s;
+$switch-disabled-opacity: 0.4;
+$switch-border: 1px solid rgba(0, 0, 0, 0.1);
+$switch-loading-actived-color: #1989fa;
+$switch-loading-inactived-color: #969799;
+
+// Calendar
+$calendar-height: 100%;
+$calendar-background-color: var(--#{$prefix}-color-white);
+$calendar-popup-height: 80%;
+$calendar-header-box-shadow: 0 2px 10px rgba(125, 126, 128, 0.16);
+$calendar-header-title-height: #{calculate(44px)};
+$calendar-header-title-font-size: var(--#{$prefix}-font-size-lg);
+$calendar-header-subtitle-font-size: var(--#{$prefix}-font-size-md);
+$calendar-weekdays-height: #{calculate(30px)};
+$calendar-weekdays-font-size: var(--#{$prefix}-font-size-sm);
+$calendar-month-title-font-size: var(--#{$prefix}-font-size-md);
+$calendar-month-mark-color: fade(#{var(--#{$prefix}-color-gray-2)}, 80%);
+$calendar-month-mark-font-size: #{calculate(160px)};
+$calendar-day-height: #{calculate(64px)};
+$calendar-day-font-size: var(--#{$prefix}-font-size-lg);
+$calendar-range-edge-color: var(--#{$prefix}-color-white);
+$calendar-range-edge-background-color: var(--#{$prefix}-color-red);
+$calendar-range-middle-color: var(--#{$prefix}-color-red);
+$calendar-range-middle-background-opacity: 0.1;
+$calendar-selected-day-size: #{calculate(54px)};
+$calendar-selected-day-color: var(--#{$prefix}-color-white);
+$calendar-info-font-size: var(--#{$prefix}-font-size-sm);
+$calendar-info-line-height: #{calcuate(14px)};
+$calendar-selected-day-background-color: var(--#{$prefix}-color-red);
+$calendar-day-disabled-color: var(--#{$prefix}-color-gray-5);
+$calendar-confirm-button-height: #{calculate(36px)};
+$calendar-confirm-button-margin: #{calculate(7px)} 0;
+$calendar-confirm-button-line-height: #{calcuate(34px)};
+
+// CountDown
+$count-down-text-color: var(--#{$prefix}-color-text);
+$count-down-font-size: var(--#{$prefix}-font-size-md);
+$count-down-line-height: #{calculate(20px)};
+
+// Divider
+$divider-margin: var(--#{$prefix}-padding-md) 0;
+$divider-text-color: var(--#{$prefix}-color-gray-6);
+$divider-font-size: var(--#{$prefix}-font-size-md);
+$divider-line-height: #{calculate(24px)};
+$divider-border-color: var(--#{$prefix}-border-color);
+$divider-content-padding: var(--#{$prefix}-padding-md);
+$divider-content-left-width: 10%;
+$divider-content-right-width: 10%;
+
+// Progress
+$progress-height: #{calculate(4px)};
+$progress-background-color: var(--#{$prefix}-color-gray-3);
+$progress-pivot-padding: 0 #{calculate(5px)};
+$progress-color: var(--#{$prefix}-color-blue);
+$progress-inactive-color: #cacaca;
+$progress-pivot-font-size: var(--#{$prefix}-font-size-xs);
+$progress-pivot-line-height: 1.6;
+$progress-pivot-background-color: var(--#{$prefix}-color-blue);
+$progress-pivot-text-color: var(--#{$prefix}-color-white);

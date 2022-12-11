@@ -1,0 +1,29 @@
+@import '../../styles/variables.scss';
+
+$block: #{$prefix}-calendar; 
+
+.#{$block} {
+	--height: var(--#{$block}-height, #{$calendar-height});
+	--background-color: var(--#{$block}-background-color, #{$calendar-background-color});
+	
+	display: flex;
+  flex-direction: column;
+	height: var(--height);
+	background-color: var(--background-color);
+
+	&__popup--top,
+	&__popup--bottom {
+		--popup-height: var(--#{$block}-popup-height, #{$calendar-popup-height});
+
+		height: var(--popup-height);
+
+		.#{$prefix}-popup__close-icon--top-right {
+			top: #{calculate(11px)};
+		}
+	}
+
+	&__popup--left,
+	&__popup--right {
+		height: 100%;
+	}
+}

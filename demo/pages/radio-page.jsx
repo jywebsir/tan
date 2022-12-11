@@ -46,7 +46,6 @@ const RadioPage = () => {
 	}
 
 	const onClickCell = (event) => {
-		console.log(event)
 		const { value } = event.currentTarget.dataset
 
 		setRadio3(value)
@@ -60,7 +59,7 @@ const RadioPage = () => {
 				<Radio defaultChecked>默认选中的</Radio>
 				<Radio defaultChecked disabled>禁用的</Radio>
 				<Radio shape="square">自定义形状</Radio>
-				<Radio labelDisabled>不可点击的</Radio>
+				<Radio labelDisabled>禁用文本点击的</Radio>
 			</DemoBlock>
 
 			<DemoBlock title="基础分组用法" padding>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { withNativeProps } from '../../utils/native-props'
 import { bemBlock } from '../../utils/class-name'
 import RadioGroupContext from './radio-group-context'
-import usePropsValue from '../../hooks/use-props-value'
+import useRadioGroup from './use-radio-group'
 
 import { 
 	DIRECTION_HORIZONTAL, 
@@ -17,33 +17,14 @@ const BLOCK = 'radio-group'
 export const RadioGroup = props => {
 	const {
 		direction,
-		shape,
-		disabled
-	} = props
-
-	const [value, setValue] = usePropsValue({
-    value: props.value,
-    defaultValue: props.defaultValue,
-    onChange: v => {
-      if (v === null) return
-      props.onChange?.(v)
-    },
-  })
+		contextValue
+	} = useRadioGroup(props)
 
 	return withNativeProps(
 		props,
 		<view className={bemBlock(BLOCK, [direction])}>
 			<RadioGroupContext.Provider
-				value={{
-					value,
-					shape,
-					direction,
-					disabled,
-					check: v => {
-						setValue(v)
-					},
-					uncheck: () => {},
-				}}
+				value={contextValue}
 			>
 				{props.children}
 			</RadioGroupContext.Provider>

@@ -83,7 +83,9 @@
   }
 
 	&__close-icon {
-		position: absolute;
+		&.#{$prefix}-icon {
+			position: absolute;
+		}
 		z-index: var(--close-icon-z-index);
 		color: var(--close-icon-color);
 		font-size: var(--close-icon-size);

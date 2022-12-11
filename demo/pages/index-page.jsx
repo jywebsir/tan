@@ -82,6 +82,14 @@ const IndexPage = () => {
 
 			<CellGroup title="表单组件">
 				<Cell 
+					title="Calendar日历" 
+					data-page="calendar"
+					rightIcon
+					clickable
+					onClick={onClickCell}	
+				/>
+
+				<Cell 
 					title="Field输入框" 
 					data-page="field"
 					rightIcon
@@ -100,6 +108,14 @@ const IndexPage = () => {
 				<Cell 
 					title="Checkbox复选框" 
 					data-page="checkbox"
+					rightIcon
+					clickable
+					onClick={onClickCell}	
+				/>
+
+				<Cell 
+					title="Switch开关" 
+					data-page="switch"
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -174,13 +190,36 @@ const IndexPage = () => {
 				/>
 
 				<Cell 
+					title="Divider分割线" 
+					data-page="divider"
+					rightIcon
+					clickable
+					onClick={onClickCell}	
+				/>
+
+				<Cell 
+					title="Progress 进度条" 
+					data-page="progress"
+					rightIcon
+					clickable
+					onClick={onClickCell}	
+				/>
+
+				<Cell 
+					title="CountDown倒计时" 
+					data-page="count-down"
+					rightIcon
+					clickable
+					onClick={onClickCell}	
+				/>
+
+				<Cell 
 					title="Empty空状态" 
 					data-page="empty"
 					rightIcon
 					clickable
 					onClick={onClickCell}	
 				/>
-
 
 				<Cell 
 					title="Sticky粘性布局" 
