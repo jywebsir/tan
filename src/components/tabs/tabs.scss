@@ -1,0 +1,181 @@
+@import '../../styles/variables.scss';
+@import '../../styles/functions/util.scss';
+
+$block: #{$prefix}-tabs;
+
+.#{$block} {
+	--default-color: var(--#{$block}-default-color, #{$tabs-default-color});
+	--line-height: var(--#{$block}-line-height, #{$tabs-line-height});
+	--tab-width: var(--#{$block}-tab-width, 22%);
+	--tab-font-size: var(--#{$block}-tab-font-size, #{$tabs-tab-font-size});
+	--tab-font-weight-bold: var(--#{$block}-tab-font-bold, #{var(--#{$prefix}-font-weight-bold)});
+	--tab-color: var(--#{$block}-tab-color, #{$tabs-tab-text-color});
+	--tab-actived-color: var(--#{$block}-tab-actived-color, #{$tabs-tab-actived-text-color});
+	--tab-disabled-color: var(--#{$block}-tab-disabled-color, #{$tabs-tab-disabled-text-color});
+	--tab-actived-background-color: var(--#{$block}-tab-actived-color, #{var(--default-color)});
+	--nav-background-color: var(--#{$block}-nav-background-color, #{$tabs-nav-background-color});
+	--nav-card-height: var(--#{$block}-nav-card-height, #{$tabs-nav-card-height});
+	--scroll-card-margin: 0 var(--#{$block}-scroll-card-margin, #{var(--#{$prefix}-padding-md)});
+	--scroll-card-border: var(--#{$block}-scroll-card-border, 1px solid #{var(--default-color)});
+	--scroll-card-width: var(--#{$block}-scroll-card-width, #{calc(100% - calc(var(--#{$prefix}-padding-md) * 2))});
+	--scroll-card-border-radius: var(--#{$block}-scroll-card-border-radius, #{calculate(2px)});
+
+	position: relative;
+  -webkit-tap-highlight-color: transparent;
+
+	&--line {
+		.#{$block}__header {
+			height: var(--line-height);
+		}
+	}
+
+	&--card {
+		.#{$block}__header {
+			height: var(--nav-card-height);
+		}	
+	}
+
+	&__header {
+		display: flex;
+    overflow: hidden;
+
+		&--scrollable {
+			.#{$block}__tab {
+				flex: 0 0 var(--table-width);
+
+        &--complete {
+          flex: 1 0 auto !important;
+          padding: 0 var(--#{$prefix}-padding-sm);
+        }
+			}
+		}
+	}
+
+	&__tab {
+		position: relative;
+		flex: 1;
+		box-sizing: border-box;
+		min-width: 0; /* hack for flex ellipsis */
+		padding: 0 5px;
+		text-align: center;
+		cursor: pointer;
+		color: var(--tab-color);
+		font-size: var(--tab-font-size);
+		line-height: var(--line-height);
+
+		&--active {
+			font-weight: var(--tab-font-weight-bold);
+			color: var(--tab-actived-color);
+		}
+
+		&--disabled {
+			color: var(--tab-disabled-color);
+		}
+	}
+
+	&__info {
+		position: relative !important;
+		top: -1px !important;
+		display: inline-block;
+		transform: translateX(0) !important;
+	}
+
+	
+
+	&__nav {
+		position: relative;
+    display: flex;
+    user-select: none;
+
+		&--complete {
+			padding-right: #{calculate(8px)};
+			padding-left: #{calculate(8px)};
+		}	
+
+		&--card {
+			box-sizing: border-box;
+			height: var(--nav-card-height);
+
+			.#{$block}__tab {
+				color: var(--default-color);
+				line-height: calc(var(--nav-card-height) - 2 * 1px);
+				border-right: 1px solid var(--default-color);
+
+				&:last-child {
+					border-right: none;
+				}
+
+				&.#{$block}__tab--actived {
+					color: var(--tab-actived-color);
+					background-color: var(--tab-actived-background-color);
+				}
+
+				&--disabled {
+					color: var(--tab-disabled-color);
+				}
+			}
+		}
+	}
+
+	&__scroll {
+		background-color: var(--nav-background-color);
+
+		&--line {
+			box-sizing: content-box;
+			// 15px padding to hide scrollbar in mobile safari
+			height: calc(100% + 15px);
+		}
+
+		&--card {
+			box-sizing: border-box;
+			margin: var(--scroll-card-margin);
+			border: var(--scroll-card-border);
+			width: var(--scroll-card-width);
+			border-radius: var(--scroll-card-border-radius);
+		}
+
+		&::-webkit-scrollbar {
+      display: none;
+    }
+	}
+
+	&__line {
+		position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+	}
+
+	&__track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    &--animated {
+      display: flex;
+      transition-property: left;
+    }
+  }
+
+	&__content {
+		overflow: hidden;
+		flex-shrink: 0;
+		box-sizing: border-box;
+		width: 100%;
+	}
+
+	&__panel {
+		box-sizing: border-box;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+
+		&--actived {
+			height: auto;
+		}
+	
+		&--inactive {
+			height: 0;
+			overflow: visible;
+		}
+	}
+}

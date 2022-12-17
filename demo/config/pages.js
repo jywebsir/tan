@@ -28,7 +28,8 @@ const map = {
 	calendar: 'calendar-page',
 	countDown: 'count-down-page',
 	divider: 'divider-page',
-	progress: 'progress-page'
+	progress: 'progress-page',
+	tabs: 'tabs-page'
 }
 
 const list = Object.keys(map).map((key) => {

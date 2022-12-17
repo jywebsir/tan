@@ -254,6 +254,14 @@ const IndexPage = () => {
 					clickable
 					onClick={onClickCell}	
 				/>
+
+				<Cell 
+					title="Tabs 标签页" 
+					data-page="tabs"
+					rightIcon
+					clickable
+					onClick={onClickCell}	
+				/>
 			</CellGroup>
 		</DemoPage>	
 	)

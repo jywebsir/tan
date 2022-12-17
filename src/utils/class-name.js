@@ -1,6 +1,6 @@
 import classNames from "classnames"
 
-const BASE_PREFIX = 'tan'
+export const BASE_PREFIX = 'tan'
 
 const composeModifiers = (modifiers, conf) => {
 	if ( ! conf) {

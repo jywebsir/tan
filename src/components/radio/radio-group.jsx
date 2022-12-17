@@ -33,6 +33,10 @@ export const RadioGroup = props => {
 }
 
 RadioGroup.propTypes = {
+	defaultValue: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number
+	]),
 	value: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.number
