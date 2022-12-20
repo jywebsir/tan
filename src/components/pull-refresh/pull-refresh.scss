@@ -1,0 +1,42 @@
+@import '../../styles/variables.scss';
+
+$block: #{$prefix}-pull-refresh;
+
+.#{$block} {
+	--head-height: var(--#{$block}-height, #{$pull-refresh-head-height});
+	--head-line-height: var(--#{$block}-line-height, #{$pull-refresh-head-line-height});
+	--head-font-size: var(--#{$block}-font-size, #{$pull-refresh-head-font-size});
+	--head-color: var(--#{$block}-head-color, #{$pull-refresh-head-color});
+	--loading-icon-width: var(--#{$block}-icon-width, #{$pull-refresh-loading-icon-width});
+	--loading-icon-height: var(--#{$block}-icon-height, #{$pull-refresh-loading-icon-height});
+
+	overflow: hidden;
+  user-select: none;
+
+	&__track {
+    position: relative;
+    height: 100%;
+    transition-property: transform;
+  }
+
+	&__head {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    height: var(--head-height);
+    font-size: var(--head-font-size);
+    line-height: var(--head-line-height);
+    color: var(--head-color);
+    transform: translateY(-100%);
+  }
+
+	&__loading {
+    .#{$prefix}-loading__circular,
+    .#{$prefix}-loading__spinner {
+      width: var(--loading-icon-width);
+      height: var(--loading-icon-height);
+    }
+  }
+}

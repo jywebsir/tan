@@ -170,6 +170,14 @@ const IndexPage = () => {
 					clickable
 					onClick={onClickCell}	
 				/>
+
+				<Cell 
+					title="PullRefresh 下拉刷新" 
+					data-page="pull-refresh"
+					rightIcon
+					clickable
+					onClick={onClickCell}	
+				/>
 			</CellGroup>
 
 			<CellGroup title="展示组件">

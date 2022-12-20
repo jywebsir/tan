@@ -1,0 +1,37 @@
+@import '@/styles/variables.scss';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+
+	.menu {
+		padding: 24px;
+		background: #FFFFFF;
+		font-size: 28px;
+		flex: none;
+
+		view {
+			flex: 1;
+			text-align: center;
+
+			&.actived {
+				color: #000000;
+				font-weight: 500;
+			}
+		}
+	}
+
+	:global {
+		.#{$prefix}-pull-refresh {
+			flex: 1;
+			height: 1px;
+		}
+	}
+}
+
+.content {
+	padding: 24px;
+	text-align: center;
+	font-size: 28px;
+}

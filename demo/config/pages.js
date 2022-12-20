@@ -29,7 +29,8 @@ const map = {
 	countDown: 'count-down-page',
 	divider: 'divider-page',
 	progress: 'progress-page',
-	tabs: 'tabs-page'
+	tabs: 'tabs-page',
+	pullRefresh: 'pull-refresh-page'
 }
 
 const list = Object.keys(map).map((key) => {

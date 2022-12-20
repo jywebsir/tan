@@ -397,7 +397,6 @@ $progress-pivot-line-height: 1.6;
 $progress-pivot-background-color: var(--#{$prefix}-color-blue);
 $progress-pivot-text-color: var(--#{$prefix}-color-white);
 
-
 // Tabs
 $tabs-default-color: var(--#{$prefix}-color-red);
 $tabs-line-height: #{calculate(44px)};
@@ -409,3 +408,12 @@ $tabs-tab-text-color: var(--#{$prefix}-color-gray-7);
 $tabs-tab-actived-text-color: var(--#{$prefix}-color-text);
 $tabs-tab-disabled-text-color: var(--#{$prefix}-color-gray-5);
 $tabs-tab-font-size: var(--#{$prefix}-font-size-md);
+
+// Pull Refresh
+$pull-refresh-head-height: #{calculate(50px)};
+$pull-refresh-head-line-height: #{calculate(50px)};
+$pull-refresh-head-font-size: var(--#{$prefix}-font-size-md);
+$pull-refresh-head-color: var(--#{$prefix}-color-gray-6);
+$pull-refresh-loading-icon-size: #{calculate(16px)};
+$pull-refresh-loading-icon-width: #{calculate(16px)};
+$pull-refresh-loading-icon-height: #{calculate(16px)};
