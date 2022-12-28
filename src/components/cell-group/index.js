@@ -1,7 +1,4 @@
-import React from 'react'
-import './cell-group.scss'
-import { CellGroup } from './cell-group'
-
-export default React.memo(CellGroup)
-
-
+import React from 'react';
+import "./cell-group.css";
+import { CellGroup } from './cell-group';
+export default /*#__PURE__*/React.memo(CellGroup);

@@ -1,0 +1,15 @@
+.tan-cell-group.tan-cell-group--inset {
+  margin: var(--tan-cell-group-inset-padding, 0 var(--tan-padding-md));
+  border-radius: var(--tan-cell-group-inset-border-radius, var(--tan-border-radius-lg));
+  overflow: hidden;
+}
+
+.tan-cell-group__title {
+  padding: var(--tan-cell-group-title-padding, var(--tan-padding-md) var(--tan-padding-md) var(--tan-padding-xs));
+  font-size: var(--tan-cell-group-title-font-size, var(--tan-font-size-md));
+  line-height: var(--tan-cell-group-title-line-height, 32px);
+  color: var(--tan-cell-group-title-color, var(--tan-color-gray-6));
+}
+.tan-cell-group__title.tan-cell-group_title--inset {
+  padding: var(--tan-cell-group-inset-title-padding, var(--tan-padding-md) var(--tan-padding-md) var(--tan-padding-xs) var(--tan-padding-xl));
+}

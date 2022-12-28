@@ -1,0 +1,21 @@
+.tan-icon {
+  --size: var(--tan-icon-size, 36px);
+  --color: var(--tan-icon-color, #323233);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--size);
+  color: var(--color);
+}
+.tan-icon--image {
+  width: 1em;
+  height: 1em;
+}
+.tan-icon__info {
+  z-index: 1;
+}
+.tan-icon__image {
+  width: 100%;
+  height: 100%;
+}

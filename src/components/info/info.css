@@ -1,0 +1,42 @@
+.tan-info {
+  --height: var(--tan-info-height, 32px);
+  --min-width: var(--tan-info-width, 32px);
+  --padding: var(--tan-info-padding, 0 6px);
+  --color: var(--tan-info-color, var(--tan-color-white));
+  --font-weight: var(--tan-info-font-weight, 500);
+  --font-size: var(--tan-info-font-size, 24px);
+  --font-family: var(--tan-info-font-family, -apple-system-font, Helvetica Neue, Arial, sans-serif);
+  --background-color: var(--tan-info-background-color, var(--tan-color-red));
+  --border-width: var(--tan-info-border-width, 1px);
+  --border-radius: var(--tan-info-border-radius, 32px);
+  --dot-width: var(--tan-info-dot-width, 16px);
+  --dot-height: var(--tan-info-dot-height, 16px);
+  --dot-background-color: var(--tan-info-dot-background-color, var(--tan-color-red));
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  white-space: nowrap;
+  transform: translate(50%, -50%);
+  transform-origin: 100%;
+  height: var(--height);
+  min-width: var(--min-width);
+  padding: var(--padding);
+  color: var(--color);
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  border: var(--border-width) solid var(--tan-color-white);
+  border-radius: var(--border-radius);
+}
+.tan-info.tan-info--dot {
+  min-width: 0;
+  border-radius: 100%;
+  width: var(--dot-width);
+  height: var(--dot-height);
+  background-color: var(--dot-background-color);
+}

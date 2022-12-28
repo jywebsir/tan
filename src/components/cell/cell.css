@@ -1,0 +1,115 @@
+.tan-cell {
+  --cell-vertical-padding: var(--tan-cell-vertical-padding, 20px);
+  --cell-horizontal-padding: var(--tan-cell-horizontal-padding, var(--tan-padding-md));
+  --cell-hairline-bottom-left: var(--tan-cell-hairline-bottom-left, var(--tan-padding-md));
+  --cell-hairline-bottom-right: var(--tan-cell-hairline-bottom-right, var(--tan-padding-md));
+  --cell-font-size: var(--tan-cell-font-size, var(--tan-font-size-md));
+  --cell-line-height: var(--tan-cell-line-height, 48px);
+  --cell-text-color: var(--tan-cell-text-color, var(--tan-color-text));
+  --cell-background-color: var(--tan-cell-background-color, var(--tan-color-white));
+  --cell-border-color: var(--tan-cell-border-color, var(--tan-border-color));
+  --cell-label-margin-top: var(--tan-cell-label-margin-top, 6px);
+  --cell-label-font-size: var(--tan-cell-label-font-size, var(--tan-font-size-sm));
+  --cell-label-line-height: var(--tan-cell-label-line-height, 36px);
+  --cell-label-color: var(--tan-cell-label-color, var(--tan-color-gray-6));
+  --cell-value-color: var(--tan-cell-value-color, var(--tan-color-gray-6));
+  --cell-icon-size: var(--tan-cell-icon-size, 32px);
+  --cell-required-left: var(--tan-cell-required-left, var(--tan-padding-xs));
+  --cell-required-color: var(--tan-cell-required-color, var(--tan-color-red));
+  --cell-actived-color: var(--tan-cell-actived-color, var(--tan-color-active));
+  --cell-left-icon-margin-right: var(--tan-cell-left-icon-margin-right, var(--tan-padding-base));
+  --cell-right-icon-margin-left: var(--tan-cell-right-icon-margin-left, var(--tan-padding-base));
+  --cell-right-icon-color: var(--tan-cell-right-icon-color, var(--tan-color-gray-6));
+  --cell-large-vertical-padding: var(--tan-cell-large-vertical-padding, var(--tan-padding-sm));
+  --cell-large-title-font-size: var(--tan-cell-large-title-font-size, var(--tan-font-size-lg));
+  --cell-large-value-font-size: var(--tan-cell-large-value-font-size, var(--tan-font-size-lg));
+  --cell-large-label-font-size: var(--tan-cell-large-label-font-size, var(--tan-font-size-md));
+  --cell-title-font-weight: var(--tan-cell-title-font-weight, 400);
+  --cell-title-flex: var(--tan-cell-title-flex, 1);
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--cell-vertical-padding) var(--cell-horizontal-padding);
+  font-size: var(--cell-font-size);
+  line-height: var(--cell-line-height);
+  color: var(--cell-text-color);
+  background: var(--cell-background-color);
+}
+.tan-cell::after {
+  position: absolute;
+  box-sizing: border-box;
+  transform-origin: center;
+  content: " ";
+  pointer-events: none;
+  right: var(--cell-hairline-bottom-righ);
+  left: var(--cell-hairline-bottom-left);
+  bottom: 0;
+  border-bottom: 1PX solid var(--cell-border-color);
+  transform: scaleY(0.5);
+}
+.tan-cell.tan-cell--borderless::after {
+  display: none;
+}
+.tan-cell__label {
+  margin-top: var(--cell-label-margin-top);
+  font-size: var(--cell-label-font-size);
+  line-height: var(--cell-label-line-height);
+  color: var(--cell-label-color);
+}
+.tan-cell__value {
+  overflow: hidden;
+  text-align: right;
+  vertical-align: middle;
+  color: var(--cell-value-color);
+}
+.tan-cell__title:empty, .tan-cell__value:empty {
+  display: none;
+}
+.tan-cell__value {
+  flex: 1;
+}
+.tan-cell__title {
+  flex: var(--cell-title-flex);
+  font-weight: var(--cell-title-font-weight);
+}
+.tan-cell__left-icon-wrap, .tan-cell__right-icon-wrap {
+  --tan-icon-size: var(--cell-font-size) ;
+}
+.tan-cell__left-icon-wrap {
+  margin-right: var(--cell-left-icon-margin-right);
+}
+.tan-cell__right-icon-wrap {
+  margin-left: var(--cell-right-icon-margin-left);
+  color: var(--cell-right-icon-color);
+  --tan-icon-color: var(--cell-right-icon-color);
+}
+.tan-cell.tan-cell--required {
+  overflow: visible;
+}
+.tan-cell.tan-cell--required::before {
+  position: absolute;
+  content: "*";
+  left: var(--cell-required-left);
+  font-size: var(--cell-font-size);
+  color: var(--cell-required-color);
+}
+.tan-cell.tan-cell--center {
+  align-items: center;
+}
+.tan-cell.tan-cell--clickable.tan-cell--hover {
+  background-color: var(--cell-active-color);
+}
+.tan-cell.tan-cell--large {
+  padding-top: var(--cell-large-vertical-padding);
+  padding-bottom: var(--cell-large-vertical-padding);
+}
+.tan-cell.tan-cell--large .tan-cell__title {
+  font-size: var(--cell-large-title-font-size);
+}
+.tan-cell.tan-cell--large .tan-cell__value {
+  font-size: var(--cell-large-value-font-size);
+}
+.tan-cell.tan-cell--large .tan-cell__label {
+  font-size: var(--cell-large-label-font-size);
+}

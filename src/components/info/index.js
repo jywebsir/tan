@@ -1,5 +1,4 @@
-import React from 'react'
-import './info.scss'
-import { Info } from './info'
-
-export default React.memo(Info)
+import React from 'react';
+import "./info.css";
+import { Info } from './info';
+export default /*#__PURE__*/React.memo(Info);
