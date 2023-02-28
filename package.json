@@ -5,7 +5,8 @@
   "scripts": {
     "build": "APP_ENV=prod taro build --type weapp",
     "test": "APP_ENV=test taro build --type weapp",
-    "dev": "APP_ENV=dev taro build --type weapp --watch"
+    "dev": "APP_ENV=dev taro build --type weapp --watch",
+		"docs:start": "cd ./docs && npm run start"
   },
   "browserslist": [
     "last 3 versions",
