@@ -2,20 +2,21 @@ import PropTypes from 'prop-types'
 import { withNativeProps } from '../../utils/native-props'
 import { bemBlock, bemElement } from '../../utils/class-name'
 import SkeletonRows from './skeleton-rows'
+import SkeletonCols from './skeleton-cols'
 
 export const BLOCK = 'skeleton'
 
 export const Skeleton = props => {
 	const {
+		direction,
 		loading,
 		title,
 		avatar,
 		avatarShape,
 		animate,
-		row
+		row,
+		col
 	} = props
-
-	const rowArray = Array.from({length: row})
 
 	return withNativeProps(
 		props,
@@ -35,7 +36,21 @@ export const Skeleton = props => {
 					<view className={bemElement(BLOCK, 'title')} />
 				}
 
-				<SkeletonRows rows={rowArray} />
+				{
+					direction === 'row'
+					&&
+					row
+					&&
+					<SkeletonRows rows={Array.from({length: row})} />
+				}
+
+				{
+					direction === 'col'	
+					&&
+					col
+					&&
+					<SkeletonCols cols={Array.from({length: col})} />
+				}
 			</view>
 		</view>
 		:
@@ -44,7 +59,9 @@ export const Skeleton = props => {
 }
 
 Skeleton.propTypes = {
+	direction: PropTypes.oneOf(['row', 'col']),
 	row: PropTypes.number,
+	col: PropTypes.number,
 	title: PropTypes.bool,
 	avatar: PropTypes.bool,
 	loading: PropTypes.bool,
@@ -53,7 +70,7 @@ Skeleton.propTypes = {
 }
 
 Skeleton.defaultProps = {
-	row: 0,
+	direction: 'row',
 	loading: true,
 	animate: true,
 	avatarShape: 'round'

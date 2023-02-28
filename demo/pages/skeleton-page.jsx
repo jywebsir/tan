@@ -15,11 +15,19 @@ const SkeletonPage = () => {
 
 	return (
 		<DemoPage bgColor="#FFFFFF">
-			<DemoBlock title="基础用法">
+			<DemoBlock title="行用法">
 				<Skeleton 
 					row={3} 
 					className={style.basicSkeleton} 
 					title 
+				/>
+			</DemoBlock>
+
+			<DemoBlock title="列用法">
+				<Skeleton 
+					direction="col"
+					col={3} 
+					title
 				/>
 			</DemoBlock>
 
@@ -30,6 +38,7 @@ const SkeletonPage = () => {
 					title 
 				/>	
 			</DemoBlock>
+
 
 			<DemoBlock title="展示子组件">
 				<Switch 

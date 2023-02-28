@@ -36,6 +36,23 @@ $block: #{$prefix}-skeleton;
 		--#{$block}-row-first-margin-top,
 		#{calculate(20px)}
 	);
+	--col-height: var(--#{$block}-col-height, #{$skeleton-col-height});
+	--col-background-color: var(
+		--#{$block}-col-background-color,
+		#{$skeleton-col-background-color}
+	);
+	--col-margin: var(
+		--#{$block}-col-margin,
+		#{$skeleton-col-margin}
+	);
+	--col-border-radius: var(
+		--#{$block}-col-border-radius,
+		#{$skeleton-col-border-radius}
+	);
+	--cols-margin-top: var(
+		--#{$block}-cols-margin-top,
+		#{$skeleton-cols-margin-top}
+	);
 
 	display: flex;
   box-sizing: border-box;
@@ -66,6 +83,24 @@ $block: #{$prefix}-skeleton;
 	&__title {
 		height: var(--row-height);
 		background-color: var(--row-background-color);
+	}
+
+	&__cols {
+		display: flex;
+		height: var(--col-height);
+		margin-top: var(--cols-margin-top);
+	}
+
+	&__col {
+		flex: 1;
+		height: var(--col-height);
+		background-color: var(--col-background-color);
+		border-radius: var(--col-border-radius);
+		margin: var(--col-margin);
+
+		&:last-of-type {
+			margin: 0;
+		}
 	}
 
 	&__title {
