@@ -409,3 +409,14 @@ $tabs-tab-text-color: var(--#{$prefix}-color-gray-7);
 $tabs-tab-actived-text-color: var(--#{$prefix}-color-text);
 $tabs-tab-disabled-text-color: var(--#{$prefix}-color-gray-5);
 $tabs-tab-font-size: var(--#{$prefix}-font-size-md);
+
+// skeleton
+$skeleton-padding: 0 var(--#{$prefix}-padding-md);
+$skeleton-title-width: 40%;
+$skeleton-row-width: 100%;
+$skeleton-row-height: #{calculate(16px)};
+$skeleton-row-background-color: var(--#{$prefix}-color-gray-2);
+$skeleton-row-margin-top: var(--#{$prefix}-padding-sm);
+$skeleton-avatar-size: #{calculate(32px)};
+$skeleton-avatar-background-color: var(--#{$prefix}-color-gray-2);
+$skeleton-animation-duration: 1.2s;

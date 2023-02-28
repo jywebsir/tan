@@ -231,6 +231,7 @@ export const Field = props => {
 			)
 		}
 
+
 		return rightIcon
 	}
 

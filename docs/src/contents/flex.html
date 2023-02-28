@@ -1,0 +1,309 @@
+<h1 id="button-按钮">Button 按钮</h1>
+<h3 id="介绍">介绍</h3>
+<p>按钮用于触发一个操作，如提交表单。</p>
+<h3 id="引入">引入</h3>
+<p>在<code>app.json</code>或<code>index.json</code>中引入组件，详细介绍见<a href="#/quickstart#yin-ru-zu-jian">快速上手</a>。</p>
+<pre><code class="language-json">&quot;usingComponents&quot;: {
+  &quot;van-button&quot;: &quot;@vant/weapp/button/index&quot;
+}
+</code></pre>
+<h2 id="代码演示">代码演示</h2>
+<h3 id="按钮类型">按钮类型</h3>
+<p>支持<code>default</code>、<code>primary</code>、<code>info</code>、<code>warning</code>、<code>danger</code>五种类型，默认为<code>default</code>。</p>
+<pre><code class="language-html">&lt;van-button type=&quot;default&quot;&gt;默认按钮&lt;/van-button&gt;
+&lt;van-button type=&quot;primary&quot;&gt;主要按钮&lt;/van-button&gt;
+&lt;van-button type=&quot;info&quot;&gt;信息按钮&lt;/van-button&gt;
+&lt;van-button type=&quot;warning&quot;&gt;警告按钮&lt;/van-button&gt;
+&lt;van-button type=&quot;danger&quot;&gt;危险按钮&lt;/van-button&gt;
+</code></pre>
+<h3 id="朴素按钮">朴素按钮</h3>
+<p>通过<code>plain</code>属性将按钮设置为朴素按钮，朴素按钮的文字为按钮颜色，背景为白色。</p>
+<pre><code class="language-html">&lt;van-button plain type=&quot;primary&quot;&gt;朴素按钮&lt;/van-button&gt;
+&lt;van-button plain type=&quot;info&quot;&gt;朴素按钮&lt;/van-button&gt;
+</code></pre>
+<h3 id="细边框">细边框</h3>
+<p>设置<code>hairline</code>属性可以开启 0.5px 边框，基于伪类实现。</p>
+<pre><code class="language-html">&lt;van-button plain hairline type=&quot;primary&quot;&gt;细边框按钮&lt;/van-button&gt;
+&lt;van-button plain hairline type=&quot;info&quot;&gt;细边框按钮&lt;/van-button&gt;
+</code></pre>
+<h3 id="禁用状态">禁用状态</h3>
+<p>通过<code>disabled</code>属性来禁用按钮，此时按钮的<code>bind:click</code>事件不会触发。</p>
+<pre><code class="language-html">&lt;van-button disabled type=&quot;primary&quot;&gt;禁用状态&lt;/van-button&gt;
+&lt;van-button disabled type=&quot;info&quot;&gt;禁用状态&lt;/van-button&gt;
+</code></pre>
+<h3 id="加载状态">加载状态</h3>
+<pre><code class="language-html">&lt;van-button loading type=&quot;primary&quot; /&gt;
+&lt;van-button loading type=&quot;primary&quot; loading-type=&quot;spinner&quot; /&gt;
+&lt;van-button loading type=&quot;info&quot; loading-text=&quot;加载中...&quot; /&gt;
+</code></pre>
+<h3 id="按钮形状">按钮形状</h3>
+<pre><code class="language-html">&lt;van-button square type=&quot;primary&quot;&gt;方形按钮&lt;/van-button&gt;
+&lt;van-button round type=&quot;info&quot;&gt;圆形按钮&lt;/van-button&gt;
+</code></pre>
+<h3 id="图标按钮">图标按钮</h3>
+<p>通过<code>icon</code>属性设置按钮图标，支持 Icon 组件里的所有图标，也可以传入图标 URL。</p>
+<pre><code class="language-html">&lt;van-button icon=&quot;star-o&quot; type=&quot;primary&quot; /&gt;
+&lt;van-button icon=&quot;star-o&quot; type=&quot;primary&quot;&gt;按钮&lt;/van-button&gt;
+&lt;van-button icon=&quot;https://img.yzcdn.cn/vant/logo.png&quot; type=&quot;info&quot;&gt;
+  按钮
+&lt;/van-button&gt;
+</code></pre>
+<h3 id="按钮尺寸">按钮尺寸</h3>
+<p>支持<code>large</code>、<code>normal</code>、<code>small</code>、<code>mini</code>四种尺寸，默认为<code>normal</code>。</p>
+<pre><code class="language-html">&lt;van-button type=&quot;primary&quot; size=&quot;large&quot;&gt;大号按钮&lt;/van-button&gt;
+&lt;van-button type=&quot;primary&quot; size=&quot;normal&quot;&gt;普通按钮&lt;/van-button&gt;
+&lt;van-button type=&quot;primary&quot; size=&quot;small&quot;&gt;小型按钮&lt;/van-button&gt;
+&lt;van-button type=&quot;primary&quot; size=&quot;mini&quot;&gt;迷你按钮&lt;/van-button&gt;
+</code></pre>
+<h3 id="块级元素">块级元素</h3>
+<p>通过<code>block</code>属性可以将按钮的元素类型设置为块级元素。</p>
+<pre><code class="language-html">&lt;van-button type=&quot;primary&quot; block&gt;块级元素&lt;/van-button&gt;
+</code></pre>
+<h3 id="自定义颜色">自定义颜色</h3>
+<p>通过<code>color</code>属性可以自定义按钮的颜色。</p>
+<pre><code class="language-html">&lt;van-button color=&quot;#7232dd&quot;&gt;单色按钮&lt;/van-button&gt;
+&lt;van-button color=&quot;#7232dd&quot; plain&gt;单色按钮&lt;/van-button&gt;
+&lt;van-button color=&quot;linear-gradient(to right, #4bb0ff, #6149f6)&quot;&gt;
+  渐变色按钮
+&lt;/van-button&gt;
+</code></pre>
+<h2 id="api">API</h2>
+<h3 id="props">Props</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>标识符</td>
+<td><em>string</em></td>
+<td>-</td>
+</tr>
+<tr>
+<td>type</td>
+<td>按钮类型，可选值为 <code>primary</code> <code>info</code> <code>warning</code> <code>danger</code></td>
+<td><em>string</em></td>
+<td><code>default</code></td>
+</tr>
+<tr>
+<td>size</td>
+<td>按钮尺寸，可选值为 <code>normal</code> <code>large</code> <code>small</code> <code>mini</code></td>
+<td><em>string</em></td>
+<td><code>normal</code></td>
+</tr>
+<tr>
+<td>color <code>v1.0.0</code></td>
+<td>按钮颜色，支持传入<code>linear-gradient</code>渐变色</td>
+<td><em>string</em></td>
+<td>-</td>
+</tr>
+<tr>
+<td>icon</td>
+<td>左侧图标名称或图片链接，可选值见 <a href="#/icon">Icon 组件</a></td>
+<td><em>string</em></td>
+<td>-</td>
+</tr>
+<tr>
+<td>class-prefix</td>
+<td>图标类名前缀，同 Icon 组件的 <a href="#/icon">class-prefix 属性</a></td>
+<td><em>string</em></td>
+<td><code>van-icon</code></td>
+</tr>
+<tr>
+<td>plain</td>
+<td>是否为朴素按钮</td>
+<td><em>boolean</em></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>block</td>
+<td>是否为块级元素</td>
+<td><em>boolean</em></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>round</td>
+<td>是否为圆形按钮</td>
+<td><em>boolean</em></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>square</td>
+<td>是否为方形按钮</td>
+<td><em>boolean</em></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>disabled</td>
+<td>是否禁用按钮</td>
+<td><em>boolean</em></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>hairline</td>
+<td>是否使用 0.5px 边框</td>
+<td><em>boolean</em></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>loading</td>
+<td>是否显示为加载状态</td>
+<td><em>boolean</em></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>loading-text</td>
+<td>加载状态提示文字</td>
+<td><em>string</em></td>
+<td>-</td>
+</tr>
+<tr>
+<td>loading-type</td>
+<td>加载状态图标类型，可选值为 <code>spinner</code></td>
+<td><em>string</em></td>
+<td><code>circular</code></td>
+</tr>
+<tr>
+<td>loading-size</td>
+<td>加载图标大小</td>
+<td><em>string</em></td>
+<td><code>20px</code></td>
+</tr>
+<tr>
+<td>custom-style</td>
+<td>自定义样式</td>
+<td><em>string</em></td>
+<td>-</td>
+</tr>
+<tr>
+<td>open-type</td>
+<td>微信开放能力，具体支持可参考 <a href="https://developers.weixin.qq.com/miniprogram/dev/component/button.html">微信官方文档</a></td>
+<td><em>string</em></td>
+<td>-</td>
+</tr>
+<tr>
+<td>app-parameter</td>
+<td>打开 APP 时，向 APP 传递的参数</td>
+<td><em>string</em></td>
+<td>-</td>
+</tr>
+<tr>
+<td>lang</td>
+<td>指定返回用户信息的语言，zh_CN 简体中文，<br>zh_TW 繁体中文，en 英文</td>
+<td><em>string</em></td>
+<td><code>en</code></td>
+</tr>
+<tr>
+<td>session-from</td>
+<td>会话来源</td>
+<td><em>string</em></td>
+<td>-</td>
+</tr>
+<tr>
+<td>business-id</td>
+<td>客服消息子商户 id</td>
+<td><em>number</em></td>
+<td>-</td>
+</tr>
+<tr>
+<td>send-message-title</td>
+<td>会话内消息卡片标题</td>
+<td><em>string</em></td>
+<td>当前标题</td>
+</tr>
+<tr>
+<td>send-message-path</td>
+<td>会话内消息卡片点击跳转小程序路径</td>
+<td><em>string</em></td>
+<td>当前分享路径</td>
+</tr>
+<tr>
+<td>send-message-img</td>
+<td>sendMessageImg</td>
+<td><em>string</em></td>
+<td>截图</td>
+</tr>
+<tr>
+<td>show-message-card</td>
+<td>显示会话内消息卡片</td>
+<td><em>string</em></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>dataset</td>
+<td>按钮 dataset，open-type 为 <code>share</code> 时，可在 onShareAppMessage 事件的 <code>event.target.dataset.detail</code> 中看到传入的值</td>
+<td><em>any</em></td>
+<td>-</td>
+</tr>
+<tr>
+<td>form-type</td>
+<td>用于 form 组件，可选值为<code>submit</code> <code>reset</code>，点击分别会触发 form 组件的 submit/reset 事件</td>
+<td><em>string</em></td>
+<td>-</td>
+</tr>
+</tbody></table>
+<h3 id="events">Events</h3>
+<table>
+<thead>
+<tr>
+<th>事件名</th>
+<th>说明</th>
+<th>参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>bind:click</td>
+<td>点击按钮，且按钮状态不为加载或禁用时触发</td>
+<td>-</td>
+</tr>
+<tr>
+<td>bind:getuserinfo</td>
+<td>用户点击该按钮时，会返回获取到的用户信息，<br>从返回参数的 detail 中获取到的值同 wx.getUserInfo</td>
+<td>-</td>
+</tr>
+<tr>
+<td>bind:contact</td>
+<td>客服消息回调</td>
+<td>-</td>
+</tr>
+<tr>
+<td>bind:getphonenumber</td>
+<td>获取用户手机号回调</td>
+<td>-</td>
+</tr>
+<tr>
+<td>bind:error</td>
+<td>当使用开放能力时，发生错误的回调</td>
+<td>-</td>
+</tr>
+<tr>
+<td>bind:opensetting</td>
+<td>在打开授权设置页后回调</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Button 提供的是 click 事件而不是原生 tap 事件，按钮禁用时，click 事件不会触发，tap 事件依然会触发。</p>
+</blockquote>
+<h3 id="外部样式类">外部样式类</h3>
+<table>
+<thead>
+<tr>
+<th>类名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>custom-class</td>
+<td>根节点样式类</td>
+</tr>
+<tr>
+<td>loading-class</td>
+<td>加载图标样式类</td>
+</tr>
+</tbody></table>

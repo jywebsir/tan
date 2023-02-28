@@ -1,0 +1,98 @@
+@import '../../styles/variables.scss';
+@import '../../styles/functions//util.scss';
+
+$block: #{$prefix}-skeleton;
+
+.#{$block} {
+	--padding: var(--#{$block}-padding, #{$skeleton-padding});
+	--title-width: var(--#{$block}-title-width, #{$skeleton-title-width});
+	--avatar-size: var(--#{$block}-avatar-size, #{$skeleton-avatar-size});
+	--avatar-margin-right: var(
+		--#{$block}-avatar-margin-right, 
+		var(--#{$prefix}-padding-md)
+	);
+	--avatar-background-color: var(
+		--#{$block}-avatar-background-color, 
+		#{$skeleton-avatar-background-color}
+	);
+	--content-padding-top: var(
+		--#{$block}-content-padding-top,
+		var(--#{$prefix}-padding-xs)
+	);
+	--row-width: var(--#{$block}-row-width, #{$skeleton-row-width});
+	--row-height: var(
+		--#{$block}-row-height,
+		#{$skeleton-row-height}
+	);
+	--row-background-color: var(
+		--#{$block}-row-background-color,
+		#{$skeleton-row-background-color}
+	);
+	--row-margin-top: var(
+		--#{$block}-first-row-margin-top,
+		#{$skeleton-row-margin-top}
+	);
+	--row-first-margin-top: var(
+		--#{$block}-row-first-margin-top,
+		#{calculate(20px)}
+	);
+
+	display: flex;
+  box-sizing: border-box;
+  width: 100%;
+	padding: var(--padding);
+
+	&__avatar {
+		width: var(--avatar-size);
+		height: var(--avatar-size);
+		flex-shrink: 0;
+		margin-right: var(--avatar-margin-right);
+		background-color: var(--avatar-background-color);
+
+		&--round {
+			border-radius: 100%;
+		}
+	}
+
+	&__content {
+		flex: 1;
+	}
+
+	&__avatar + &__content {
+		padding-top: var(--content-padding-top);
+	}
+
+	&__row,
+	&__title {
+		height: var(--row-height);
+		background-color: var(--row-background-color);
+	}
+
+	&__title {
+		margin: 0;
+		width: var(--title-width);
+	}
+
+	&__row {
+		width: var(--row-width);
+
+		&:not(:first-child) {
+			margin-top: var(--row-margin-top);
+		}
+	}
+
+	&__title + &__row {
+		margin-top: var(--row-first-margin-top);
+	}
+
+	&--animate {
+    animation: #{$prefix}-skeleton-blink #{$skeleton-animation-duration} ease-in-out
+      infinite;
+  }
+}
+
+@keyframes #{$prefix}-skeleton-blink {
+  50% {
+    opacity: 0.6;
+  }
+}

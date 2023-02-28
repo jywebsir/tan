@@ -1,0 +1,28 @@
+$sider-width: 280px;
+
+.container {
+	.sider {
+		background: #FFFFFF;
+		overflow: auto;
+		width: $sider-width;
+		height: 100vh;
+		position: fixed;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		border-right: 1px solid #f0f0f0;
+
+		h1 {
+			padding: 24px;
+			text-align: center;
+			font-size: 22px;
+			font-weight: 500;
+		}
+	}	
+
+	.content {
+		margin-left: $sider-width;
+		padding: 24px 0;
+    overflow: hidden;
+	}
+}
