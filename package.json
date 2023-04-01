@@ -6,7 +6,11 @@
     "build": "APP_ENV=prod taro build --type weapp",
     "test": "APP_ENV=test taro build --type weapp",
     "dev": "APP_ENV=dev taro build --type weapp --watch",
-		"docs:start": "cd ./docs && npm run start"
+		"docs:gen": "gulp",
+		"docs:watch": "gulp watchGuides",
+		"docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "browserslist": [
     "last 3 versions",
@@ -51,6 +55,7 @@
     "gulp-rename": "^2.0.0",
     "marked": "^4.2.12",
     "plugin-error": "^2.0.1",
-    "stylelint": "9.3.0"
+    "stylelint": "9.3.0",
+    "vitepress": "^1.0.0-alpha.48"
   }
 }

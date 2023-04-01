@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
 import { withNativeProps } from '../../utils/native-props'
 import { bemBlock, bemElement } from '../../utils/class-name'
 

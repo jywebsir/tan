@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import { withNativeProps } from '../../utils/native-props'
 import { bemBlock , bemElement } from '../../utils/class-name'
 import Popup from '../popup'
-import Calendar from './calendar'
+import Calendar from './views/calendar-view'
 
 export const BLOCK = 'calendar'
 export const POSITION_TOP = 'top'

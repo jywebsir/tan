@@ -1,4 +1,6 @@
-$border-color: var(--tan-border-color);
+@import '../variables.scss';
+
+$border-color: var(--#{$prefix}-border-color);
 
 @mixin hairline-common() {
   position: absolute;

@@ -19,14 +19,16 @@ export const Icon = props => {
 
 	const isImgIcon = isImageUrl(name)
 
+	const blockClassName = classNames(
+		bemBlock(BLOCK, {image: isImgIcon}),
+		!isImgIcon&&classPrefix,
+		!isImgIcon&&`${classPrefix}-${name}`
+	)
+
 	return withNativeProps(
 		props,
 		<view
-			className={classNames(
-				bemBlock(BLOCK, {image: isImgIcon}),
-				!isImgIcon&&classPrefix,
-				!isImgIcon&&`${classPrefix}-${name}`
-			)}
+			className={blockClassName}
 			onTap={onClick}
 		>
 			{

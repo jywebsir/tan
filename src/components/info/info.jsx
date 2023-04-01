@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
 import { withNativeProps } from '../../utils/native-props'
+import { bemBlock } from '../../utils/class-name'
 
-const classPrefix = 'tan-info'
+const BLOCK = 'info'
 
 export const Info = props => {
 	const {
@@ -14,10 +14,7 @@ export const Info = props => {
 	if (!!info || dot) {
 		return withNativeProps(
 			props,
-			<view className={classNames(
-				classPrefix,
-				dot && `${classPrefix}--dot`
-			)}>{info}</view>
+			<view className={bemBlock(BLOCK, {dot})}>{info}</view>
 		)
 	}
 

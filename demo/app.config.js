@@ -6,7 +6,7 @@ export default {
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#FFFFFF',
-    navigationBarTitleText: 'Tan',
+    navigationBarTitleText: 'Tank',
     navigationBarTextStyle: 'black'
   }
 }

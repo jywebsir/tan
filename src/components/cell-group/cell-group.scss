@@ -1,46 +1,48 @@
 @import '../../styles/functions/util.scss';
 @import '../../styles/variables.scss';
 
-.tan-cell-group {
-	&.tan-cell-group--inset {
+$block: #{$prefix}-cell-group;
+
+.#{$block} {
+	&.#{$block}--inset {
 		margin: var(	
-			--tan-cell-group-inset-padding,
+			--#{$block}-inset-padding,
 			$cell-group-inset-padding
 		);
 		border-radius: var(	
-			--tan-cell-group-inset-border-radius,
+			--#{$block}-inset-border-radius,
 			$cell-group-inset-border-radius
 		);
 		overflow: hidden;
 	}
-}
 
-.tan-cell-group__title {
-	padding: var(
-		--tan-cell-group-title-padding,
-		$cell-group-title-padding
-	);
-
-	font-size: var(
-		--tan-cell-group-title-font-size, 
-		$cell-group-title-font-size	
-	);
-
-	line-height: var(
-		--tan-cell-group-title-line-height, 
-		$cell-group-title-line-height	
-	);
-
-	color: var(
-		--tan-cell-group-title-color, 
-		$cell-group-title-color	
-	);
-
-	&.tan-cell-group_title--inset {
+	&__title {
 		padding: var(
-			--tan-cell-group-inset-title-padding,
-			$cell-group-inset-title-padding
+			--#{$block}-title-padding,
+			$cell-group-title-padding
 		);
+
+		font-size: var(
+			--#{$block}-title-font-size, 
+			$cell-group-title-font-size	
+		);
+
+		line-height: var(
+			--#{$block}-title-line-height, 
+			$cell-group-title-line-height	
+		);
+
+		color: var(
+			--#{$block}-title-color, 
+			$cell-group-title-color	
+		);
+
+		&.#{$block}_title--inset {
+			padding: var(
+				--#{$block}-inset-title-padding,
+				$cell-group-inset-title-padding
+			);
+		}	
 	}
 }
 

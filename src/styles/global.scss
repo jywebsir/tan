@@ -2,14 +2,14 @@
 @import './mixins/ellipsis.scss';
 
 page {
-	font-family: var(--tan-font-family);
+	font-family: var(--#{$prefix}-font-family);
 }
 
-.tan-ellipsis {
+.#{$prefix}-ellipsis {
 	@include ellipsis;
 }
 
-.tan-hairline {
+.#{$prefix}-hairline {
 	position: relative;
 
 	&::after {
