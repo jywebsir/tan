@@ -206,8 +206,16 @@ const IndexPage = () => {
 				/>
 
 				<Cell 
-					title="Progress 进度条" 
+					title="Progress进度条" 
 					data-page="progress"
+					rightIcon
+					clickable
+					onClick={onClickCell}	
+				/>
+
+				<Cell 
+					title="Skeleton骨架屏" 
+					data-page="skeleton"
 					rightIcon
 					clickable
 					onClick={onClickCell}	

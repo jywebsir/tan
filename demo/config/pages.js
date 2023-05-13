@@ -30,7 +30,8 @@ const map = {
 	divider: 'divider-page',
 	progress: 'progress-page',
 	tabs: 'tabs-page',
-	pullRefresh: 'pull-refresh-page'
+	pullRefresh: 'pull-refresh-page',
+	skeleton: 'skeleton-page'
 }
 
 const list = Object.keys(map).map((key) => {

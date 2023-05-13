@@ -1,19 +1,21 @@
 @import '../../styles/variables.scss';
 
-.tan-info {
-	--height: var(--tan-info-height, #{$info-size});
-	--min-width: var(--tan-info-width, #{$info-size});
-	--padding: var(--tan-info-padding, #{$info-padding});
-	--color: var(--tan-info-color, #{$info-color});
-	--font-weight: var(--tan-info-font-weight, #{$info-font-weight});
-	--font-size: var(--tan-info-font-size, #{$info-font-size});
-	--font-family: var(--tan-info-font-family, #{$info-font-family}); 
-	--background-color: var(--tan-info-background-color, #{$info-background-color}); 
-	--border-width: var(--tan-info-border-width, #{$info-border-width});
-	--border-radius: var(--tan-info-border-radius, #{$info-size});
-	--dot-width: var(--tan-info-dot-width, #{$info-dot-size});
-	--dot-height: var(--tan-info-dot-height, #{$info-dot-size});
-	--dot-background-color: var(--tan-info-dot-background-color, #{$info-dot-color});
+$block: #{$prefix}-info;
+
+.#{$block} {
+	--height: var(--#{$block}-height, #{$info-size});
+	--min-width: var(--#{$block}-width, #{$info-size});
+	--padding: var(--#{$block}-padding, #{$info-padding});
+	--color: var(--#{$block}-color, #{$info-color});
+	--font-weight: var(--#{$block}-font-weight, #{$info-font-weight});
+	--font-size: var(--#{$block}-font-size, #{$info-font-size});
+	--font-family: var(--#{$block}-font-family, #{$info-font-family}); 
+	--background-color: var(--#{$block}-background-color, #{$info-background-color}); 
+	--border-width: var(--#{$block}-border-width, #{$info-border-width});
+	--border-radius: var(--#{$block}-border-radius, #{$info-size});
+	--dot-width: var(--#{$block}-dot-width, #{$info-dot-size});
+	--dot-height: var(--#{$block}-dot-height, #{$info-dot-size});
+	--dot-background-color: var(--#{$block}-dot-background-color, #{$info-dot-color});
 
 	position: absolute;
   top: 0;
@@ -33,10 +35,10 @@
 	font-size: var(--font-size);
 	font-family: var(--font-family);
 	background-color: var(--background-color);
-	border: var(--border-width) solid var(--tan-color-white);
+	border: var(--border-width) solid var(--#{$prefix}-color-white);
 	border-radius: var(--border-radius);
 
-	&.tan-info--dot {
+	&--dot {
 		min-width: 0;
 		border-radius: 100%;
 		width: var(--dot-width);

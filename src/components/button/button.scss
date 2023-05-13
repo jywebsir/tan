@@ -1,6 +1,8 @@
 @import '../../styles/variables.scss';
 
-.tan-button {
+$block: #{$prefix}-button;
+
+.#{$block}{
 	--button-default-height: #{$button-default-height};
 	--button-line-height: #{$button-line-height};
 	--button-default-font-size: #{$button-default-font-size};
@@ -65,23 +67,23 @@
     transform: translate(-50%, -50%);
     opacity: 0;
     content: ' ';
-    background-color: var(--tan-color-black); 
-    border-color: var(--tan-color-black);
+    background-color: var(--#{$prefix}-color-black); 
+    border-color: var(--#{$prefix}-color-black);
   }
 
 	&::after {
     border-width: 0;
   }
 
-	&.tan-button--active::before {
+	&.#{$prefix}-button--active::before {
     opacity: 0.15;
   }
 
-  &.tan-button--unclickable::after {
+  &.#{$prefix}-button--unclickable::after {
     display: none;
   }
 
-	&.tan-button--default {
+	&.#{$prefix}-button--default {
 		color: var(--button-default-color);
     background: var(
       --button-default-background-color,
@@ -89,21 +91,21 @@
     border: var(--button-border-width) solid var(--button-default-border-color);
 	}
 
-	&.tan-button--primary {
+	&.#{$block}--primary {
 		--tan-icon-color: var(--tan-color-white);
 		color: var(--button-primary-color);
     background: var(--button-primary-background-color);
     border: var(--button-border-width) solid var(--button-primary-border-color);
 	}
 
-	&.tan-button--info {
+	&.#{$block}--info {
 		--tan-icon-color: var(--tan-color-white);
 		color: var(--button-info-color);
     background: var(--button-info-background-color);
     border: var(--button-border-width) solid var(--button-info-border-color);
 	}
 
-	&.tan-button--danger {
+	&.#{$block}--danger {
 		--tan-icon-color: var(--tan-color-white);
 		color: var(--button-danger-color);
     background: var(
@@ -112,7 +114,7 @@
     border: var(--button-border-width) solid var(--button-danger-border-color);
 	}
 
-	&.tan-button--warning {
+	&.#{$block}--warning {
 		--tan-icon-color: var(--tan-color-white);
 		color: var(--button-warning-color);
     background: var(
@@ -121,28 +123,28 @@
     border: var(--button-border-width) solid var(--button-warning-border-color);
 	}
 
-	&.tan-button--plain {
+	&.#{$block}--plain {
 		background: var(
       --button-plain-background-color
     );
 
-		&.tan-button--primary {
+		&.#{$block}--primary {
       color: var(
         --button-primary-background-color
       );
     }
 
-    &.tan-button--info {
+    &.#{$block}--info {
       color: var(--button-info-background-color);
     }
 
-    &.tan-button--danger {
+    &.#{$block}--danger {
       color: var(
         --button-danger-background-color
       );
     }
 
-    &.tan-button--warning {
+    &.#{$block}--warning {
       color: var(
         --button-warning-background-color
       );
@@ -153,46 +155,46 @@
 		}
 	}
 
-	&.tan-button--large {
+	&.#{$block}--large {
 		width: 100%;
     height: var(--button-large-height);
 	}
 
-	&.tan-button--normal {
+	&.#{$block}--normal {
 		padding: var(--button-normal-padding);
     font-size: var(--button-normal-font-size);
 	}
 
-	&.tan-button--small {
+	&.#{$block}--small {
 		min-width: var(--button-small-min-width);
     height: var(--button-small-height);
     padding: 0 var(--tan-padding-xs);
     font-size: var(--button-small-font-size);
 	}
 
-	&.tan-button--mini {
+	&.#{$block}--mini {
 		display: inline-block;
     min-width: var(--button-mini-min-width);
     height: var(--button-mini-height);
     font-size: var(--button-mini-font-size);
 	}
 
-	&.tan-button--block {
+	&.#{$block}--block {
 		display: flex;
     width: 100%;
 	}
 
-	&.tan-button--round {
+	&.#{$block}--round {
 		border-radius: var(
       --button-round-border-radius
     );
 	}
 
-	&.tan-button--square {
+	&.#{$block}--square {
 		border-radius: 0;
 	}
 
-	&.tan-button--disabled {
+	&.#{$block}--disabled {
 		opacity: var(--button-disabled-opacity);
 	}
 
@@ -200,7 +202,7 @@
 		display: inline;
 	}
 
-	.tan-button__loading {
+	.#{$block}__loading {
 		--loading-spinner-size: var(--button-loading-size);
 		color: var(--button-loading-color);
 	}
@@ -216,7 +218,7 @@
     vertical-align: top;
 	}
 
-	&.tan-button--hairline {
+	&.#{$block}--hairline {
 		padding-top: 1px; // add 1px padding for text vertical align middle
     border-width: 0;
 
@@ -229,13 +231,13 @@
     }
 	}
 
-	&.tan-button--round::after {
+	&.#{$block}--round::after {
 		border-radius: var(
         --button-round-border-radius
       );
 	}
 
-	&.tan-button--square::after {
+	&.#{$block}--square::after {
 		border-radius: 0;
 	}
 }
