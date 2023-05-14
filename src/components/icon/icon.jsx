@@ -63,5 +63,6 @@ Icon.propTypes = {
 } 
 
 Icon.defaultProps = {
+	dot: false,
 	classPrefix: 'van-icon'	
 }

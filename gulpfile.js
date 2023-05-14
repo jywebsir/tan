@@ -13,12 +13,16 @@ function copyGuides() {
 		.pipe(gulp.dest('./docs/guide'));
 }
 
+function watchHandler(path) {
+	return gulp.src(path).pipe(gulp.dest('./docs/guide'))	
+}
+
 function watchGuides(cb) {
-	gulp.watch(['./src/components/**/*.md']).on(
+	const watcher = gulp.watch(['./src/components/**/*.md'])
+
+	watcher.on(
 		'change', 
-		function(path) {
-			return gulp.src(path).pipe(gulp.dest('./docs/guide'))
-		}
+		watchHandler
 	)
 }
 
