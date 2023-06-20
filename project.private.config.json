@@ -3,5 +3,18 @@
   "projectname": "taro-vant",
   "setting": {
     "compileHotReLoad": false
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "index-bar",
+          "pathName": "subpages/navigation/index-bar-page",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
   }
 }

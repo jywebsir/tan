@@ -7,33 +7,22 @@ import React, {
 	useEffect,
 	useMemo
 } from 'react'
-import PropTypes from 'prop-types'
+
 import Taro, { usePageScroll } from '@tarojs/taro'
-import { useMemoizedFn, useDebounceFn, useThrottleFn, useMount } from 'ahooks'
-import { withNativeProps } from '../../utils/native-props'
-import uniqueId from '../../utils/unique-id'
-import { getElementRect, getElementRectsBySelector } from '../../utils/element'
-import { bemBlock, bemElement } from '../../utils/class-name'
-import traverseReactNode from '../../utils/traverse-react-node'
-import IndexBarSidebar from './index-bar-sidebar'
-import IndexBarAnchor from './index-bar-anchor'
-import IndexBarGroup from './index-bar-group'
 
-export const BLOCK = 'index-bar'
+import { 
+	useMemoizedFn, 
+	useDebounceFn, 
+	useThrottleFn, 
+	useMount 
+} from 'ahooks'
 
-export const IndexBar = props => {
-	const { 
-		zIndex, 
-		sticky, 
-		highlightColor, 
-		indexList,
-		stickyOffsetTop,
-		scrollDuration,
-		safeAreaBottom,
-		children,
-		onSelect 
-	} = props
-
+const useIndexBar = ({
+	children,
+	scrollDuration,
+	stickyOffsetTop,
+	onSelect
+}) => {
 	const scrollTopRef = useRef(0)
 	const listRef = useRef()
 	const anchorRectsRef = useRef([])
@@ -76,7 +65,7 @@ export const IndexBar = props => {
 			anchorRefs
 		}
 	}, [children])
-	
+
 	const scrollToAnchor = (index) => {
 		const anchorRef = indexGroupList.anchorRefs[index]
 
@@ -149,56 +138,10 @@ export const IndexBar = props => {
 		}
 	})
 
-	return withNativeProps(
-		props,
-		<view 
-			ref={listRef} 
-			className={bemBlock(BLOCK, [safeAreaBottom && 'safe-area-bottom'])} 
-		>
-			{
-				Children.map(children, (child) => {
-					const refAnchor = indexGroupList.anchorRefs[child.props.index]
+	return {
+		indexGroupList,
 
-					return (
-						<IndexBarAnchor 
-							key={child.props.index}
-							ref={refAnchor}
-							activeIndex={activeIndex}
-							index={child.props.index}
-							title={child.props.title}
-							sticky={sticky}
-							stickyOffsetTop={stickyOffsetTop}
-							scrollDuration={scrollDuration}
-							scrollTop={scrollTopRef.current}
-							onInitRect={onInitAnchorRect}
-						>
-							{child.props.children}
-						</IndexBarAnchor>	
-					)
-				}) 
-			}
-
-			<IndexBarSidebar 
-				zIndex={zIndex} 
-				activeIndex={activeIndex}
-				list={indexGroupList.indexes}
-				onClickIndex={onClickSideBarIndex}
-			/>
-		</view>	
-	)
+	}
 }
 
-IndexBar.propTypes = {
-	sticky: PropTypes.bool,
-	stickyOffsetTop: PropTypes.number,
-	scrollDuration: PropTypes.number,
-	safeAreaBottom: PropTypes.bool,
-	onSelect: PropTypes.func
-}
-
-IndexBar.defaultProps = {
-	stickyOffsetTop: 0,
-	scrollDuration: 100,
-	sticky: true,
-	safeAreaBottom: true
-}
+export default useIndexBar

@@ -1,12 +1,13 @@
-@import '../variables.scss';
 @use 'sass:math';
+
+$design-width: 750;
 
 @function strip($num) {
 	@return math.div($num, $num * 0 + 1);
 }
 
 @function calculate($px, $width: $design-width) {
-	$unit: strip($px) * ($width/ 375);
+	$unit: strip($px) * math.div($width, 375);
 
 	@return $unit * 1px;
 }

@@ -1,9 +1,9 @@
 import React from 'react'
-import DemoBlock from '../components/demo-block'
-import DemoPage from '../components/demo-page'
+import DemoBlock from '../../components/demo-block'
+import DemoPage from '../../components/demo-page'
 import Space from '@/components/space'
 import Icon from '@/components/icon'
-import style from '../styles/icon-page.module.scss'
+import style from './icon-page.module.scss'
 
 const IconPage = () => {
 	return (

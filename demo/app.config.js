@@ -1,12 +1,19 @@
-import pages from './config/pages'
+import {
+  pageMap,
+  mainPageList,
+  subPageList,
+  preloadPageList
+} from './config/pages'
 
 export default {
-  entryPagePath: `pages/${pages.map.entry}`,
-  pages: pages.list,
+  entryPagePath: pageMap.entry,
+  pages: mainPageList,
+	subpackages: subPageList,
+	preloadRule: preloadPageList,
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#FFFFFF',
-    navigationBarTitleText: 'Tank',
+    navigationBarTitleText: 'Tan',
     navigationBarTextStyle: 'black'
   }
 }

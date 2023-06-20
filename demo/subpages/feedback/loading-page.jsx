@@ -1,6 +1,6 @@
 import React from 'react'
-import DemoBlock from '../components/demo-block'
-import DemoPage from '../components/demo-page'
+import DemoBlock from '../../components/demo-block'
+import DemoPage from '../../components/demo-page'
 import Loading from '@/components/loading'
 
 const LoadingPage = () => {

@@ -8,8 +8,7 @@ import IndexBarIndex from './index-bar-index'
 const IndexBarSidebar = forwardRef((props, ref) => {
 	const { 
 		zIndex, 
-		highlightColor, 
-		activeAnchorIndex, 
+		activeIndex, 
 		list,
 		onClickIndex 
 	} = props
@@ -21,18 +20,19 @@ const IndexBarSidebar = forwardRef((props, ref) => {
 			className={bemElement(BLOCK, 'sidebar')}
 		>
 			{
-				list.map((item, index) => {
-					const actived = item === activeAnchorIndex
+				list.map((item) => {
+					const { index, brief } = item
+
+					const actived = index === activeIndex
 
 					return (
 						<IndexBarIndex 
 							zIndex={zIndex}
-							key={item}
-							highlightColor={highlightColor}
+							key={index}
 							index={index}
 							actived={actived}
 							onClick={onClickIndex}
-						>{item}</IndexBarIndex>
+						>{brief}</IndexBarIndex>
 					)
 				})
 			}			
@@ -44,7 +44,7 @@ IndexBarSidebar.propTypes = {
 	zIndex: PropTypes.number.isRequired,
 	highlightColor: PropTypes.string,
 
-	activeAnchorIndex: PropTypes.number.isRequired,
+	activeIndex: PropTypes.string,
 
 	list: PropTypes.arrayOf([
 		PropTypes.string, 

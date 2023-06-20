@@ -25,7 +25,6 @@ const map = {
 	radio: 'radio-page',
 	checkbox: 'checkbox-page',
 	switch: 'switch-page',
-	calendar: 'calendar-page',
 	countDown: 'count-down-page',
 	divider: 'divider-page',
 	progress: 'progress-page',

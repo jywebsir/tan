@@ -2,8 +2,6 @@
 
 $prefix: 'tan';
 
-$design-width: 750;
-
 // Component Colors
 $disabled-opacity: 0.5;
 
@@ -271,25 +269,24 @@ $uploader-loading-icon-color: var(--#{$prefix}-color-white);
 $uploader-disabled-opacity: $disabled-opacity; 
 $uploader-preview-margin: 0 var(--#{$prefix}-padding-xs) var(--#{$prefix}-padding-xs) 0;
 
-// IndexAnchor
-$index-anchor-padding: 0 var(--#{$prefix}-padding-md);
-$index-anchor-text-color: var(--#{$prefix}-color-text);
-$index-anchor-font-weight: 500;
-$index-anchor-font-size: var(--#{$prefix}-font-size-md);
-$index-anchor-line-height: #{calculate(32px)};
-$index-anchor-background-color: transparent;
-$index-anchor-actived-background-color: var(--#{$prefix}-color-white);
-$index-anchor-actived-text-color: var(--#{$prefix}-color-red);
-
 // IndexBar
 $index-bar-right: #{calculate(8px)};
-$index-bar-index-padding: 0 var(--#{$prefix}-padding-base) 0 var(--#{$prefix}-padding-md);
+$index-bar-index-padding: 6px 8px;
 $index-bar-index-font-weight: 500;
-$index-bar-index-highlight-color: var(--#{$prefix}-color-red);
-$index-bar-index-font-size: var(--#{$prefix}-font-size-xs);
+$index-bar-index-highlight-color: var(--#{$prefix}-color-white);
+$index-bar-index-highlight-background-color: var(--#{$prefix}-color-black);
+$index-bar-index-font-size: var(--#{$prefix}-font-size-sm);
 $index-bar-index-line-height: #{calculate(14px)};
 $index-bar-sticky-z-index: 1;
 $index-bar-bar-z-index: 1;
+$index-bar-anchor-padding: 0 var(--#{$prefix}-padding-md);
+$index-bar-anchor-text-color: var(--#{$prefix}-color-text);
+$index-bar-anchor-actived-text-color: var(--#{$prefix}-color-black);
+$index-bar-anchor-font-weight: 500;
+$index-bar-anchor-font-size: var(--#{$prefix}-font-size-md);
+$index-bar-anchor-line-height: #{calculate(32px)};
+$index-bar-anchor-background-color: var(--#{$prefix}-color-gray-1);
+$index-bar-anchor-actived-background-color: var(--#{$prefix}-color-gray-1);
 
 // Dropdown Item
 $dropdown-item-trigger-title-disabled-color: var(--#{$prefix}-color-gray-6);
@@ -435,4 +432,3 @@ $skeleton-cols-margin-top: var(--#{$prefix}-padding-sm);
 $skeleton-avatar-size: #{calculate(48px)};
 $skeleton-avatar-background-color: var(--#{$prefix}-color-gray-2);
 $skeleton-animation-duration: 1.2s;
->>>>>>> feature/docs

@@ -1,6 +1,6 @@
 import queryString from 'query-string'
 import Taro from '@tarojs/taro'
-import pages from '../config/pages'
+import { pageMap } from '../config/pages'
 
 const WHITE_LIST = []
 
@@ -29,7 +29,9 @@ export class Router {
   }) {
     const args = params || {};
 
-		const pageUrl = this.getPageUrl(page)
+		const pageUrl = this.getPageUrl(
+			pageMap[page]
+		)
 
     if (redirect) {
       this.redirectTo(pageUrl, args)
@@ -121,7 +123,7 @@ export class Router {
   }
 
 	getPageUrl(url) {
-		return `/${this.pageDir}/${url}`
+		return `/${url}`
 	}
 
 	getStringifyUrl(

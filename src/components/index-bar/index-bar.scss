@@ -1,16 +1,32 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins/safe-area.scss';
 
-.tan-index-bar {
-	--right: var(--tan-index-bar-right, #{$index-bar-right});
-	--index-padding: var(--tan-index-bar-index-padding, #{$index-bar-index-padding});
-	--index-font-weight: var(--tan-index-bar-index-font-weight, #{$index-bar-index-font-weight});
-	--index-font-size: var(--tan-index-bar-index-font-size, #{$index-bar-index-font-size});
-	--index-line-height: var(--tan-index-bar-index-line-height, #{$index-bar-index-line-height});
-	--index-highlight-color: var(--tan-index-bar-index-highlight-color, #{$index-bar-index-highlight-color});
-	--index-zindex: var(--tan-index-bar-index-z-index, #{$index-bar-bar-z-index});
-	--sticky-zindex: var(--tan-index-bar-sticky-zindex, #{$index-bar-sticky-z-index});
+$block: #{$prefix}-index-bar;
+
+.#{$block} {
+	--right: var(--#{$block}-right, #{$index-bar-right});
+	--index-padding: var(--#{$block}-index-padding, #{$index-bar-index-padding});
+	--index-font-weight: var(--#{$block}-index-font-weight, #{$index-bar-index-font-weight});
+	--index-font-size: var(--#{$block}-index-font-size, #{$index-bar-index-font-size});
+	--index-line-height: var(--#{$block}-index-line-height, #{$index-bar-index-line-height});
+	--index-highlight-color: var(--#{$block}-index-highlight-color, #{$index-bar-index-highlight-color});
+	--index-highlight-background-color: var(--#{$block}-index-highlight-background-color, #{$index-bar-index-highlight-background-color});
+	--index-zindex: var(--#{$block}-index-z-index, #{$index-bar-bar-z-index});
+	--sticky-zindex: var(--#{$block}-sticky-zindex, #{$index-bar-sticky-z-index});
+	--anchor-padding: var(--#{$block}-anchor-padding, #{$index-bar-anchor-padding});
+	--anchor-color: var(--#{$block}-anchor-color, #{$index-bar-anchor-text-color});
+	--anchor-actived-color: var(--#{$block}-anchor-highlight-color, #{$index-bar-anchor-actived-text-color});
+	--anchor-font-weight: var(--#{$block}-anchor-font-weight, #{$index-bar-anchor-font-weight});
+	--anchor-font-size: var(--#{$block}-anchor-font-size, #{$index-bar-anchor-font-size});
+	--anchor-line-height: var(--#{$block}-anchor-line-height, #{$index-bar-anchor-line-height});
+	--anchor-background-color: var(--#{$block}-anchor-background-color, #{$index-bar-anchor-background-color});
+	--anchor-actived-background-color: var(--#{$block}-anchor-actived-background-color, #{$index-bar-anchor-actived-background-color});
 
 	position: relative;
+
+	&--safe-area-bottom {
+		@include safe-area-bottom;
+	}
 
 	&__sidebar {
 		position: fixed;
@@ -32,12 +48,29 @@
 
 		&--actived {
 			color: var(--index-highlight-color);
+			background-color: var(--index-highlight-background-color);
+			border-radius: 50%;
 		}
 	}
 
-	&__sticky {
-		position: fixed;
-		width: 100%;
-		z-index: var(--sticky-zindex);
+	&__anchor-title {
+		padding: var(--anchor-padding);
+		color: var(--anchor-color);
+		font-weight: var(--anchor-font-weight);
+		font-size: var(--anchor-font-size);
+		line-height: var(--anchor-line-height);
+		background-color: var(--anchor-background-color);
+
+		&--actived {
+			right: 0;
+			left: 0;
+			color: var(--anchor-actived-color);
+			background-color: var(--anchor-actived-background-color);
+
+			&.#{$block}__anchor-title--sticky {
+				position: sticky;	
+				z-index: var(--sticky-zindex);
+			}
+		}
 	}
 }

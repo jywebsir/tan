@@ -9,7 +9,7 @@ const IndexPage = () => {
 	const onClickCell = useMemoizedFn((event) => {
 		const { page } = event.currentTarget.dataset
 
-		router.toPage({page: `${page}-page`})	
+		router.toPage({page})	
 	})
 
 	return (
