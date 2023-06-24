@@ -4,8 +4,7 @@ import { useMount } from 'ahooks'
 import { pageScrollTo } from "@tarojs/taro"
 import { withNativeProps } from '../../utils/native-props'
 import { bemBlock, bemElement } from '../../utils/class-name'
-import uniqueId from '../../utils/unique-id'
-import { getRect } from '../../utils/helpers'
+import { getRect } from '../../utils/element'
 import { BLOCK } from './index-bar'
 
 const IndexBarAnchor = forwardRef((props, ref) => {
@@ -21,7 +20,10 @@ const IndexBarAnchor = forwardRef((props, ref) => {
 		onInitRect
 	} = props
 
-	const uniqueIdRef = useRef(uniqueId('index-bar-anchor'))
+	const anchorTitleId = useMemo(() => {
+		return `anchor-title-${index}`
+	}, [index])
+
 	const anchorTitleRectRef = useRef()
 
 	const actived = useMemo(() => {
@@ -45,23 +47,22 @@ const IndexBarAnchor = forwardRef((props, ref) => {
 	])
 
 	const getAnchorTitleRect = async () => {
-		const anchorTitleSelector = bemElement(BLOCK, 'anchor-title')	
-		
-		const { height, top } = await getRect(`#${uniqueIdRef.current}>>>.${anchorTitleSelector}`)
+		let rect = null
+
+		while (!rect) {
+			rect = await getRect(`#${anchorTitleId}`)	
+		}
+
+		return rect
+	}
+
+	const initTitleRect = async () => {
+		const { height, top } = await getAnchorTitleRect()
 
 		anchorTitleRectRef.current = {
 			height,
 			top
 		}
-
-		return {
-			height,
-			top
-		}
-	}
-
-	const initTitleRect = async () => {
-		const { height, top } = await getAnchorTitleRect()
 
 		onInitRect({
 			index,
@@ -88,10 +89,10 @@ const IndexBarAnchor = forwardRef((props, ref) => {
 	return withNativeProps(
 		props,
 		<view 
-			id={uniqueIdRef.current}
 			className={bemElement(BLOCK, 'anchor')} 
 		>
 			<view 
+				id={anchorTitleId}
 				className={bemElement(BLOCK, 'anchor-title', {actived, sticky})}
 				style={anchorStyle}
 			>{ title || index }</view>

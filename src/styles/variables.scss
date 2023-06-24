@@ -278,7 +278,7 @@ $index-bar-index-highlight-background-color: var(--#{$prefix}-color-black);
 $index-bar-index-font-size: var(--#{$prefix}-font-size-sm);
 $index-bar-index-line-height: #{calculate(14px)};
 $index-bar-sticky-z-index: 1;
-$index-bar-bar-z-index: 1;
+$index-bar-index-zindex: 1;
 $index-bar-anchor-padding: 0 var(--#{$prefix}-padding-md);
 $index-bar-anchor-text-color: var(--#{$prefix}-color-text);
 $index-bar-anchor-actived-text-color: var(--#{$prefix}-color-black);

@@ -1,0 +1,46 @@
+@import '../../styles/variables.scss';
+
+$block: #{$prefix}-back-top;
+
+.#{$block} {
+	--right: var(--#{$prefix}-back-top-right, 40px);
+	--bottom: var(--#{$prefix}-back-top-bottom, 100px);
+	--background-color: var(--#{$prefix}-back-top-background-color, #000000);
+	--text-color: var(--#{$prefix}-back-top-text-color, #FFFFFF);
+	--icon-color: var(--#{$prefix}-back-top-icon-color, #FFFFFF);
+	--icon-size: var(--#{$prefix}-back-top-icon-size, 36px);
+	
+	width: 88px;
+	right: var(--right);
+	bottom: var(--bottom);
+	opacity: 0;
+	transition-property: opacity;
+	transition-duration: 200;
+
+	&.#{$prefix}-button {
+		--button-default-background-color: var(--background-color);
+		--button-default-color: var(--text-color);
+		--button-normal-padding: 0;
+		position: fixed;
+	}
+
+	&--show {
+		opacity: 1;
+	}
+
+	&__icon {
+		--color: var(--icon-color);
+		--size: var(--icon-size);
+	}
+
+	&__content {
+		padding: 0;
+	}
+
+	&__text {
+		font-size: 22px;
+		line-height: 1;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+}

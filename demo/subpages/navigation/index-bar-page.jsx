@@ -8,11 +8,23 @@ const IndexBarPage = () => {
 		<IndexBar 
 			highlightColor="#1989fa" 
 			style={{backgroundColor: '#f7f8fa'}}
+			lazyRender
 		>
 			<IndexBarGroup index="A">
-				<Cell title="文本" />
-				<Cell title="文本" />
-				<Cell title="文本" />
+				{
+					({
+						activeGroupIndexes
+					}) => {
+						return (
+							<view>
+								<Cell title="文本" />
+								<Cell title="文本" />
+								<Cell title="文本" />
+							</view>
+						)
+					}
+				}
+				
 			</IndexBarGroup>
 
 			<IndexBarGroup index="B">

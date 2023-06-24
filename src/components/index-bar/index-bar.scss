@@ -4,14 +4,14 @@
 $block: #{$prefix}-index-bar;
 
 .#{$block} {
-	--right: var(--#{$block}-right, #{$index-bar-right});
+	--index-right: var(--#{$block}-right, #{$index-bar-right});
 	--index-padding: var(--#{$block}-index-padding, #{$index-bar-index-padding});
 	--index-font-weight: var(--#{$block}-index-font-weight, #{$index-bar-index-font-weight});
 	--index-font-size: var(--#{$block}-index-font-size, #{$index-bar-index-font-size});
 	--index-line-height: var(--#{$block}-index-line-height, #{$index-bar-index-line-height});
 	--index-highlight-color: var(--#{$block}-index-highlight-color, #{$index-bar-index-highlight-color});
 	--index-highlight-background-color: var(--#{$block}-index-highlight-background-color, #{$index-bar-index-highlight-background-color});
-	--index-zindex: var(--#{$block}-index-z-index, #{$index-bar-bar-z-index});
+	--index-zindex: var(--#{$block}-index-z-index, #{$index-bar-index-zindex});
 	--sticky-zindex: var(--#{$block}-sticky-zindex, #{$index-bar-sticky-z-index});
 	--anchor-padding: var(--#{$block}-anchor-padding, #{$index-bar-anchor-padding});
 	--anchor-color: var(--#{$block}-anchor-color, #{$index-bar-anchor-text-color});
@@ -31,7 +31,7 @@ $block: #{$prefix}-index-bar;
 	&__sidebar {
 		position: fixed;
     top: 50%;
-    right: var(--right);
+    right: var(--index-right);
     display: flex;
     flex-direction: column;
     text-align: center;

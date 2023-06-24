@@ -20,6 +20,17 @@ export const queryAllNodesRef = (element, selector) => {
   return Taro.createSelectorQuery().selectAll(`#${element.uid} ${selector}`)
 }
 
+export const getRect = (selector) => {
+	return new Promise((resolve) => {
+		Taro.nextTick(() => {
+			Taro.createSelectorQuery()
+			.select(selector)
+			.boundingClientRect(rect => resolve(rect))
+			.exec()
+		})
+	})
+}
+
 export const getElementRect = (elementOrRef) => {
 	const element = elementUnref(elementOrRef)
 
