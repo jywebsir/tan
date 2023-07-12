@@ -52,6 +52,7 @@ const useTouch = () => {
 		const touch = event.touches[0]
 
 		touchRef.current.deltaX = touch.clientX < 0 ? 0 : touch.clientX - touchRef.current.startX
+
     touchRef.current.deltaY = touch.clientY - touchRef.current.startY
     touchRef.current.offsetX = Math.abs(touchRef.current.deltaX)
     touchRef.current.offsetY = Math.abs(touchRef.current.deltaY)

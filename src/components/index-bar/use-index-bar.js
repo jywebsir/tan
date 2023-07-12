@@ -4,23 +4,21 @@ import React, {
 	createRef,
 	useState, 
 	useRef,
-	useMemo
+	useMemo,
+	useImperativeHandle
 } from 'react'
-
 import Taro, { usePageScroll } from '@tarojs/taro'
-
 import { 
 	useMemoizedFn, 
 	useDebounceFn, 
 	useThrottleFn, 
 	useMount 
 } from 'ahooks'
-
 import traverseReactNode from '../../utils/traverse-react-node'
-
 import IndexBarGroup from './index-bar-group'
 
 const useIndexBar = ({
+	ref,
 	children,
 	scrollDuration,
 	sticky,
@@ -70,12 +68,12 @@ const useIndexBar = ({
 		})
 
 		return {
-			indexes,
+			indexes, 
 			anchorRefs
 		}
 	}, [children])
 
-	const scrollToAnchor = (index) => {
+	const scrollToIndex = (index) => {
 		const anchorRef = indexGroupList.anchorRefs[index]
 
 		anchorRef?.current.scrollIntoView(scrollTopRef.current)
@@ -90,7 +88,7 @@ const useIndexBar = ({
 
 		setLockingActiveIndexCheck(true)
 		setActiveIndex(index)
-		scrollToAnchor(index)
+		scrollToIndex(index)
 
 		onSelect?.(index)		
 
@@ -201,6 +199,12 @@ const useIndexBar = ({
 
 		if (lazyRender) {
 			checkActiveGroups()
+		}
+	})
+
+	useImperativeHandle(ref, () => {
+		return {
+			scrollToIndex
 		}
 	})
 

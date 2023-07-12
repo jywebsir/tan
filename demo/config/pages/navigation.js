@@ -8,8 +8,14 @@ const indexBarPage = {
 	path: 'index-bar-page'
 }
 
+const tabsPage = {
+	id: 'tabs',
+	path: 'tabs-page'
+}
+
 const pageList = [
-	indexBarPage
+	indexBarPage,
+	tabsPage
 ].map((page) => {
 	return {
 		...page,

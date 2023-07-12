@@ -21,6 +21,7 @@ const IndexBarView = props => {
 		anchorRefs,
 		indexes,
 		activeIndex,
+		disableSidebar,
 		activeGroupIndexes,
 		showBackTop,
 		onInitAnchorRect,
@@ -65,11 +66,15 @@ const IndexBarView = props => {
 				}) 
 			}
 
-			<IndexBarSidebar 
-				activeIndex={activeIndex}
-				list={indexes}
-				onClickIndex={onClickSideBarIndex}
-			/>
+			{
+				!disableSidebar
+				&&
+				<IndexBarSidebar 
+					activeIndex={activeIndex}
+					list={indexes}
+					onClickIndex={onClickSideBarIndex}
+				/>
+			}
 
 			<BackTop show={showBackTop} />
 		</view>
@@ -91,6 +96,7 @@ IndexBarView.propTypes = {
 	showBackTop: PropTypes.bool.isRequired,
 	lazyRender: PropTypes.bool.isRequired,
 	activeIndex: PropTypes.string,
+	disableSidebar: PropTypes.bool.isRequired,
 	activeGroupIndexes: PropTypes.arrayOf(PropTypes.string),
 	onInitAnchorRect: PropTypes.func.isRequired,
 	onClickSideBarIndex: PropTypes.func.isRequired

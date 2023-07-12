@@ -1,16 +1,26 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import IndexBar from '@/components/index-bar'
-import IndexBarGroup from '@/components/index-bar/index-bar-group'
 import Cell from '@/components/cell'
 
 const IndexBarPage = () => {
+	const ref = useRef()
+
+	const scrollToIndexC = () => {
+		ref?.current?.scrollToIndex('E')
+	}
+
+	useEffect(() => {
+		setTimeout(() => {
+			scrollToIndexC()
+		}, 2000)
+	}, [])
+
 	return (
 		<IndexBar 
-			highlightColor="#1989fa" 
-			style={{backgroundColor: '#f7f8fa'}}
+			ref={ref}
 			lazyRender
 		>
-			<IndexBarGroup index="A">
+			<IndexBar.Group index="A">
 				{
 					({
 						activeGroupIndexes
@@ -25,153 +35,153 @@ const IndexBarPage = () => {
 					}
 				}
 				
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="B">
+			<IndexBar.Group index="B">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="C">
+			<IndexBar.Group index="C">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="D">
+			<IndexBar.Group index="D">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="E">
+			<IndexBar.Group index="E">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="F">
+			<IndexBar.Group index="F">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="G">
+			<IndexBar.Group index="G">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="H">
+			<IndexBar.Group index="H">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="I">
+			<IndexBar.Group index="I">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="J">
+			<IndexBar.Group index="J">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="K">
+			<IndexBar.Group index="K">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="L">
+			<IndexBar.Group index="L">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="M">
+			<IndexBar.Group index="M">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="N">
+			<IndexBar.Group index="N">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="O">
+			<IndexBar.Group index="O">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="P">
+			<IndexBar.Group index="P">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="Q">
+			<IndexBar.Group index="Q">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="R">
+			<IndexBar.Group index="R">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="S">
+			<IndexBar.Group index="S">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="T">
+			<IndexBar.Group index="T">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="U">
+			<IndexBar.Group index="U">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="V">
+			<IndexBar.Group index="V">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="W">
+			<IndexBar.Group index="W">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="X">
+			<IndexBar.Group index="X">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="Y">
+			<IndexBar.Group index="Y">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 
-			<IndexBarGroup index="Z">
+			<IndexBar.Group index="Z">
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
@@ -193,7 +203,7 @@ const IndexBarPage = () => {
 				<Cell title="文本" />
 				<Cell title="文本" />
 				<Cell title="文本" />
-			</IndexBarGroup>
+			</IndexBar.Group>
 		</IndexBar>
 	)
 }

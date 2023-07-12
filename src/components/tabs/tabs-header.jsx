@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import { withNativeProps } from '../../utils/native-props'
 import { bemElement, BASE_PREFIX } from '../../utils/class-name'
+import { convertRpx } from '../../utils/unit'
 import { BLOCK, TYPE_LINE } from './tabs'
 import Tab from './tab'
-import useTabHeader from './use-tab-header'
+import useTabsHeader from './use-tabs-header'
 
-const TabHeader = props => {
+const TabsHeader = props => {
 	const {
 		tabs,
+		currentValue,
 		currentIndex,
 		scrollable,
 		type,
@@ -17,41 +20,63 @@ const TabHeader = props => {
 		left,
 		right,
 		isLineType,
-		onTapTab
+		duration,
+		onClickTab,
+		onClickDisabled
 	} = props
 
 	const {
 		headerRef,
+		skipTransition,
 		scrollWithAnimation,
 		scrollLeft,
 		lineOffsetLeft 
-	} = useTabHeader({
+	} = useTabsHeader({
 		currentIndex,
 		scrollable,
 		ellipse,
 		isLineType
 	})
 
+	const lineStyle = useMemo(() => {
+		if (!isLineType) {
+			return null
+		}
+
+		return {
+			transform: `translateX(${lineOffsetLeft}px)`,
+			transitionDuration: !skipTransition ? `${duration}s` : null
+		}
+	}, [isLineType, lineOffsetLeft, skipTransition, duration])
+
 	return withNativeProps(
 		props,
 		<view 
 			ref={headerRef}
-			className={bemElement(
-				BLOCK, 
-				'header', 
+			className={classNames(
+				bemElement(
+					BLOCK, 
+					'header', 
+					{scrollable} 
+				), 
+				isLineType 
+				&& 
+				border 
+				&& 
 				[
-					{scrollable}, 
-					isLineType && border && `${BASE_PREFIX}-hairline--top-bottom`
+					`${BASE_PREFIX}-hairline`,
+					`${BASE_PREFIX}-hairline--top-bottom`
 				]
 			)}
 		>
 			{left}
 
 			<scroll-view
-				scroll-x={scrollable}
-				scroll-with-animation={scrollWithAnimation}
-				scroll-left={scrollLeft}
+				scrollX={scrollable}
+				scrollWithAnimation={scrollWithAnimation}
+				scrollLeft={scrollLeft}
 				className={bemElement(BLOCK, 'scroll', [type])}
+				enablePassive
 			>
 				<view className={bemElement(
 					BLOCK, 
@@ -61,35 +86,43 @@ const TabHeader = props => {
 					{
 						isLineType
 						&&
-						<view clasName={bemElement(BLOCK, 'line')} />
+						<view 
+							className={bemElement(BLOCK, 'line')} 
+							style={lineStyle}
+						/>
 					}
 
 					{
-						tabs.map((tab, index) => {
-							const { disabled, title, dot, info } = tab
+						tabs.map((tab) => {
+							const { disabled, title, dot, info, value } = tab
 
 							return (
 								<Tab 
-									key={index}
+									key={value}
+									value={value}
 									title={title}
-									actived={index === currentIndex}
+									actived={value === currentValue}
 									disabled={disabled}
 									ellipse={ellipse}
 									dot={dot}
 									info={info}
-									onTap={onTapTab}
+									onClick={onClickTab}
+									onClickDisabled={onClickDisabled}
 								/>
 							)
 						})
 					}
 				</view>
 			</scroll-view>
+
+			{right}
 		</view>
 	)
 }
 
-TabHeader.propTypes = {
+TabsHeader.propTypes = {
 	tabs: PropTypes.array.isRequired,
+	currentValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	currentIndex: PropTypes.number,
 	scrollable: PropTypes.bool,
 	scrollWithAnimation: PropTypes.bool,
@@ -100,7 +133,7 @@ TabHeader.propTypes = {
 	isLineType: PropTypes.bool,
 	left: PropTypes.node,
 	right: PropTypes.node,
-	onTapTab: PropTypes.func
+	onClickTab: PropTypes.func.isRequired
 } 
 
-export default React.memo(TabHeader)
+export default React.memo(TabsHeader)

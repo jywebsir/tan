@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import PropTypes from 'prop-types'
 import { withNativeProps } from '../../utils/native-props'
 import { bemBlock, bemElement } from '../../utils/class-name'
-import Sticky from '../sticky'
-import TabsContext from './tabs-context'
-import useTabs from './use-tabs'
+import Stick from '../sticky'
 import TabsHeader from './tabs-header'
+import TabPanel from './tab-panel'
+import useTabs from './use-tabs'
 
 export const BLOCK = 'tabs'
 
@@ -24,77 +24,88 @@ export const Tabs = props => {
 		navLeft,
 		navRight,
 		duration,
-		children
+		lazyRender,
+		children,
+		onClickDisabled
 	} = props
 
 	const {
+		ref,
+		value,
 		currentIndex,
-		contextValue,
 		tabs,
 		isLineType,
 		scrollable,
 		scrollWithAnimation,
 		scrollLeft,
+		stickyContainer,
+		onClickTab,
+		onTouchStart,
+		onTouchMove,
+		onTouchEnd
 	} = useTabs(props)
-	
+
 	return withNativeProps(
 		props,
-		<view className={bemBlock(BLOCK, [type])}>
-			<TabsContext.Provider
-				value={contextValue}
+		<view ref={ref} className={bemBlock(BLOCK, [type])}>
+			<Stick 
+				disabled={!sticky}
+				zIndex={zIndex}
+				offsetTop={offsetTop}
+				container={stickyContainer}
 			>
-				{
-					sticky
-					?
-					<Sticky
-						zIndex={zIndex}
-						offsetTop={offsetTop}
-					>
-						<TabsHeader 
-							tabs={tabs}
-							currentIndex={currentIndex}
-							type={type}
-							border={border}
-							ellipse={ellipsis}
-							scrollable={scrollable}
-							scrollWithAnimation={scrollWithAnimation}
-							scrollLeft={scrollLeft}
-							isLineType={isLineType}
-							left={navLeft}
-							right={navRight}
-							onTapTab={()=>{}}
-						/>
-					</Sticky>
-					:
-					<TabsHeader 
-						tabs={tabs}
-						currentIndex={currentIndex}
-						type={type}
-						border={border}
-						ellipse={ellipsis}
-						scrollable={scrollable}
-						scrollWithAnimation={scrollWithAnimation}
-						scrollLeft={scrollLeft}
-						isLineType={isLineType}
-						left={navLeft}
-						right={navRight}
-						onTapTab={()=>{}}
-					/>	
-				}
+				<TabsHeader 
+					tabs={tabs}
+					currentValue={value}
+					currentIndex={currentIndex}
+					type={type}
+					border={border}
+					ellipse={ellipsis}
+					scrollable={scrollable}
+					scrollWithAnimation={scrollWithAnimation}
+					scrollLeft={scrollLeft}
+					isLineType={isLineType}
+					left={navLeft}
+					right={navRight}
+					duration={duration}
+					className={bemElement(BLOCK, 'header', {sticky})}
+					onClickTab={onClickTab}
+					onClickDisabled={onClickDisabled}
+				/>	
+			</Stick>
 
-				<view className={bemElement(BLOCK, 'content')}>
-					<view 
-						className={bemElement(BLOCK, 'track', {animated})}
-						style={
-							animated
-							&&
-							{left: `${-100*currentIndex}%`, transitionDuration: `${duration}s`}
+			<view 
+				className={bemElement(BLOCK, 'content')}
+				onTouchStart={onTouchStart}
+				onTouchMove={onTouchMove}
+				onTouchEnd={onTouchEnd}
+			>
+				<view 
+					className={bemElement(BLOCK, 'track', {animated})}
+					style={
+						animated
+						&&
+						{
+							transform: `translateX(${-100*currentIndex}%)`, 
+							transitionDuration: `${duration}s`
 						}
-					>
-						{children}
-					</view>
+					}
+				>
+					{
+						tabs.map((tab, index) => {
+							return (
+								<TabPanel 
+									key={index}
+									index={index} 
+									currentIndex={currentIndex}
+									lazyRender={lazyRender}
+									animated={animated}
+								>{tab.children}</TabPanel>
+							)
+						})
+					}
 				</view>
-			</TabsContext.Provider>
+			</view>
 		</view>
   )
 }
@@ -111,20 +122,23 @@ Tabs.propTypes = {
 	lazyRender: PropTypes.bool,
 	duration: PropTypes.number,
 	zIndex: PropTypes.number,
-	swipeThreshold: PropTypes.number,
 	offsetTop: PropTypes.number,
+	swipeThreshold: PropTypes.number,
 	navLeft: PropTypes.node,
-	navRight: PropTypes.node
+	navRight: PropTypes.node,
+	onClickDisabled: PropTypes.func,
+	onBeforeChange: PropTypes.func
 }
 
 Tabs.defaultProps = {
 	defaultValue: 0,
+	border: true,
 	type: TYPE_LINE,
 	animated: false,
 	ellipsis: true,
 	lazyRender: true,
 	duration: 0.3,
 	zIndex: 1,
-	swipeThreshold: 5,
-	offsetTop: 0
+	offsetTop: 0,
+	swipeThreshold: 5
 }

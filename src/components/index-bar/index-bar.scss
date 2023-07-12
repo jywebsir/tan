@@ -68,6 +68,7 @@ $block: #{$prefix}-index-bar;
 			background-color: var(--anchor-actived-background-color);
 
 			&.#{$block}__anchor-title--sticky {
+				position: -webkit-sticky;
 				position: sticky;	
 				z-index: var(--sticky-zindex);
 			}

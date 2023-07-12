@@ -18,6 +18,7 @@ export default function usePropsValue(options) {
 		if (!forceTrigger && nextValue === stateRef.current) return
 
     stateRef.current = nextValue
+
 		update()
 
 		return onChange?.(nextValue)

@@ -1,3 +1,4 @@
+import React from 'react'
 import PropTypes from 'prop-types'
 import useIndexBar from './use-index-bar'
 import IndexBarView from './index-bar-view'
@@ -5,7 +6,7 @@ import { withNativeProps } from '../../utils/native-props'
 
 export const BLOCK = 'index-bar'
 
-export const IndexBar = props => {
+export const IndexBar = React.forwardRef((props, ref) => {
 	const { 
 		sticky, 
 		stickyOffsetTop,
@@ -15,6 +16,7 @@ export const IndexBar = props => {
 		lazyRender,
 		lazyRenderOffsetTop,
 		initActiveGroupIndexes,
+		disableSidebar,
 		children,
 		onSelect 
 	} = props
@@ -29,6 +31,7 @@ export const IndexBar = props => {
 		onInitAnchorRect,
 		onClickSideBarIndex
 	} = useIndexBar({
+		ref,
 		children,
 		scrollDuration,
 		sticky,
@@ -53,6 +56,7 @@ export const IndexBar = props => {
 			sticky={sticky}
 			activeIndex={activeIndex}
 			lazyRender={lazyRender}
+			disableSidebar={disableSidebar}
 			showBackTop={showBackTop}
 			activeGroupIndexes={activeGroupIndexes}
 			onInitAnchorRect={onInitAnchorRect}
@@ -61,7 +65,7 @@ export const IndexBar = props => {
 			{children}
 		</IndexBarView>	
 	)
-}
+})
 
 IndexBar.propTypes = {
 	sticky: PropTypes.bool,
@@ -72,6 +76,7 @@ IndexBar.propTypes = {
 	lazyRenderOffsetTop: PropTypes.number,
 	initActiveGroupIndexes: PropTypes.arrayOf(PropTypes.string),
 	safeAreaBottom: PropTypes.bool,
+	disableSidebar: PropTypes.bool,
 	onSelect: PropTypes.func
 }
 
@@ -82,5 +87,6 @@ IndexBar.defaultProps = {
 	sticky: true,
 	lazyRender: false,
 	lazyRenderOffsetTop: 700,
-	safeAreaBottom: true
+	safeAreaBottom: true,
+	disableSidebar: false
 }

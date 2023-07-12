@@ -1,16 +1,14 @@
 import { useContext, useRef } from 'react'
-import TabsContext from './tabs-context'
 
 const useTabPanel = props => {
 	const initedRef = useRef()
 
-	const { index } = props
-
-	const {
+	const { 
+		index,
 		currentIndex,
 		lazyRender,
 		animated
-	} = useContext(TabsContext)
+	} = props
 
 	const actived = currentIndex === index
 

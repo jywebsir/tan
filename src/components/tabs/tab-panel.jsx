@@ -6,15 +6,10 @@ import { BLOCK } from './tabs'
 
 export const TabPanel = props => {
 	const {
-		index,
-		children
-	} = props
-
-	const {
 		actived,
 		shouldRender,
 		show	
-	} = useTabPanel({index})
+	} = useTabPanel(props)
 
 	return (
 		<view className={
@@ -31,18 +26,16 @@ export const TabPanel = props => {
 			{
 				shouldRender
 				&&
-				children
+				props.children
 			}
 		</view>
 	)
 }
 
 TabPanel.propTypes = {
-	value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	index: PropTypes.number,
-	title: PropTypes.string.isRequired,
-	disabled: PropTypes.bool,
-	info: PropTypes.string,
-	dot: PropTypes.bool
+	lazyRender: PropTypes.bool,
+	animated: PropTypes.bool
 }
 
+export default React.memo(TabPanel)

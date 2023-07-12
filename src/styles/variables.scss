@@ -398,15 +398,19 @@ $progress-pivot-text-color: var(--#{$prefix}-color-white);
 
 // Tabs
 $tabs-default-color: var(--#{$prefix}-color-red);
-$tabs-line-height: #{calculate(44px)};
 $tabs-nav-card-height: #{calculate(30px)};
 $tabs-nav-background-color: var(--#{$prefix}-color-white);
 $tabs-bottom-bar-height: #{calculate(3px)};
 $tabs-bottom-bar-color: var(--#{$prefix}-color-red);
+$tabs-tab-padding: #{calculate(15px)} #{calculate(5px)};
 $tabs-tab-text-color: var(--#{$prefix}-color-gray-7);
 $tabs-tab-actived-text-color: var(--#{$prefix}-color-text);
+$tabs-tab-card-actived-text-color: var(--#{$prefix}-color-white);
 $tabs-tab-disabled-text-color: var(--#{$prefix}-color-gray-5);
 $tabs-tab-font-size: var(--#{$prefix}-font-size-md);
+$tabs-tab-line-color: var(--#{$prefix}-color-red);
+$tabs-tab-line-width: #{calculate(40px)};
+$tabs-tab-line-height: #{calculate(3px)};
 
 // Pull Refresh
 $pull-refresh-head-height: #{calculate(50px)};

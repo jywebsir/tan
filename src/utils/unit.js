@@ -1,7 +1,12 @@
+import Taro from "@tarojs/taro"
 
 function convertPx(value) {
   value = value.replace(/px/g, "")
   return +value
+}
+
+export function convertRpx(value) {
+	return Taro.pxTransform(value)
 }
 
 function convertRem(value) {
