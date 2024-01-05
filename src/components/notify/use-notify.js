@@ -37,7 +37,7 @@ const useNotify = (props) => {
 
 	const onOpen = useMemoizedFn((opts = {}) => {
 		const mergedOptions = {
-			...options,
+			...props,
 			...opts
 		}
 
