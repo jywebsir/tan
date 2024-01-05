@@ -436,3 +436,12 @@ $skeleton-cols-margin-top: var(--#{$prefix}-padding-sm);
 $skeleton-avatar-size: #{calculate(48px)};
 $skeleton-avatar-background-color: var(--#{$prefix}-color-gray-2);
 $skeleton-animation-duration: 1.2s;
+
+// notify
+$notify-padding: #{calculate(6px)} #{calculate(15px)};
+$notify-font-size: #{calculate(15px)};
+$notify-line-height: #{calculate(20px)};
+$notify-primary-color: var(--#{$prefix}-color-blue);
+$notify-success-color: var(--#{$prefix}-color-green);
+$notify-danger-color: var(--#{$prefix}-color-red);
+$notify-warning-color: var(--#{$prefix}-color-orange);

@@ -3,8 +3,9 @@ const pageManager = require('../../lib/page-manager')
 const group = 'basic'
 const type = pageManager.subPageType
 
+const iconPageId = 'icon'
 const iconPage = {
-	id: 'icon',
+	id: iconPageId,
 	path: 'icon-page'
 }
 
@@ -20,5 +21,6 @@ const pageList = [
 
 module.exports = {
 	group,
-	pageList
+	pageList,
+	iconPageId
 }

@@ -4,11 +4,13 @@ const entry = require('./entry')
 const basic = require('./basic')
 const feedback = require('./feedback')
 const navigation = require('./navigation')
+// const form = require('./form')
 
 // 页面列表
 const pageList = [
 	...entry.pageList,
 	...basic.pageList,
+	// ...form.pageList,
 	...feedback.pageList,
 	...navigation.pageList
 ]

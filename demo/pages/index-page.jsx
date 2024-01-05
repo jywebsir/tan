@@ -156,6 +156,14 @@ const IndexPage = () => {
 				/>
 
 				<Cell 
+					title="Notify消息通知" 
+					data-page="notify"
+					rightIcon
+					clickable
+					onClick={onClickCell}	
+				/>
+
+				<Cell 
 					title="Overlay遮罩层" 
 					data-page="overlay"
 					rightIcon

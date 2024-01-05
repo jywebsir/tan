@@ -1,21 +1,17 @@
 const pageManager = require('../../lib/page-manager')
 
-const group = 'feedback'
+const group = 'form'
 const type = pageManager.subPageType
 
-const loadingPage = {
-	id: 'loading',
-	path: 'loading-page'
-}
+const calendarPageId = 'calendar'
 
-const notifyPage = {
-	id: 'notify',
-	path: 'notify-page'
+const calendarPage = {
+	id: calendarPageId,
+	path: 'calendar-page'
 }
 
 const pageList = [
-	loadingPage,
-	notifyPage
+	calendarPage
 ].map((page) => {
 	return {
 		...page,
@@ -26,5 +22,6 @@ const pageList = [
 
 module.exports = {
 	group,
+	calendarPageId,
 	pageList
 }
