@@ -1,4 +1,5 @@
 import React from 'react'
+import { View } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { withNativeProps } from '@/utils/native-props'
@@ -14,7 +15,7 @@ const DemoPage = (props) => {
 
   return withNativeProps(
 		props,
-    <view
+    <View
       className={classNames(
         style.container, 
         className
@@ -22,7 +23,7 @@ const DemoPage = (props) => {
 			style={{backgroundColor: bgColor}}
     >
       {children}
-    </view>
+    </View>
   )
 }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { View } from '@tarojs/components'
 import { 
 	bemBlock, 
 	bemElement, 
@@ -20,7 +21,7 @@ export const CellGroup = props => {
 			{
 				title
 				&&
-				<view className={bemElement(
+				<View className={bemElement(
 					BLOCK,
 					'title',
 					[
@@ -28,10 +29,10 @@ export const CellGroup = props => {
 							inset
 						}
 					]
-				)}>{title}</view>	
+				)}>{title}</View>	
 			}
 
-			<view className={bemBlock(
+			<View className={bemBlock(
 				BLOCK,
 				[
 					{
@@ -39,7 +40,7 @@ export const CellGroup = props => {
 						border
 					}
 				]
-			)}>{children}</view>
+			)}>{children}</View>
 		</>
 	)
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { View } from '@tarojs/components'
 import { withNativeProps } from '../../utils/native-props'
 import { bemBlock, bemElement, getBlockName, getElementName } from '../../utils/class-name'
 import { isString } from '../../utils/validator'
@@ -37,7 +38,7 @@ export const Cell = props => {
 
 	return withNativeProps(
 		props,
-		<view 
+		<View 
 			className={blockClassNames} 
 			hoverClass={`${BLOCK_NAME}--hover`}
 			onTap={onClick}
@@ -52,26 +53,26 @@ export const Cell = props => {
 				:
 				icon
 			}
-			<view className={bemElement(BLOCK, 'title')}>
+			<View className={bemElement(BLOCK, 'title')}>
 				{title}
 
 				{
 					label
 					&&
-					<view className={bemElement(BLOCK, 'label')}>
+					<View className={bemElement(BLOCK, 'label')}>
 						{label}	
-					</view>
+					</View>
 				}
-			</view>
+			</View>
 
-			<view className={bemElement(BLOCK, 'value')}>
+			<View className={bemElement(BLOCK, 'value')}>
 				{value || children}
-			</view>
+			</View>
 
 			{
 				rightIcon
 				&&
-				<view className={bemElement(BLOCK, 'right-icon-wrap')}>
+				<View className={bemElement(BLOCK, 'right-icon-wrap')}>
 					{
 						rightIcon === true
 						?
@@ -79,10 +80,10 @@ export const Cell = props => {
 						:
 						rightIcon
 					}
-				</view>
+				</View>
 			}
 
-		</view>
+		</View>
 	)
 }
 

@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect } from 'react'
 import { nextTick, Events } from '@tarojs/taro'
 import { useMemoizedFn, useUnmount, useUpdateEffect } from 'ahooks'
-import isFunction from '../../utils/is-function'
+import { NotifyOptions } from './notify.type'
 import useSysStatusBar from '../../hooks/use-sys-status-bar'
 
 const notifyEvents = new Events()
 
-export const openNotify = (options = {}) => {
+export const openNotify = (options: NotifyOptions = {}) => {
 	notifyEvents.trigger('open', options)
 }
 
@@ -14,10 +14,38 @@ export const closeNotify = () => {
 	notifyEvents.trigger('close')
 }
 
-const useNotify = (props) => {
-	const [options, setOptions] = useState(props)
+function createOptions(options: NotifyOptions) {
+	const {
+		type = 'danger',
+		color = '#FFFFFF',
+		message = '',
+		background = '',
+		duration = 3000,
+		safeAreaInsetTop = false,
+		onClick,
+		onOpened,
+		onClose
+	} = options
 
-	const refTimer = useRef()
+	return {
+		type,
+		color,
+		background,
+		message,
+		duration,
+		safeAreaInsetTop,
+		onClick,
+		onOpened,
+		onClose
+	}
+}
+
+const useNotify = (props: NotifyOptions) => {
+	const [options, setOptions] = useState(() => {
+		return createOptions(props)
+	})
+
+	const refTimer = useRef<NodeJS.Timeout>()
 
 	const [show, setShow] = useState(false)
 
@@ -26,22 +54,24 @@ const useNotify = (props) => {
 	} = useSysStatusBar()
 
 	const handleClose = useMemoizedFn(() => {
-		clearTimeout(refTimer.current)
+		if (refTimer.current) {
+			clearTimeout(refTimer.current)
+		}
 
 		setShow(false)
 
-		if (isFunction(options.onClose)) {
+		if (!!options.onClose) {
 			nextTick(options.onClose)
 		}
 	})
 
-	const onOpen = useMemoizedFn((opts = {}) => {
-		const mergedOptions = {
+	const onOpen = useMemoizedFn((opts: NotifyOptions = {}) => {
+		const mergedOptions: NotifyOptions = {
 			...props,
 			...opts
 		}
 
-		setOptions(mergedOptions)
+		setOptions(createOptions(mergedOptions))
 		setShow(true)
 	})
 
@@ -63,9 +93,11 @@ const useNotify = (props) => {
 
 	useUpdateEffect(() => {
 		if (show) {
-			clearTimeout(refTimer.current)			
+			if (refTimer.current) {
+				clearTimeout(refTimer.current)			
+			}
 
-			if (isFunction(options.onOpened)) {
+			if (!!options.onOpened) {
 				nextTick(options.onOpened)
 			}
 

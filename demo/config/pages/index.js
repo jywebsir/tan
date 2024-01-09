@@ -2,8 +2,8 @@ const pageManager = require('../../lib/page-manager')
 
 const entry = require('./entry')
 const basic = require('./basic')
-const feedback = require('./feedback')
-const navigation = require('./navigation')
+// const feedback = require('./feedback')
+// const navigation = require('./navigation')
 // const form = require('./form')
 
 // 页面列表
@@ -11,8 +11,8 @@ const pageList = [
 	...entry.pageList,
 	...basic.pageList,
 	// ...form.pageList,
-	...feedback.pageList,
-	...navigation.pageList
+	// ...feedback.pageList,
+	// ...navigation.pageList
 ]
 
 // 页面映射表
@@ -31,8 +31,8 @@ const preloadPageList = {
 		network: NETWORK_ALL,
 		packages: [
 			`${pageManager.subPageFold}/${basic.group}`,
-			`${pageManager.subPageFold}/${feedback.group}`,
-			`${pageManager.subPageFold}/${navigation.group}`,
+			// `${pageManager.subPageFold}/${feedback.group}`,
+			// `${pageManager.subPageFold}/${navigation.group}`,
 		]
 	}
 }

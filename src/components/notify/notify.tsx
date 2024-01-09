@@ -1,13 +1,13 @@
-import { useMemo } from 'react'
-import PropTypes from 'prop-types'
+import React, { FC, useMemo } from 'react'
 import { withNativeProps } from '../../utils/native-props'
 import { bemBlock, bemElement } from '../../utils/class-name'
 import Transition from '../transition'
+import type { NotifyOptions } from './notify.type'
 import useNotify from './use-notify'
 
 const BLOCK = 'notify'
 
-export const Notify = props => {
+export const Notify: FC<NotifyOptions> = props => {
 	const {
 		show,
 		statusBarHeight,
@@ -19,7 +19,7 @@ export const Notify = props => {
 	} = useNotify(props)
 
 	const contentInlineStyle = useMemo(() => {
-		const style = {color}
+		const style: React.CSSProperties = { color }
 
 		if (background) {
 			style.background = background
@@ -51,22 +51,4 @@ export const Notify = props => {
 	)
 }
 
-Notify.propTypes = {
-	type: PropTypes.oneOf(['primary', 'success', 'warning', 'danger']),
-	color: PropTypes.string,
-	background: PropTypes.string,
-	message: PropTypes.string,
-	duration: PropTypes.number,
-	safeAreaInsetTop: PropTypes.bool,
-	onClick: PropTypes.func,
-	onOpened: PropTypes.func,
-	onClose: PropTypes.func
-}
 
-Notify.defaultProps = {
-	type: 'danger',
-	color: '#FFFFFF',
-	message: '',
-	duration: 3000,
-	safeAreaInsetTop: false
-}
