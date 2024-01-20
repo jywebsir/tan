@@ -8,7 +8,9 @@
     "dev": "APP_ENV=dev taro build --type weapp --watch",
     "docs:dev": "rspress dev",
     "docs:preview": "rspress preview",
-    "docs:build": "rspress build"
+    "docs:build": "rspress build",
+    "guide:copy": "gulp",
+    "guide:watch": "gulp watchGuides"
   },
   "browserslist": [
     "last 3 versions",

@@ -1,6 +1,12 @@
 import React from 'react'
 import { useMemoizedFn } from 'ahooks'
 import router from '../lib/router'
+import {
+	buttonPageId,
+	cellPageId,
+	iconPageId
+} from '../config/pages/basic'
+
 import DemoPage from '../components/demo-page'
 import CellGroup from '@/components/cell-group'
 import Cell from '@/components/cell'
@@ -17,7 +23,7 @@ const IndexPage = () => {
 			<CellGroup title="基础组件">
 				<Cell 
 					title="Button按钮" 
-					data-page="button"
+					data-page={buttonPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -25,7 +31,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="Cell单元格" 
-					data-page="cell"
+					data-page={cellPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -33,7 +39,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="Icon图标" 
-					data-page="icon"
+					data-page={iconPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	

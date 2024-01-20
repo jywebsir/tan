@@ -1,9 +1,9 @@
 import React from 'react'
-import DemoBlock from '../components/demo-block'
-import DemoPage from '../components/demo-page'
+import DemoBlock from '../../components/demo-block'
+import DemoPage from '../../components/demo-page'
 import Button from '@/components/button'
 import Space from '@/components/space'
-import style from '../styles/button-page.module.scss'
+import style from '../../styles/button-page.module.scss'
 
 const ButtonPage = () => {
   return (

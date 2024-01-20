@@ -4,19 +4,21 @@ const mainPageFold = 'pages'
 const subPageFold = 'subpages'
 
 function getPagePath(pageItem) {
+	const pagePath = pageItem.path ?? `${pageItem.id}-page`
+
 	if (pageItem.type === subPageType) {
 		if (pageItem.group) {
-			return `${subPageFold}/${pageItem.group}/${pageItem.path}`
+			return `${subPageFold}/${pageItem.group}/${pagePath}`
 		}
 
-		return `${subPageFold}/${pageItem.path}`
+		return `${subPageFold}/${pagePath}`
 	}
 
 	if (pageItem.group) {
-		return `${mainPageFold}/${pageItem.group}/${pageItem.path}`
+		return `${mainPageFold}/${pageItem.group}/${pagePath}`
 	}
 
-	return `${mainPageFold}/${pageItem.path}`
+	return `${mainPageFold}/${pagePath}`
 }
 
 function getPageMap(pageList) {
@@ -56,7 +58,9 @@ function getSubPageList(pageList) {
 				groups[page.group] = []; 
 			}
 
-			groups[page.group].push(page.path) 
+			const pagePath = page.path ?? `${page.id}-page`
+
+			groups[page.group].push(pagePath) 
 	
 			return groups
 		}, {})

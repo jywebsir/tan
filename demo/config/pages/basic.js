@@ -5,12 +5,23 @@ const type = pageManager.subPageType
 
 const iconPageId = 'icon'
 const iconPage = {
-	id: iconPageId,
-	path: 'icon-page'
+	id: iconPageId
+}
+
+const cellPageId = 'cell'
+const cellPage = {
+	id: cellPageId,
+}
+
+const buttonPageId = 'button'
+const buttonPage = {
+	id: buttonPageId
 }
 
 const pageList = [
-	iconPage
+	iconPage,
+	cellPage,
+	buttonPage
 ].map((page) => {
 	return {
 		...page,
@@ -22,5 +33,7 @@ const pageList = [
 module.exports = {
 	group,
 	pageList,
-	iconPageId
+	iconPageId,
+	cellPageId,
+	buttonPageId
 }

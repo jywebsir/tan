@@ -1,0 +1,13 @@
+[
+	{
+    "type": "dir",
+    "name": "start",
+    "label": "开发指南"
+  },
+
+  {
+    "type": "dir",
+    "name": "basic",
+    "label": "基础组件"
+  }
+]
