@@ -3,19 +3,35 @@ const pageManager = require('../../lib/page-manager')
 const group = 'navigation'
 const type = pageManager.subPageType
 
+const indexBarPageId = 'index-bar'
 const indexBarPage = {
-	id: 'index-bar',
-	path: 'index-bar-page'
+	id: indexBarPageId,
+	path: `${indexBarPageId}-page`
 }
 
+const tabsPageId = 'tabs'
 const tabsPage = {
-	id: 'tabs',
-	path: 'tabs-page'
+	id: tabsPageId,
+	path: `${tabsPageId}-page`
+}
+
+const navBarPageId = 'nav-bar'
+const navBarPage = {
+	id: navBarPageId,
+	path: `${navBarPageId}-page` 
+}
+
+const tabBarPageId = 'tabbar'
+const tabBarPage = {
+	id: tabBarPageId,
+	path: `${tabBarPageId}-page` 
 }
 
 const pageList = [
 	indexBarPage,
-	tabsPage
+	tabsPage,
+	navBarPage,
+	tabBarPage
 ].map((page) => {
 	return {
 		...page,
@@ -26,5 +42,9 @@ const pageList = [
 
 module.exports = {
 	group,
+	indexBarPageId,
+	tabsPageId,	
+	navBarPageId,
+	tabBarPageId, 
 	pageList
 }

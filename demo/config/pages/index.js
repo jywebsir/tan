@@ -2,17 +2,19 @@ const pageManager = require('../../lib/page-manager')
 
 const entry = require('./entry')
 const basic = require('./basic')
-// const feedback = require('./feedback')
-// const navigation = require('./navigation')
-// const form = require('./form')
+const form = require('./form')
+const feedback = require('./feedback')
+const navigation = require('./navigation')
+const presentation = require('./presentation')
 
 // 页面列表
 const pageList = [
 	...entry.pageList,
 	...basic.pageList,
-	// ...form.pageList,
-	// ...feedback.pageList,
-	// ...navigation.pageList
+	...form.pageList,
+	...feedback.pageList,
+	...navigation.pageList,
+	...presentation.pageList
 ]
 
 // 页面映射表
@@ -31,8 +33,10 @@ const preloadPageList = {
 		network: NETWORK_ALL,
 		packages: [
 			`${pageManager.subPageFold}/${basic.group}`,
-			// `${pageManager.subPageFold}/${feedback.group}`,
-			// `${pageManager.subPageFold}/${navigation.group}`,
+			`${pageManager.subPageFold}/${form.group}`,
+			`${pageManager.subPageFold}/${feedback.group}`,
+			`${pageManager.subPageFold}/${navigation.group}`,
+			`${pageManager.subPageFold}/${presentation.group}`,
 		]
 	}
 }

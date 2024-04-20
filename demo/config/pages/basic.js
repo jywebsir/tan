@@ -18,10 +18,40 @@ const buttonPage = {
 	id: buttonPageId
 }
 
+const layoutPageId = 'row'
+const layoutPage = {
+	id: layoutPageId
+}
+
+const popupPageId = 'popup'
+const popupPage = {
+	id: popupPageId
+}
+
+const imagePageId = 'image'
+const imagePage = {
+	id: imagePageId
+}
+
+const toastPageId = 'toast'
+const toastPage = {
+	id: toastPageId
+}
+
+const transitionPageId = 'transition'
+const transitionPage = {
+	id: transitionPageId
+}
+
 const pageList = [
 	iconPage,
 	cellPage,
-	buttonPage
+	buttonPage,
+	layoutPage,
+	popupPage,
+	imagePage,
+	toastPage,
+	transitionPage	
 ].map((page) => {
 	return {
 		...page,
@@ -35,5 +65,10 @@ module.exports = {
 	pageList,
 	iconPageId,
 	cellPageId,
-	buttonPageId
+	buttonPageId,
+	layoutPageId,
+	popupPageId,
+	imagePageId,
+	toastPageId,
+	transitionPageId
 }

@@ -4,8 +4,49 @@ import router from '../lib/router'
 import {
 	buttonPageId,
 	cellPageId,
-	iconPageId
+	iconPageId,
+	layoutPageId,
+	popupPageId,
+	imagePageId,
+	toastPageId,
+	transitionPageId,
 } from '../config/pages/basic'
+
+import {
+	// calendarPageId,
+	fieldPageId,
+	radioPageId,
+	checkboxPageId,
+	switchPageId,
+	searchPageId,
+	uploaderPageId
+} from '../config/pages/form'
+
+import {
+	loadingPageId,
+	notifyPageId,
+	dialogPageId,
+	overlayPageId,
+	dropdownMenuId,
+	pullRefreshPageId
+} from '../config/pages/feedback'
+
+import {
+	indexBarPageId,
+	tabsPageId,
+	navBarPageId,
+	tabBarPageId
+} from '../config/pages/navigation'
+
+import {
+	collapsePageId,
+	dividerPageId,
+	processPageId,
+	skeletonPageId,
+	countDownPageId,
+	emptyPageId,
+	stickyPageId
+} from '../config/pages/presentation'
 
 import DemoPage from '../components/demo-page'
 import CellGroup from '@/components/cell-group'
@@ -47,7 +88,7 @@ const IndexPage = () => {
 				
 				<Cell 
 					title="Layout布局" 
-					data-page="row"
+					data-page={layoutPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -55,7 +96,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="Popup弹出层" 
-					data-page="popup"
+					data-page={popupPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -63,7 +104,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="Image图片" 
-					data-page="image"
+					data-page={imagePageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -71,7 +112,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="Toast轻提示" 
-					data-page="toast"
+					data-page={toastPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -79,7 +120,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="transition动画" 
-					data-page="transition"
+					data-page={transitionPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -87,17 +128,17 @@ const IndexPage = () => {
 			</CellGroup>
 
 			<CellGroup title="表单组件">
-				<Cell 
+				{/* <Cell 
 					title="Calendar日历" 
-					data-page="calendar"
+					data-page={calendarPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
-				/>
+				/> */}
 
 				<Cell 
 					title="Field输入框" 
-					data-page="field"
+					data-page={fieldPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -105,7 +146,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="Radio单选框" 
-					data-page="radio"
+					data-page={radioPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -113,7 +154,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="Checkbox复选框" 
-					data-page="checkbox"
+					data-page={checkboxPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -121,7 +162,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="Switch开关" 
-					data-page="switch"
+					data-page={switchPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -129,7 +170,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="Search搜索" 
-					data-page="search"
+					data-page={searchPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -137,7 +178,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="Uploader文件上传" 
-					data-page="uploader"
+					data-page={uploaderPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -147,7 +188,7 @@ const IndexPage = () => {
 			<CellGroup title="反馈组件">
 				<Cell 
 					title="Dialog弹出框" 
-					data-page="dialog"
+					data-page={dialogPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -155,7 +196,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="Loading加载" 
-					data-page="loading"
+					data-page={loadingPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -163,7 +204,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="Notify消息通知" 
-					data-page="notify"
+					data-page={notifyPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -171,7 +212,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="Overlay遮罩层" 
-					data-page="overlay"
+					data-page={overlayPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -179,7 +220,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="DropdownMenu 下拉菜单" 
-					data-page="dropdown-menu"
+					data-page={dropdownMenuId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -187,7 +228,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="PullRefresh 下拉刷新" 
-					data-page="pull-refresh"
+					data-page={pullRefreshPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -196,16 +237,8 @@ const IndexPage = () => {
 
 			<CellGroup title="展示组件">
 				<Cell 
-					title="幻灯片" 
-					data-page="carousel"
-					rightIcon
-					clickable
-					onClick={onClickCell}	
-				/>
-				
-				<Cell 
 					title="Collapse折叠面板" 
-					data-page="collapse"
+					data-page={collapsePageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -213,7 +246,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="Divider分割线" 
-					data-page="divider"
+					data-page={dividerPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -221,7 +254,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="Progress进度条" 
-					data-page="progress"
+					data-page={processPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -229,7 +262,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="Skeleton骨架屏" 
-					data-page="skeleton"
+					data-page={skeletonPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -237,7 +270,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="CountDown倒计时" 
-					data-page="count-down"
+					data-page={countDownPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -245,7 +278,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="Empty空状态" 
-					data-page="empty"
+					data-page={emptyPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -253,7 +286,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="Sticky粘性布局" 
-					data-page="sticky"
+					data-page={stickyPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -263,7 +296,7 @@ const IndexPage = () => {
 			<CellGroup title="导航组件">
 				<Cell 
 					title="NavBar 导航栏" 
-					data-page="nav-bar"
+					data-page={navBarPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -271,7 +304,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="Tabbar 标签栏" 
-					data-page="tabbar"
+					data-page={tabBarPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -279,7 +312,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="IndexBar 索引栏" 
-					data-page="index-bar"
+					data-page={indexBarPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	
@@ -287,7 +320,7 @@ const IndexPage = () => {
 
 				<Cell 
 					title="Tabs 标签页" 
-					data-page="tabs"
+					data-page={tabsPageId}
 					rightIcon
 					clickable
 					onClick={onClickCell}	

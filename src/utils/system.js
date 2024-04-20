@@ -14,7 +14,7 @@ export const getStatusBarHeight = () => {
 	return info.statusBarHeight
 }
 
-export const isIos = () => {
+export const isIosClient = () => {
 	const info = getSystemInfoSync()	
 
 	return info.system.includes('iOS')
