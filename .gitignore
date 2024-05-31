@@ -2,4 +2,8 @@ dist/
 node_modules/
 .DS_Store
 config/local.js
-doc_build
+project.private.config.json
+www
+*.code-workspace
+
+
