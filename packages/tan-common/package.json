@@ -1,0 +1,20 @@
+{
+  "name": "@tan/common",
+  "version": "0.0.1",
+  "private": true,
+  "module": "src/index.ts",
+  "types": "src/index.ts",
+  "typings": "src/index.ts",
+  "browserslist": [
+    "last 3 versions",
+    "Android >= 4.1",
+    "ios >= 8"
+  ],
+  "author": "yin",
+  "dependencies": {
+    
+  },
+  "devDependencies": {
+    
+  }
+}

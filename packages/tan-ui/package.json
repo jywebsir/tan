@@ -2,27 +2,22 @@
   "name": "tan",
   "version": "0.0.1",
   "private": false,
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "types": "src/index.ts",
+  "typings": "src/index.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build:demo": "pnpm --filter @tan/demo run build",
-    "test:demo": "pnpm --filter @tan/demo run test",
-    "dev:demo": "pnpm --filter @tan/demo run dev",
-    "build:common": "pnpm --filter @tan/common run build",
-    "build:tan": "pnpm --filter tan run build"
+    "build": "gulp"
   },
   "browserslist": [
     "last 3 versions",
     "Android >= 4.1",
     "ios >= 8"
   ],
-  "author": "jack",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vuejs/core.git"
-  },
-  "keywords": [
-    "tan"
-  ],
+  "author": "yin",
   "dependencies": {
     "@babel/runtime": "^7.7.7",
     "@tarojs/cli": "3.4.9",
@@ -40,7 +35,8 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-is": "^18.2.0",
-    "use-immer": "0.6.0"
+    "use-immer": "0.6.0",
+    "@tan/common": "workspace:*"
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.24.7",
@@ -62,6 +58,16 @@
     "sass": "^1.77.5",
     "stylelint": "9.3.0",
     "ts-node": "^10.9.2",
-    "typescript": "^4.2.4"
+    "typescript": "^4.2.4",
+    "autoprefixer": "^10.4.19",
+    "del": "^6.1.1",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-postcss": "^9.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.1.4",
+    "gulp-sass": "^5.1.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "through2": "^4.0.2"
   }
 }
